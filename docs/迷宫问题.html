@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title></title>
+            <title>&#x8ff7;&#x5bab;&#x95ee;&#x9898;</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -252,10 +252,10 @@ strong{
     color: cyan;
 }
 a {
-	color:#6294f7; /* 这里的颜色可以根据你的喜好进行调整 */
+	color:#74d0fb; /* 这里的颜色可以根据你的喜好进行调整 */
 }
 a:visited {
-	color: #6294f7; /* 这里的颜色可以根据你的喜好进行调整 */
+	color: #74d0fb; /* 这里的颜色可以根据你的喜好进行调整 */
 }
 a:hover {
     color: #ff6600; /* 这里的颜色可以根据你的喜好进行调整 */
@@ -307,7 +307,6 @@ pre::-webkit-scrollbar {
     border-radius: 5px; /* 滚动条边框圆角 */
     border: 1px solid #ccc; /* 滚动条边框颜色 */
 }
-
 /*===Mermaid===*/
 
 
@@ -318,6 +317,184 @@ pre::-webkit-scrollbar {
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
                 <p><a href="index.html">返回目录</a></p>
+<h1 id="迷宫问题">迷宫问题</h1>
+<p><code>MiGong.java</code></p>
+<blockquote>
+<p>小球由a走到b，不得穿过路障x，找到最短路径</p>
+</blockquote>
+<ul>
+<li>1、小球得到的路径，和程序员设置的找路策略有关：即找路的上下左右顺序相关</li>
+<li>2、在得到小球路径时，可以先使用(下右上左)，再改成(上右下左)，看看路径是不是有变化</li>
+<li>3、测试回溯现象</li>
+<li>4、扩展思考：如何求出最短路径</li>
+</ul>
+<center>
+<pre style="all:unset;"><div class="mermaid">block-beta 
+    columns 7
+    block:1["x"] space end block:2["x"] space end block:3["x"] space end block:4["x"] space end block:3["x"] space end block:5["x"] space end block:6["x"] space end block:7["x"] space end
+    block:b["x"] space end block:b1["a"] space end block space end block space end block space end block space end block:B["x"] space end
+    block:c["x"] space end block space end block space end block space end block space end block space end block:C["x"] space end
+    block:d["x"] space end block:d1["x"] space end block:d2["x"] space end block space end block space end block space end block:D["x"] space end
+    block:e["x"] space end block space end block space end block space end block space end block space end block:E["x"] space end
+    block:f["x"] space end block space end block space end block space end block space end block space end block:F["x"] space end
+    block:g["x"] space end block space end block space end block space end block space end block:h["b"] space end block:G["x"] space end
+    block:a1["x"] space end block:a2["x"] space end block:a3["x"] space end block:a4["x"] space end block:3["x"] space end block:a5["x"] space end block:a6["x"] space end block:a7["x"] space end</div></pre>
+</center>
+<pre><code class="language-java"><span class="hljs-comment">//答题</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Migong</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-comment">//定义一个5x5的二维数组</span>
+        <span class="hljs-type">int</span>[][] arr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">6</span>][<span class="hljs-number">5</span>];
+        <span class="hljs-comment">//为数组赋值，0为空，1为路径，8为障碍，2为起点 3为终点;</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; arr.length; i++) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; arr[i].length; j++) {
+                arr[i][j] = <span class="hljs-number">0</span>;
+            }
+        }
+        <span class="hljs-comment">//定义起点和终点以及障碍</span>
+        arr[<span class="hljs-number">2</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">8</span>;
+        arr[<span class="hljs-number">2</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">8</span>;
+        arr[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">2</span>;
+        arr[<span class="hljs-number">5</span>][<span class="hljs-number">4</span>] = <span class="hljs-number">3</span>;
+        <span class="hljs-comment">//新建工具对象</span>
+        <span class="hljs-type">ToolMiGong</span> <span class="hljs-variable">t</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ToolMiGong</span>();
+        t.printArr(arr);
+        System.out.println(<span class="hljs-string">&quot;===============&quot;</span>);
+        <span class="hljs-comment">//开始寻路</span>
+        <span class="hljs-type">int</span>[][] arr2 = t.road(arr);
+        <span class="hljs-comment">//打印路线</span>
+        t.printArr(arr2);
+    }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ToolMiGong</span> {
+    <span class="hljs-comment">//打印二维数组</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">printArr</span><span class="hljs-params">(<span class="hljs-type">int</span> arr[][])</span> {
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; arr.length; i++) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; arr[i].length; j++) { 
+                System.out.print(arr[i][j] + <span class="hljs-string">&quot; &quot;</span>);
+            }
+            System.out.println();
+        }
+    }
+    <span class="hljs-comment">//寻路方法</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[][] road(<span class="hljs-type">int</span> arr[][]) {
+        <span class="hljs-comment">//遍历数组找到起点的下标</span>
+        <span class="hljs-comment">//找到起点的下标</span>
+        <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        <span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; arr.length; i++) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; arr[i].length; j++) {
+                <span class="hljs-keyword">if</span> (arr[i][j] == <span class="hljs-number">2</span>) {
+                    a = i;
+                    b = j;
+                    <span class="hljs-keyword">break</span>;
+                }
+            }
+        }
+        <span class="hljs-comment">//下方为终点</span>
+        <span class="hljs-keyword">if</span> (a &lt; arr.length - <span class="hljs-number">1</span> &amp;&amp; arr[a + <span class="hljs-number">1</span>][b] == <span class="hljs-number">3</span> ) {
+            arr[a][b] = <span class="hljs-number">1</span>;
+            arr[a + <span class="hljs-number">1</span>][b] = <span class="hljs-number">1</span>;
+            <span class="hljs-keyword">return</span> arr;
+        <span class="hljs-comment">//右方为终点</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (b &lt; arr[a].length - <span class="hljs-number">1</span> &amp;&amp; arr[a][b + <span class="hljs-number">1</span>] == <span class="hljs-number">3</span> ) {
+            arr[a][b] = <span class="hljs-number">1</span>;
+            arr[a][b + <span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;
+            <span class="hljs-keyword">return</span> arr;
+        <span class="hljs-comment">//优先向下走</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a &lt; arr.length - <span class="hljs-number">1</span> &amp;&amp; arr[a + <span class="hljs-number">1</span>][b] == <span class="hljs-number">0</span> ) {
+            arr[a][b] = <span class="hljs-number">1</span>;
+            arr[a+<span class="hljs-number">1</span>][b] = <span class="hljs-number">2</span>;
+            <span class="hljs-keyword">return</span> road(arr);
+        <span class="hljs-comment">//然后向右走</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (b &lt; arr[a].length - <span class="hljs-number">1</span> &amp;&amp; arr[a][b + <span class="hljs-number">1</span>] == <span class="hljs-number">0</span> ){
+            arr[a][b] = <span class="hljs-number">1</span>;
+            arr[a][b+<span class="hljs-number">1</span>] = <span class="hljs-number">2</span>;
+            <span class="hljs-keyword">return</span> road(arr);
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> arr;
+        }
+    }
+}
+</code></pre>
+<h3 id="答案">答案</h3>
+<pre><code class="language-java"><span class="hljs-comment">//改：</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Migong</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-comment">//思路</span>
+        <span class="hljs-comment">//1、创建迷宫，用二维数组表示 int[][] map = int[8][7];</span>
+        <span class="hljs-comment">//2、先规定 map 数组的元素值：0表示可以走，1表示障碍物</span>
+        <span class="hljs-comment">//3、将第一行和最后一行设为1</span>
+        <span class="hljs-type">int</span>[][] map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">8</span>][<span class="hljs-number">7</span>];
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">7</span>; i++) {
+            map[<span class="hljs-number">0</span>][i] = <span class="hljs-number">1</span>;
+            map[<span class="hljs-number">7</span>][i] = <span class="hljs-number">1</span>;
+        }
+        <span class="hljs-comment">//4、将第一列和最后一列设为1</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">7</span>; i++) {
+            map[i][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;
+            map[i][<span class="hljs-number">6</span>] = <span class="hljs-number">1</span>;
+        }
+        map[<span class="hljs-number">3</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;
+        map[<span class="hljs-number">3</span>][<span class="hljs-number">2</span>] = <span class="hljs-number">1</span>;
+        <span class="hljs-comment">//输出当前地图</span>
+        System.out.println(<span class="hljs-string">&quot;=======当前地图为========&quot;</span>);
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; map.length; i++) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; map[i].length; j++) {
+                System.out.print(map[i][j] + <span class="hljs-string">&quot; &quot;</span>);
+            }
+            System.out.println();
+        }
+        <span class="hljs-comment">//使用findWay找路</span>
+        <span class="hljs-type">ToolMiGong</span> <span class="hljs-variable">t1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ToolMiGong</span>();
+        t1.findWay(map, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+        System.out.println(<span class="hljs-string">&quot;\n========找路的效果如下==========&quot;</span>);
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; map.length; i++) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; map[i].length; j++) {
+                System.out.print(map[i][j] + <span class="hljs-string">&quot; &quot;</span>);
+            }
+            System.out.println();
+        }
+    }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ToolMiGong</span> {
+    <span class="hljs-comment">//使用递归回溯的思想</span>
+    <span class="hljs-comment">//1、findWay方法就是专门找出迷宫的路径</span>
+    <span class="hljs-comment">//2、如果找到，就返回true,否则返回false</span>
+    <span class="hljs-comment">//3、map 就是二维数组，即表示迷宫</span>
+    <span class="hljs-comment">//4、i，j是老鼠的位置，初始化的位置为(1,1)</span>
+    <span class="hljs-comment">//5、因为要递归找路，所以要找到退出递归的条件</span>
+        <span class="hljs-comment">//规定map数组各个值的含义</span>
+        <span class="hljs-comment">//0 表示可以走，1表示障碍物，2表示可以走，3表示走过但是走不通</span>
+    <span class="hljs-comment">//6、当map[6][5] == 2 时 说明找到通路，就可以结束找路，否则继续找</span>
+    <span class="hljs-comment">//7、确定老鼠找路的策略 下-&gt;右-&gt;上-&gt;左</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">findWay</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] map, <span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span> {
+        <span class="hljs-keyword">if</span> (map[<span class="hljs-number">6</span>][<span class="hljs-number">5</span>] == <span class="hljs-number">2</span>) {<span class="hljs-comment">//说明找到路</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">if</span> (map[i][j] == <span class="hljs-number">0</span>) {<span class="hljs-comment">//说明可以走</span>
+                <span class="hljs-comment">//假定可以走通</span>
+                map[i][j] = <span class="hljs-number">2</span>;
+                <span class="hljs-comment">//使用找路策略，来确定该位置是否真的可以走通</span>
+                <span class="hljs-keyword">if</span>(findWay(map, i + <span class="hljs-number">1</span>, j)) {<span class="hljs-comment">//走下</span>
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (findWay(map, i, j + <span class="hljs-number">1</span>)) {<span class="hljs-comment">//走右</span>
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (findWay(map, i - <span class="hljs-number">1</span>, j)) {<span class="hljs-comment">//走上</span>
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (findWay(map, i, j - <span class="hljs-number">1</span>)) {<span class="hljs-comment">//走左</span>
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+                } <span class="hljs-keyword">else</span> {
+                    map[i][j] = <span class="hljs-number">3</span>;<span class="hljs-comment">//表示走不通</span>
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+                }
+            } <span class="hljs-keyword">else</span> {<span class="hljs-comment">//map[i][j] = 1,2,3</span>
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+            }
+        }
+    }
+}
+</code></pre>
 
             
             <script async type="text/javascript">

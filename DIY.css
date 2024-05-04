@@ -2,10 +2,10 @@ strong{
     color: cyan;
 }
 a {
-	color:#6294f7; /* 这里的颜色可以根据你的喜好进行调整 */
+	color:#74d0fb; /* 这里的颜色可以根据你的喜好进行调整 */
 }
 a:visited {
-	color: #6294f7; /* 这里的颜色可以根据你的喜好进行调整 */
+	color: #74d0fb; /* 这里的颜色可以根据你的喜好进行调整 */
 }
 a:hover {
     color: #ff6600; /* 这里的颜色可以根据你的喜好进行调整 */
@@ -57,6 +57,5 @@ pre::-webkit-scrollbar {
     border-radius: 5px; /* 滚动条边框圆角 */
     border: 1px solid #ccc; /* 滚动条边框颜色 */
 }
-
 /*===Mermaid===*/
 

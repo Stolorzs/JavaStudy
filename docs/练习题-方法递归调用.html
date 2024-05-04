@@ -252,10 +252,10 @@ strong{
     color: cyan;
 }
 a {
-	color:#6294f7; /* 这里的颜色可以根据你的喜好进行调整 */
+	color:#74d0fb; /* 这里的颜色可以根据你的喜好进行调整 */
 }
 a:visited {
-	color: #6294f7; /* 这里的颜色可以根据你的喜好进行调整 */
+	color: #74d0fb; /* 这里的颜色可以根据你的喜好进行调整 */
 }
 a:hover {
     color: #ff6600; /* 这里的颜色可以根据你的喜好进行调整 */
@@ -307,7 +307,6 @@ pre::-webkit-scrollbar {
     border-radius: 5px; /* 滚动条边框圆角 */
     border: 1px solid #ccc; /* 滚动条边框颜色 */
 }
-
 /*===Mermaid===*/
 
 
@@ -321,13 +320,92 @@ pre::-webkit-scrollbar {
 <p><code>RecursionExercise01.java</code></p>
 <h3 id="第一题斐波那契数列">第一题、斐波那契数列</h3>
 <blockquote>
-<p>请使用递归的方式求出，斐波那契数列<code>1,1,2,3,5,8,13……</code>给你一个整数n，求是它的值是多少<br>
+<p>请使用递归的方式求出，斐波那契数列<code>1,1,2,3,5,8,13……</code>给你一个整数n，求出它的值是多少<br>
 斐波那契数列：前两个数为1，从第三个数开始，是前两个数的和</p>
 </blockquote>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RecursionExercise01</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+       <span class="hljs-type">Recursion</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Recursion</span>();
+       <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> <span class="hljs-number">7</span>;
+       System.out.println(<span class="hljs-string">&quot;n=&quot;</span> + n + <span class="hljs-string">&quot;时 &quot;</span> + <span class="hljs-string">&quot;数列=&quot;</span> + r.feiBo(n));
+    }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Recursion</span> {
+    <span class="hljs-comment">// 1 2 3 4 5 6 7</span>
+    <span class="hljs-comment">// 1 1 2 3 5 8 13</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">feiBo</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> {
+        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">0</span> ) {
+            System.err.println(<span class="hljs-string">&quot;输入无效&quot;</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (n == <span class="hljs-number">2</span> || n == <span class="hljs-number">1</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+        } <span class="hljs-keyword">else</span> {}
+        <span class="hljs-keyword">return</span>  feiBo(n - <span class="hljs-number">1</span>) + feiBo(n - <span class="hljs-number">2</span>) ;
+    }
+}
+</code></pre>
 <h3 id="第二题猴子吃桃">第二题、猴子吃桃</h3>
 <blockquote>
 <p>有一堆桃子，猴子第一天吃了其中的一半，并再多吃了一个，以后每天猴子都吃其中的一半，然后再多吃一个。当到第10天时，想再吃时(还没吃)，发现只有一个桃子了，请问：最初共有多少个桃子。</p>
 </blockquote>
+<pre><code class="language-java"><span class="hljs-comment">//答题</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RecursionExercise02</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-comment">//猴子吃桃问题</span>
+        <span class="hljs-type">Recursion02</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Recursion02</span>();
+        <span class="hljs-type">int</span> <span class="hljs-variable">day</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;
+        System.out.println(<span class="hljs-string">&quot;如果第&quot;</span> + day + <span class="hljs-string">&quot;天剩一个桃子&quot;</span> 
+        + <span class="hljs-string">&quot;，则最初共有&quot;</span> + r.monkey(day) + <span class="hljs-string">&quot;个桃子&quot;</span>);
+    }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Recursion02</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">monkey</span><span class="hljs-params">(<span class="hljs-type">int</span> day)</span> {
+        <span class="hljs-comment">//输入day为最后一天，剩几个</span>
+        <span class="hljs-comment">//1  2  3  4 </span>
+        <span class="hljs-comment">//10 4  1</span>
+        <span class="hljs-comment">//14 6  2  0</span>
+        <span class="hljs-comment">//22 10 4  1</span>
+        <span class="hljs-comment">//假如第一天就剩一个</span>
+        <span class="hljs-keyword">if</span> (day == <span class="hljs-number">1</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-comment">//假如第二天剩一个</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-number">2</span> * (<span class="hljs-number">1</span> + monkey(day - <span class="hljs-number">1</span>));
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-java"><span class="hljs-comment">//改：</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RecursionExercise02</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-comment">//猴子吃桃问题</span>
+        <span class="hljs-type">Recursion02</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Recursion02</span>();
+        <span class="hljs-type">int</span> <span class="hljs-variable">day</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">if</span> ( monkey.(day) != -<span class="hljs-number">1</span> ) {
+            System.out.println(<span class="hljs-string">&quot;第&quot;</span> + day + <span class="hljs-string">&quot;天有&quot;</span> + r.monkey(day) + <span class="hljs-string">&quot;个桃子&quot;</span>);
+        } <span class="hljs-keyword">else</span> { 
+            System.out.println(<span class="hljs-string">&quot;要求day是1~10之间的整数&quot;</span>);
+        }
+    }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Recursion02</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">monkey</span><span class="hljs-params">(<span class="hljs-type">int</span> day)</span> {
+        <span class="hljs-comment">//=====思路分析=====</span>
+        <span class="hljs-comment">//day = 10 时 1个桃子</span>
+        <span class="hljs-comment">//day = 9  时 4个桃子</span>
+        <span class="hljs-comment">//day = 8  时 10个桃子</span>
+        <span class="hljs-comment">//day = 7  时 22桃子</span>
+        <span class="hljs-keyword">if</span> (day == <span class="hljs-number">10</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (day &gt;= <span class="hljs-number">1</span> &amp;&amp; day &lt;= <span class="hljs-number">9</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-number">2</span> * (<span class="hljs-number">1</span> + monkey(day + <span class="hljs-number">1</span>));
+        } <span class="hljs-keyword">else</span> {
+            System.out.println(<span class="hljs-string">&quot;day在1-10&quot;</span>)
+            <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+        }
+    }
+}
+</code></pre>
 
             
             <script async type="text/javascript">
