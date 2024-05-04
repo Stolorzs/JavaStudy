@@ -308,10 +308,20 @@ pre::-webkit-scrollbar {
     border-radius: 5px; /* 滚动条边框圆角 */
     border: 1px solid #ccc; /* 滚动条边框颜色 */
 }
+
 /*===响应式设计===*/
+
+@viewport{
+    zoom: 1.0;
+    width: device-width;
+}
 @viewport{
 	zoom: 1.0;
 	width: extend-to-zoom;
+}
+@-ms-viewport{
+    width: extend-to-zoom;
+    zoom: 1.0;
 }
 </style>
         </head>
