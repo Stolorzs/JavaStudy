@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 - [ ]  [进度](https://www.bilibili.com/video/BV1fh411y7R8?t=3.4&p=215)     
 - [ ] [模板](模板.md)
