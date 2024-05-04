@@ -1,4 +1,7 @@
 {
-  "accentColor": "#5cabf5",
-  "theme": "obsidian"
+  "accentColor": "#74d0fb",
+  "theme": "obsidian",
+  "enabledCssSnippets": [
+    "关闭内部链接下划线"
+  ]
 }
