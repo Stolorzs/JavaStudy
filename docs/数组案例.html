@@ -311,10 +311,40 @@ pre::-webkit-scrollbar {
 @viewport {
     width: device-width;
     initial-scale: 1.0;
-  }
+}
   
 
-/*===Mermaid===*/
+/*===响应式设计===*/
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px; /* 设置最大宽度，避免在大屏幕上拉伸过宽 */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box; /* 计算边框和填充在宽度内 */
+}
+
+/* 设置初始缩放比例为1.0 */
+.container {
+    transform: scale(1);
+}
+
+/* 响应式布局 */
+@media only screen and (max-width: 1200px) {
+    .container {
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 5px;
+    }
+}
 
 
 </style>
