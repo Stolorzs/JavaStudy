@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>&DiacriticalGrave;if&DiacriticalGrave;&#x5355;&#x5206;&#x652f;</title>
+            <title>&#x5206;&#x652f;&#x63a7;&#x5236;</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -340,9 +340,23 @@ pre::-webkit-scrollbar {
             <span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <hr>
-<hr>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <p><a href="%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84.html">返回</a></p>
+<h1 id="分支控制">分支控制</h1>
+<ul>
+<li><a href="#%E5%88%86%E6%94%AF%E6%8E%A7%E5%88%B6">分支控制</a>
+<ul>
+<li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
+<li><a href="#if%E5%8D%95%E5%88%86%E6%94%AF"><code>if</code>单分支</a></li>
+<li><a href="#if%E5%8F%8C%E5%88%86%E6%94%AF"><code>if</code>双分支</a></li>
+<li><a href="#if%E5%A4%9A%E5%88%86%E6%94%AF"><code>if</code>多分支</a></li>
+<li><a href="#if%E5%B5%8C%E5%A5%97%E5%88%86%E6%94%AF"><code>if</code>嵌套分支</a></li>
+<li><a href="#switch%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84"><code>switch</code>分支结构</a></li>
+<li><a href="#if-switch-%E6%AF%94%E8%BE%83"><code>if</code> <code>switch</code> 比较</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="介绍">介绍</h2>
 <ul>
 <li>让程序有选择的执行</li>
 <li>分类：
@@ -353,8 +367,7 @@ pre::-webkit-scrollbar {
 </ul>
 </li>
 </ul>
-<hr>
-<h4 id="if单分支"><code>if</code>单分支</h4>
+<h2 id="if单分支"><code>if</code>单分支</h2>
 <pre><code class="language-java"><span class="hljs-keyword">if</span>(条件表达式){
 	执行代码块;<span class="hljs-comment">//可以有多条语句</span>
 }
@@ -370,8 +383,7 @@ pre::-webkit-scrollbar {
 <pre style="all:unset;"><div class="mermaid">graph LR;
 0[开始]--&gt;1{判断}--T--&gt;2[代码块]---&gt;3[继续]
 1--F---&gt;3</div></pre>
-<hr>
-<h4 id="if双分支"><code>if</code>双分支</h4>
+<h2 id="if双分支"><code>if</code>双分支</h2>
 <pre><code class="language-java"><span class="hljs-keyword">if</span>(条件表达式){
 	执行代码块<span class="hljs-number">1</span>;
 }
@@ -390,8 +402,7 @@ pre::-webkit-scrollbar {
 <pre style="all:unset;"><div class="mermaid">graph LR;
 0[开始]--&gt;1{判断}--T--&gt;2[代码块1]---&gt;3[继续]
 1--F--&gt;4[代码块2]---&gt;3</div></pre>
-<hr>
-<h4 id="if多分支"><code>if</code>多分支</h4>
+<h2 id="if多分支"><code>if</code>多分支</h2>
 <pre><code class="language-java"><span class="hljs-keyword">if</span>(条件表达式){
 	执行代码块<span class="hljs-number">1</span>;
 }
@@ -424,8 +435,7 @@ pre::-webkit-scrollbar {
 t1--F--&gt;t2{条件表达式2}--T--&gt;d2[代码块2]---&gt;jx
 t2--F--&gt;tn("……")
 tn--F--&gt;dn[代码块n]---&gt;jx</div></pre>
-<hr>
-<h4 id="if嵌套分支"><code>if</code>嵌套分支</h4>
+<h2 id="if嵌套分支"><code>if</code>嵌套分支</h2>
 <pre><code class="language-java"><span class="hljs-keyword">if</span>(){
 	<span class="hljs-keyword">if</span>(){
 		<span class="hljs-keyword">if</span>(){
@@ -446,8 +456,7 @@ tn--F--&gt;dn[代码块n]---&gt;jx</div></pre>
 </li>
 <li><a href="if%E5%B5%8C%E5%A5%97%E5%88%86%E6%94%AF%E6%A1%88%E4%BE%8B.html">if嵌套分支案例</a></li>
 </ul>
-<hr>
-<h4 id="switch分支结构"><code>switch</code>分支结构</h4>
+<h2 id="switch分支结构"><code>switch</code>分支结构</h2>
 <ul>
 <li><a href="https://www.bilibili.com/video/BV1fh411y7R8?t=0.6&amp;p=116">空降</a></li>
 </ul>
@@ -510,8 +519,7 @@ sn--&gt;|没有|de</div></pre>
 <li>4、<code>default</code>子句是可选的，当没有匹配的<code>case</code>时，会执行<code>default</code>，如果没有<code>default</code>也没有匹配任何常量，则没有任何输出。</li>
 <li>5、<code>break</code>语句在用来执行完一个<code>case</code>分支后使程序跳出<code>swtich</code>语句块，如果没有写，则程序按顺序执行，直到遇到下一个<code>break</code></li>
 </ul>
-<hr>
-<h4 id="if-switch-比较"><code>if</code> <code>switch</code> 比较</h4>
+<h2 id="if-switch-比较"><code>if</code> <code>switch</code> 比较</h2>
 <ul>
 <li>1、如果判断的具体数值不多，而且符合<code>byte</code> <code>short</code> <code>int</code> <code>char</code> <code>enum</code>(枚举) <code>String</code> 6种类型。虽然两个都可以使用，但建议使用<code>switch</code>语句</li>
 <li>2、其他情况：对区间判断，对结果为<code>boolean</code>类型判断，使用<code>if</code></li>

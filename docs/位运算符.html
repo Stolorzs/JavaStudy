@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>&lbrack;&#x4f4d;&#x8fd0;&#x7b97;&#x601d;&#x8003;&#x9898;&rbrack;&lpar;&#x4f4d;&#x8fd0;&#x7b97;&#x601d;&#x8003;&#x9898;&period;md&rpar;</title>
+            <title>&#x4f4d;&#x8fd0;&#x7b97;&#x7b26;</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -340,18 +340,15 @@ pre::-webkit-scrollbar {
             <span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <hr>
-<hr>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <p><a href="%E8%BF%90%E7%AE%97%E7%AC%A6.html">返回</a></p>
+<h1 id="位运算符">位运算符</h1>
 <ul>
 <li><a href="https://www.bilibili.com/video/BV1fh411y7R8?t=13.3&amp;p=98">空降</a></li>
 </ul>
-<hr>
-<h4 id="位运算思考题"><a href="%E4%BD%8D%E8%BF%90%E7%AE%97%E6%80%9D%E8%80%83%E9%A2%98.html">位运算思考题</a></h4>
-<hr>
-<h4 id="原码反码补码"><a href="%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81.html">原码、反码、补码</a></h4>
-<hr>
-<h4 id="---运算符"><code>&amp; | ^ ~</code>运算符</h4>
+<h2 id="位运算思考题"><a href="%E4%BD%8D%E8%BF%90%E7%AE%97%E6%80%9D%E8%80%83%E9%A2%98.html">位运算思考题</a></h2>
+<h2 id="原码反码补码"><a href="%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81.html">原码、反码、补码</a></h2>
+<h2 id="---运算符"><code>&amp; | ^ ~</code>运算符</h2>
 <ul>
 <li>按位与<code>&amp;</code>：两位全为1，结 果为1，否则为0</li>
 <li>按位或<code>|</code>：两位至少有一个为1，结果为1，否则为0</li>
@@ -359,7 +356,7 @@ pre::-webkit-scrollbar {
 <li>按位取反<code>~</code>：0-&gt;1, 1-&gt;0</li>
 <li>案例</li>
 </ul>
-<h5 id="案例">案例</h5>
+<h2 id="案例">案例</h2>
 <pre><code class="language-java"><span class="hljs-number">2</span> &amp; <span class="hljs-number">3</span> 计算过程
 <span class="hljs-comment">//1、先得到2的补码：2的原码为00000000 00000000 00000000 00000010</span>
 	<span class="hljs-comment">//正数三码合一：2的补码为00000000 00000000 00000000 00000010</span>
@@ -386,8 +383,7 @@ pre::-webkit-scrollbar {
 <span class="hljs-comment">//11111111 11111111 11111111 11111100  结果的反码(补码-1)</span>
 <span class="hljs-comment">//10000000 00000000 00000000 00000011 结果= -3</span>
 </code></pre>
-<hr>
-<h4 id="--运算符"><code>&gt;&gt; &lt;&lt; &gt;&gt;&gt;</code>运算符</h4>
+<h2 id="--运算符"><code>&gt;&gt; &lt;&lt; &gt;&gt;&gt;</code>运算符</h2>
 <ul>
 <li>算数右移<code>&gt;&gt;</code>：低位溢出，符号位不变，并用符号位补溢出的高位</li>
 <li>算数左移<code>&lt;&lt;</code>：符号位不变，低位补0</li>

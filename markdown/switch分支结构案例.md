@@ -1,7 +1,7 @@
----
- 
----
-[返回](分支控制(if, else, switch).md)
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+[返回](分支控制(if,%20else,%20switch).md)
+
 ![switch分支结构案例1.png](switch分支结构案例1.png.md)
 ```java
 import java.util.Scanner;

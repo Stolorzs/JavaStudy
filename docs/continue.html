@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>&#x57fa;&#x672c;&#x8bed;&#x6cd5;</title>
+            <title>continue</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -340,9 +340,9 @@ pre::-webkit-scrollbar {
             <span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <hr>
-<hr>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <p><a href="%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84.html">返回</a></p>
+<h2 id="continue">continue</h2>
 <ul>
 <li>continue基本介绍：
 <ul>
@@ -351,8 +351,7 @@ pre::-webkit-scrollbar {
 </ul>
 </li>
 </ul>
-<hr>
-<h4 id="基本语法">基本语法</h4>
+<h2 id="基本语法">基本语法</h2>
 <pre><code class="language-java">……
 <span class="hljs-keyword">continue</span>;
 ……
@@ -361,8 +360,7 @@ pre::-webkit-scrollbar {
 1(循环变量初始化)---&gt;2{循环条件}----&gt;|F|3(while循环结束)
 2--&gt;|T|4["循环体 \n循环变量迭代\nif(条件){……continue;}"]--&gt;2
 4--&gt;|continue|2</div></pre>
-<hr>
-<h4 id="案例">案例</h4>
+<h2 id="案例">案例</h2>
 <pre><code class="language-java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;
 <span class="hljs-keyword">while</span> (i &lt;= <span class="hljs-number">4</span>){
 	i++;
@@ -372,8 +370,7 @@ pre::-webkit-scrollbar {
 	system.out.println(<span class="hljs-string">&quot;i=&quot;</span> + i);
 }
 </code></pre>
-<hr>
-<h4 id="细节案例分析">细节案例分析</h4>
+<h2 id="细节案例分析">细节案例分析</h2>
 <pre><code class="language-java">label1:
 <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">4</span>; j++){
 	label2:
@@ -388,7 +385,6 @@ pre::-webkit-scrollbar {
 	}
 }
 </code></pre>
-<hr>
 
             
             <script async type="text/javascript">

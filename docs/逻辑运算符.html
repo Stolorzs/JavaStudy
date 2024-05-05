@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>&#x77ed;&#x8def;&#x4e0e;&DiacriticalGrave;&amp;&amp;&DiacriticalGrave; &#x548c; &#x903b;&#x8f91;&#x4e0e;&DiacriticalGrave;&amp;&DiacriticalGrave;</title>
+            <title>&#x903b;&#x8f91;&#x8fd0;&#x7b97;&#x7b26;</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -340,9 +340,21 @@ pre::-webkit-scrollbar {
             <span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <hr>
-<hr>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <p><a href="%E8%BF%90%E7%AE%97%E7%AC%A6.html">返回</a></p>
+<h1 id="逻辑运算符">逻辑运算符</h1>
+<ul>
+<li><a href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6">逻辑运算符</a>
+<ul>
+<li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
+<li><a href="#%E7%9F%AD%E8%B7%AF%E4%B8%8E-%E5%92%8C-%E9%80%BB%E8%BE%91%E4%B8%8E">短路与<code>&amp;&amp;</code> 和 逻辑与<code>&amp;</code></a></li>
+<li><a href="#%E7%9F%AD%E8%B7%AF%E6%88%96-%E5%92%8C-%E9%80%BB%E8%BE%91%E6%88%96">短路或<code>||</code> 和 逻辑或<code>|</code></a></li>
+<li><a href="#%E5%8F%96%E5%8F%8D">取反<code>!</code></a></li>
+<li><a href="#%E9%80%BB%E8%BE%91%E5%BC%82%E6%88%96">逻辑异或<code>^</code></a></li>
+</ul>
+</li>
+</ul>
+<h2 id="介绍">介绍</h2>
 <ul>
 <li>介绍：用于连接多个条件 (多个关系表达式)，最终的结果也是<code>boolean</code>值</li>
 <li>两组逻辑运算符
@@ -418,8 +430,7 @@ pre::-webkit-scrollbar {
 </tr>
 </tbody>
 </table>
-<hr>
-<h4 id="短路与-和-逻辑与">短路与<code>&amp;&amp;</code> 和 逻辑与<code>&amp;</code></h4>
+<h2 id="短路与-和-逻辑与">短路与<code>&amp;&amp;</code> 和 逻辑与<code>&amp;</code></h2>
 <ul>
 <li>短路与——<code>&amp;&amp;</code>
 <ul>
@@ -462,8 +473,7 @@ System.out.println(<span class="hljs-string">&quot;a=&quot;</span> + a + <span c
 }
 System.out.println(<span class="hljs-string">&quot;a=&quot;</span> + a + <span class="hljs-string">&quot;b=&quot;</span> + b); <span class="hljs-comment">//a=4, b=10</span>
 </code></pre>
-<hr>
-<h4 id="短路或-和-逻辑或">短路或<code>||</code> 和 逻辑或<code>|</code></h4>
+<h2 id="短路或-和-逻辑或">短路或<code>||</code> 和 逻辑或<code>|</code></h2>
 <ul>
 <li>短路或——<code>||</code>
 <ul>
@@ -486,7 +496,7 @@ System.out.println(<span class="hljs-string">&quot;a=&quot;</span> + a + <span c
 }
 </code></pre>
 <ul>
-<li>==使用区别== #⭐️
+<li><strong>使用区别</strong> #⭐️
 <ul>
 <li><code>||</code>短路或：第一个条件为<code>true</code>，则第二个条件不会判断，结果为<code>true</code></li>
 <li><code>|</code>逻辑或：两个条件都要进行判断，效率低</li>
@@ -501,23 +511,20 @@ System.out.println(<span class="hljs-string">&quot;a=&quot;</span> + a + <span c
 }
 System.out.println(<span class="hljs-string">&quot;a=&quot;</span> + a + <span class="hljs-string">&quot;b=&quot;</span> + b); <span class="hljs-comment">//a=4, b=9</span>
 </code></pre>
-<hr>
-<h4 id="取反">取反<code>!</code></h4>
+<h2 id="取反">取反<code>!</code></h2>
 <ul>
 <li>真变假、假变真</li>
 </ul>
 <pre><code class="language-java">System.out.println(<span class="hljs-number">60</span> &gt; <span class="hljs-number">20</span>); <span class="hljs-comment">// 1</span>
 System.out.println(!(<span class="hljs-number">60</span> &gt; <span class="hljs-number">20</span>));<span class="hljs-comment">// 0</span>
 </code></pre>
-<hr>
-<h4 id="逻辑异或">逻辑异或<code>^</code></h4>
+<h2 id="逻辑异或">逻辑异或<code>^</code></h2>
 <ul>
 <li>异为真、同为假</li>
 </ul>
 <pre><code class="language-java"><span class="hljs-type">boolean</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> (<span class="hljs-number">10</span> &gt; <span class="hljs-number">1</span>) ^ (<span class="hljs-number">3</span> &lt;　<span class="hljs-number">5</span>); <span class="hljs-comment">// 1 ^ 1 ——» 0</span>
 System.out.println(<span class="hljs-string">&quot;b=&quot;</span> + b); <span class="hljs-comment">// 0</span>
 </code></pre>
-<hr>
 
             
             <script async type="text/javascript">

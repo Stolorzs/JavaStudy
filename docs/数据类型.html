@@ -341,16 +341,24 @@ pre::-webkit-scrollbar {
             <span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <hr>
-<hr>
-<p><a href="%E5%8F%98%E9%87%8F.html">返回</a> | <a href="%E6%95%B0%E7%BB%84.html">数组</a></p>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<p><a href="%E5%8F%98%E9%87%8F.html">返回</a> | <a href="%E6%95%B0%E7%BB%84.html">数组</a> #⭐️</p>
 <h1 id="数据类型">数据类型</h1>
-<p>#⭐️</p>
+<ul>
+<li><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a>
+<ul>
+<li><a href="#%E5%8F%98%E9%87%8F%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">变量的数据类型</a></li>
+<li><a href="#%E6%95%B4%E6%95%B0%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E">整数类型说明</a></li>
+<li><a href="#%E6%B5%AE%E7%82%B9%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E">浮点类型说明</a></li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E">字符类型说明</a></li>
+<li><a href="#%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B">布尔类型</a></li>
+<li><a href="#%E5%86%85%E5%AD%98%E5%AD%98%E6%94%BE">内存存放</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="变量的数据类型">变量的数据类型</h2>
 <ul>
 <li><a href="https://www.bilibili.com/video/BV1fh411y7R8?t=71.6&amp;p=41">空降</a></li>
-</ul>
-<h4 id="变量的数据类型">变量的数据类型</h4>
-<ul>
 <li>每一种数据都定义了明确的数据类型，在内存中分配了不同大小的内存空间(字节)</li>
 <li>数据类型可分为以下两大类型</li>
 </ul>
@@ -376,6 +384,14 @@ a--&gt;x[整数类型] & y[浮点类型]
 </tr>
 </thead>
 <tbody>
+<tr>
+<td></td>
+<td></td>
+<td><strong>整型</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 <tr>
 <td><a href="byte.html">byte</a></td>
 <td>整数类型</td>
@@ -411,7 +427,7 @@ a--&gt;x[整数类型] & y[浮点类型]
 <tr>
 <td></td>
 <td></td>
-<td></td>
+<td><strong>浮点</strong></td>
 <td></td>
 <td></td>
 <td></td>
@@ -435,7 +451,7 @@ a--&gt;x[整数类型] & y[浮点类型]
 <tr>
 <td></td>
 <td></td>
-<td></td>
+<td><strong>字符</strong></td>
 <td></td>
 <td></td>
 <td></td>
@@ -450,7 +466,7 @@ a--&gt;x[整数类型] & y[浮点类型]
 </tr>
 <tr>
 <td><a href="String.html">String</a></td>
-<td>==字符串类型==</td>
+<td><strong>字符串类型</strong></td>
 <td></td>
 <td></td>
 <td></td>
@@ -459,7 +475,7 @@ a--&gt;x[整数类型] & y[浮点类型]
 <tr>
 <td></td>
 <td></td>
-<td></td>
+<td><strong>布尔</strong></td>
 <td></td>
 <td></td>
 <td></td>
@@ -474,8 +490,7 @@ a--&gt;x[整数类型] & y[浮点类型]
 </tr>
 </tbody>
 </table>
-<hr>
-<h4 id="整数类型说明">整数类型说明</h4>
+<h2 id="整数类型说明">整数类型说明</h2>
 <ul>
 <li>Java整数类型有固定的的范围和字段长度，以保证可移植性</li>
 <li>Java整型常量默认为int型，声明<strong>long型</strong>常量后必须加<code>l</code>或<code>L</code></li>
@@ -486,8 +501,7 @@ a--&gt;x[整数类型] & y[浮点类型]
 </ul>
 </li>
 </ul>
-<hr>
-<h4 id="浮点类型说明">浮点类型说明</h4>
+<h2 id="浮点类型说明">浮点类型说明</h2>
 <ul>
 <li>浮点数的存放形式：浮点数 = <strong>符号位</strong> + 指数位 + 尾数位</li>
 <li>尾数部分可能丢失，造成精度损失 (<strong>小数都是近似值</strong>)</li>
@@ -530,8 +544,7 @@ a--&gt;x[整数类型] & y[浮点类型]
 <ul>
 <li>直接赋的值是可以判断相等的</li>
 </ul>
-<hr>
-<h4 id="字符类型说明">字符类型说明</h4>
+<h2 id="字符类型说明">字符类型说明</h2>
 <ul>
 <li>char的本质是一个<strong>整数</strong>，默认对应了unicode字符编码的自负
 <ul>
@@ -608,8 +621,7 @@ a[二进制]--转--&gt;b[97]--&gt;c['a']--&gt;d(显示)</div></pre>
 </tr>
 </tbody>
 </table>
-<hr>
-<h4 id="布尔类型">布尔类型</h4>
+<h2 id="布尔类型">布尔类型</h2>
 <ul>
 <li>基本介绍</li>
 <li>使用细节
@@ -618,8 +630,7 @@ a[二进制]--转--&gt;b[97]--&gt;c['a']--&gt;d(显示)</div></pre>
 </ul>
 </li>
 </ul>
-<hr>
-<h4 id="内存存放">内存存放</h4>
+<h2 id="内存存放">内存存放</h2>
 <pre><code class="language-java"><span class="hljs-type">byte</span> <span class="hljs-variable">n1</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;
 <span class="hljs-type">short</span> <span class="hljs-variable">n2</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;
 </code></pre>

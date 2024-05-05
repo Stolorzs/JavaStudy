@@ -1,5 +1,6 @@
 [返回目录](Home.md)
 
+# Java概述
 - [Java概述](#java概述)
 	- [Java应用](#java应用)
 	- [如何快速学习](#如何快速学习)
@@ -15,14 +16,12 @@
 	- [Java API](#java-api)
 	- [Java类的组织形式](#java类的组织形式)
 
-### Java概述
-#### Java应用
+## Java应用
 - 大数据算法工程师
 - Android开发
 - 企业级应用
 
----
-#### 如何快速学习
+## 如何快速学习
 
 ```mermaid
 graph LR;
@@ -30,36 +29,36 @@ graph LR;
 4[④\n学习顺序和步骤\n1.先学习新技术的知识点\n和基本语法,不考虑细节]-->5[⑤\n快速入门,基本程序]-->6[⑥\n开始研究技术的注意事项、使用细节\n使用规范、如何优化]
 ```
 
----
-#### Java历史
+
+## Java历史
 - 什么是程序：**有序指令**的集合
 - `.class` 为编译后的文件
 - `.java` 为写程序的文件
----
-#### Java特点
+
+## Java特点
 - 1、面向对象
 - 2、健壮性的、强类型语言、异常处理、垃圾自动收集机制
 - 3、[跨平台性.canvas](跨平台性.canvas.md)`.class`可以在多个平台运行
 - 4、[解释型](解释型.md)语言
----
-#### Sublime
+
+## Sublime
 - Java开发工具
 	- IDEA
 	- eclipse
 	- Sublime (文本编辑器)
----
-#### Java运行机制
+
+## Java运行机制
 ```mermaid
 graph LR;
 3[源文件\n.java]--- 1{编译&nbsp;javac} -->字节码文件\n.class ---2{运行&nbsp;java}--> a[JVM for inux] & b[JVM for Windows] & c[JVM for Mac]
 
 ```
 - Java跨平台性的原因：[JVM](JVM.md) (包含于[JDK](JDK.md)里)
----
-#### [JDK](JDK.md) 
+
+## [JDK](JDK.md) 
 - 下载和安装
----
-#### 转义字符
+
+## 转义字符
 - [空降](https://www.bilibili.com/video/BV1fh411y7R8?t=843.3&p=21) 
 
 |`\t`|`\n`|`\\`|`\"`|`\'`|`\r`|
@@ -67,8 +66,8 @@ graph LR;
 |制表位<br>实现对齐功能|换行符|一个`\`|`"`|`'`|回车|
 |||`\`表转义|||||
 
----
-#### Java开发规范
+
+## Java开发规范
 - Java源文件的**基本组成部分**是类(class)
 - main方法是固定的，是程序执行入口
 - Java语言**区分大小写** 
@@ -79,7 +78,7 @@ graph LR;
 	- **公有类**的类名必须是**文件名称**
 - 一个源文件中最多只能有一个public类。其他类个数不限，也可以将**main方法**写在**非public类**中，然后指定运行**非public类**，这样入口方法就是**非public**的main方法。[空降](https://www.bilibili.com/video/BV1fh411y7R8?t=656.3&p=19) 
 ---
-#### 常见错误
+## 常见错误
 - 1、文件名写错
 - 2、公共类名与文件名不匹配
 - 3、缺少分号、拼写错误、英文中文符号错误
@@ -87,15 +86,15 @@ graph LR;
 	- 业务逻辑错误
 	- 环境错误
 - [注释](注释.md) 
----
-#### [JAVA代码规范](JAVA代码规范.md)
----
-#### Java API
+
+## [JAVA代码规范](JAVA代码规范.md)
+
+## Java API
 - [空降](https://www.bilibili.com/video/BV1fh411y7R8?t=250.9&p=46) 
 - API：应用程序编程接口
 - Java语言提供了大量基础类
----
-#### Java类的组织形式
+
+## Java类的组织形式
 ```mermaid
 graph TD;
 subgraph JDK

@@ -1,7 +1,6 @@
----
- 
----
-[返回](Java概述.md)
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+[返回](Java概述.md#java代码规范)
 
 - [空降](https://www.bilibili.com/video/BV1fh411y7R8?t=341.6&p=26) 
 - 类、方法注释使用`javadoc`来写

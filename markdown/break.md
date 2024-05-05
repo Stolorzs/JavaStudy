@@ -1,7 +1,8 @@
----
- 
----
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
 [返回](控制结构.md)
+
+## break
 
 - [空降](https://www.bilibili.com/video/BV1fh411y7R8?t=6.7&p=139) 
 - 介绍：`break`语句用于终止某个语句块的执行，一般使用在`switch`或者循环(for while do-while`)中
@@ -19,8 +20,8 @@ graph LR;
 4-->|break|3
 ```
 
----
-#### 跳转
+
+## 跳转
 - 1、break语句出现在多层嵌套的语句块中时，可以通过标签指明要终止的是哪一层语句块
 - 2、标签的使用——使用标识符`需要满足标识符的命名规则`
 	- [标识符命名规则和规范](标识符命名规则和规范.md)

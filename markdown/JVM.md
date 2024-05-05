@@ -1,7 +1,6 @@
----
- 
----
-[返回](Java概述.md)
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+[返回](Java概述.md#java运行机制)
 
 - #### JVM(Java虚拟机)——JVM Java virtual machine
 	- 包含于[JDK](JDK.md)中 
