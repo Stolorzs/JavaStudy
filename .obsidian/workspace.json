@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "markdown/index.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               }
             }
@@ -149,8 +149,11 @@
   },
   "active": "7f747255e7f603f1",
   "lastOpenFiles": [
-    "markdown/IO流.md",
+    "markdown/数组、排序和查找.md",
+    "markdown/数组.md",
+    "markdown/数组反转.md",
     "markdown/index.md",
+    "markdown/IO流.md",
     "markdown/运算符.md",
     "markdown/坦克大战.md",
     "markdown/Java概述.md",
@@ -160,7 +163,6 @@
     "markdown/控制结构.md",
     "markdown/模板.md",
     "markdown/练习题.md",
-    "markdown/数组、排序和查找.md",
     "markdown/标识符命名规则和规范.md",
     "markdown/运算符优先级.md",
     "markdown/算术运算符.md",

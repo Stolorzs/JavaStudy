@@ -331,13 +331,27 @@ pre::-webkit-scrollbar {
 
 /*===响应式设计===*/
 
+/*===行号===*/
+
+
 </style>
         </head>
         <body class="vscode-body vscode-dark">
             <span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <p><a href="index.html">返回目录</a></p>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<p><a href="index.html">返回目录</a></p>
+<p>八皇后问题，是一个古老而著名的问题，是回溯算法的典型案例。该问题是国际西洋棋棋手马克斯。贝瑟尔于1848年提出：在8x8格的国际象棋上摆放八个皇后，使其不能互相攻击，即：任意两个皇后都不能处于同一行、同一列或同一斜线上，问有多少种摆法</p>
+<ul>
+<li>1）第一个皇后先放第一行第一列</li>
+<li>2） 第二个皇后放在第二行第一列、然后荆断是否OK，如果不OK，继续放在第二列、第三列、依次把所有列都放完，找到一个合适</li>
+<li>3） 继续第三个皇后，还是第一列、第二列.....直到第8个皇后也能放在一个不冲突的位置，算是找到了一个正确解</li>
+<li>4） 当得到一个正确解时，在栈回退到上一个栈时，就会开始回溯，即将第一个皇后，放到第一列的所有正确解，全部得到.</li>
+<li>5） 然后回头继续第一个皇后放第二列，后面继续循环执行 1.2,3.4的步骤【示意图】</li>
+</ul>
+<p>说明：理论上应该创建一个二维数组来表示棋盘，但是实际上可以通过算法，用一个一维数组即可解决问题. <code>arr［8］={0, 4, 7, 5, 2, 6, 1, 3}</code>//对应arr 下标 表示第几行，即第几个皇后，<code>arr[i]= val</code>, <code>val</code>表示第<code>i+1</code>个皇后，放在第<code>i+1</code>行的第<code>val+1</code>列</p>
+<p><img src="https://raw.githubusercontent.com/Stolorzs/Picgo/master/bahuanghou.png" alt="alt text"></p>
 
             
             <script async type="text/javascript">

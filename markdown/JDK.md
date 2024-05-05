@@ -1,11 +1,10 @@
----
- 
----
-[返回](Java概述.md)
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+[返回](Java概述.md#jdk)
 
 - #### JDK(Java开发工具包)
 	- 开发工具集
-	- ==JRE== (Java运行环境)
+	- **JRE** (Java运行环境)
 		- [JVM](JVM.md) (Java虚拟机) 
 		- Java 标准类库 (核心类库)
 
