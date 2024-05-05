@@ -343,6 +343,174 @@ pre::-webkit-scrollbar {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <p><a href="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.html">返回</a></p>
 <h1 id="构造器">构造器</h1>
+<ul>
+<li><a href="#%E6%9E%84%E9%80%A0%E5%99%A8">构造器</a>
+<ul>
+<li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E7%BB%86%E8%8A%82">使用细节</a></li>
+<li><a href="#%E6%A1%88%E4%BE%8B%E5%85%A5%E9%97%A8">案例入门</a></li>
+<li><a href="#%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90">对象创建流程分析</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="介绍">介绍</h2>
+<p>需求：在创建人类对象时，直接指定这个对象的年龄和姓名，该怎么做<br>
+介绍：构造方法又叫构造器，是类的一种特殊的方法，主要的作用是完成对新对象初始化。它有几个特点：</p>
+<ul>
+<li>1）方法名和类名相同</li>
+<li>2）没有返回值</li>
+<li>3）在创建对象时，系统自动调用该类的构造器完成对对象的初始化</li>
+</ul>
+<pre><code class="language-java">[修饰符] 方法名 (形参列表) {
+    方法体;
+}
+</code></pre>
+<ul>
+<li>1）构造器的修饰符可以默认，也可是pubic protected private</li>
+<li>2）构造器<strong>没有返回值</strong></li>
+<li>3）<strong>方法名</strong> 和 <strong>类名字</strong>必须一样</li>
+<li>4）<strong>参数列表</strong> 和 <strong>成员方法</strong>一样的规则</li>
+<li>5）构造器的调用系统完成</li>
+</ul>
+<h2 id="使用细节">使用细节</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">细节</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1）一个类可以定义多个不同的构造器，即<strong>构造器重载</strong>。<br>比如，可以再给Person类定义一个构造器，用来创建对象的时候，只指定人名，不需要指定年龄</td>
+</tr>
+<tr>
+<td style="text-align:left">2）构造器名和类名要相同</td>
+</tr>
+<tr>
+<td style="text-align:left">3）构造器<strong>没有返回值</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">4）构造器是完成对象的初始化，并不是创建对象</td>
+</tr>
+<tr>
+<td style="text-align:left">5）在创建对象时，系统自动调用该类的构造器，不能自己调用</td>
+</tr>
+<tr>
+<td style="text-align:left">6）如果程序员没有定义构造器，系统会自动给类生成一个<strong>默认无参的构造方法</strong>（也叫<strong>默认构造方法</strong>）比如<code>Person(){}</code>,使用javap指令，反编译可以查到</td>
+</tr>
+<tr>
+<td style="text-align:left">7）一旦定义了自己的构造器，<font color="pink">默认的构造器就是覆盖了</font>，就<strong>不能再使用默认</strong>的无参构造器了，除非显式的定义一下，即<code>Person(){}</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="案例入门">案例入门</h2>
+<blockquote>
+<p>在创建人类对象时，直接指定这个对象的年龄和姓名</p>
+<p><code>Constructor01.java</code></p>
+</blockquote>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Constructor01</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-comment">//当我们new一个对象时，直接通过构造器指定名字和年龄</span>
+        <span class="hljs-type">Person</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(<span class="hljs-string">&quot;smith&quot;</span>, <span class="hljs-number">80</span>);
+        System.out.println(<span class="hljs-string">&quot;姓名=&quot;</span> + p.name);
+        System.out.println(<span class="hljs-string">&quot;年龄=&quot;</span> + p.age);
+    }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> {
+    String name;
+    <span class="hljs-type">int</span> age;
+    <span class="hljs-comment">//构造器</span>
+    <span class="hljs-comment">// 1）构造器没有返回值，也不能写void</span>
+    <span class="hljs-comment">// 2）构造器的名称和类Person一样 </span>
+    <span class="hljs-comment">// 3）(String pName, int pAge)是构造器的形参列表，规则和成员方法一样</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Person</span><span class="hljs-params">(String pName, <span class="hljs-type">int</span> pAge)</span> {
+        System.out.println(<span class="hljs-string">&quot;构造器被调用~~，完成对象属性的初始化&quot;</span>);
+        name = pName;
+        age = pAge;
+    }
+}
+</code></pre>
+<h2 id="对象创建流程分析">对象创建流程分析</h2>
+<pre><code class="language-java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> {
+    <span class="hljs-type">int</span> <span class="hljs-variable">age</span> <span class="hljs-operator">=</span><span class="hljs-number">90</span>;
+    String name;
+    Person (String n, <span class="hljs-type">int</span> a) {
+        name = n;
+        age = a;
+    }
+}
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Constructor02</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">Person</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(<span class="hljs-string">&quot;小倩&quot;</span>,<span class="hljs-number">20</span>);
+    }
+}
+</code></pre>
+<pre style="all:unset;"><div class="mermaid">%% Java内存结构mermaid模版
+%% 外层块
+block-beta 
+    %% 列数为9
+    columns 9
+    %%=====栈=======(1+8=9)===
+    %% 栈标题
+    栈:1
+    %% 栈内容,标记为Za,Zb,总共占8col
+    block:Za["main(栈)\n\n\n\n\n"]:4
+        space
+        columns 1
+        Za1["p(对象的引用) = 0x1122"]
+        end
+    block:Zb["(栈)"]:4
+        space
+        end
+    %%=====堆=======(1+5=6)===
+    %% 堆标题标题
+    堆:1
+    %% 堆内容,标记为Da,Db,总共占5col
+    block:Da["0x1122\n\n\n\n\n\n"]:2
+        space
+        columns 1
+        Da1["age: 0--&gt;90--&gt;20"]
+        Da2["name: null--&gt;0x1133"]
+        end
+        Za1----&gt;Da
+    block:Db[" "]:3
+        space
+        end
+    %%=====方法区===(1+2=3)====
+    %% 方法区标题
+    方法区:1
+    %% 方法区内容,标记为Fa,Fb,总共占2col
+    block:Fa[" "]:2
+        columns 1
+        Fa1["加载Person类信息"]
+        Fa2["常量池:小倩0x1133"]
+        end
+        Da2----&gt;Fa2
+%%============Style区=============
+%%====绿色====
+    %% style Za fill:#560,stroke:#560;
+%%====粉色====
+    %% style Zb fill:#969,stroke:#969;
+%%====红色====
+    %% style Da fill:#500,stroke:#500;
+%%====蓝色====
+    %% style Fa fill:#249,stroke:#249;</div></pre>
+<ul>
+<li>流程分析
+<ul>
+<li>1）加载Person类信息(Person.class)，只会加载一次</li>
+<li>2）在堆中分配空间(地址)</li>
+<li>3）完成对象初始化
+<ul>
+<li>1）默认初始化 age = 0; name = null;</li>
+<li>2）显式初始化 age = 90; name = null</li>
+<li>3）构造器初始化 age = 20;</li>
+</ul>
+</li>
+<li>4）把对象在堆中的地址，返回给p(p是对象的引用)</li>
+</ul>
+</li>
+</ul>
 
             
             <script async type="text/javascript">
