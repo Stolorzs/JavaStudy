@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title></title>
+            <title>&#x4f5c;&#x7528;&#x57df;</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -253,12 +253,12 @@ strong {
 }
 
 a {
-    color: #74d0fb;
+    color: #94d7f2;
     /* 这里的颜色可以根据你的喜好进行调整 */
 }
 
 a:visited {
-    color: #74d0fb;
+    color: #94d7f2;
     /* 这里的颜色可以根据你的喜好进行调整 */
 }
 
@@ -341,11 +341,102 @@ pre::-webkit-scrollbar {
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<p><a href="%E5%8F%98%E9%87%8F.html#%E5%8F%98%E9%87%8F%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">返回变量</a> | <a href="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.html">返回面向对象</a></p>
+<p><a href="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.html">返回面向对象</a> | <a href="%E5%8F%98%E9%87%8F.html#%E5%8F%98%E9%87%8F%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">返回变量</a></p>
 <ul>
 <li>同一个范围</li>
 <li>同一个类中</li>
 </ul>
+<h1 id="作用域">作用域</h1>
+<ul>
+<li><a href="#%E4%BD%9C%E7%94%A8%E5%9F%9F">作用域</a>
+<ul>
+<li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E7%BB%86%E8%8A%82">使用细节</a>
+<ul>
+<li><a href="#%E5%8F%AF%E4%BB%A5%E9%87%8D%E5%90%8D%E7%9A%84%E6%83%85%E5%86%B5">可以重名的情况</a></li>
+<li><a href="#%E4%B8%8D%E8%83%BD%E9%87%8D%E5%90%8D%E7%9A%84%E6%83%85%E5%86%B5">不能重名的情况</a></li>
+<li><a href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E4%B8%8D%E5%90%8C">生命周期不同</a></li>
+<li><a href="#%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4%E4%B8%8D%E5%90%8C">作用范围不同</a></li>
+<li><a href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6%E4%B8%8D%E5%90%8C">修饰符不同</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="介绍">介绍</h2>
+<p>面向对象中，变量 <font color="pink">作用域</font> <strong>非常重要</strong></p>
+<ul>
+<li>1、在java编程中，主要的变量就是属性(<strong>成员变量</strong>)和<strong>局部变量</strong></li>
+<li>2、<strong>局部变量</strong>一般是指在<strong>成员方法</strong>中定义的变量。如：Cat类中的cry方法中定义的变量</li>
+<li>3、java中作用域的分类
+<ul>
+<li><strong>全局变量</strong>：也就是属性，作用域为整个类体。如：Cat类中cry eat等方法也能使用</li>
+<li><strong>局部变量</strong>：除了属性之外的其他变量，作用域为定义它的代码块中</li>
+</ul>
+</li>
+<li>4、<strong>全局变量</strong> (属性) 可以不赋值，直接使用，因为有默认值，<strong>局部变量</strong><font color="pink">必须赋值后才能使用</font>，因为<font color="pink">没有默认值</font></li>
+</ul>
+<h2 id="使用细节">使用细节</h2>
+<p><code>VarScopeDetail.java</code></p>
+<h4 id="可以重名的情况">可以重名的情况</h4>
+<ul>
+<li>属性和局部变量可以重名，<strong>访问时遵循就近原则</strong></li>
+</ul>
+<pre><code class="language-java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> {
+
+    <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;jack&quot;</span>;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">say</span><span class="hljs-params">()</span> {
+        <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;king&quot;</span>;
+        <span class="hljs-comment">//会输出king 遵循就近原则</span>
+        System.out.println(<span class="hljs-string">&quot;say()name=&quot;</span> + name); 
+    }
+}
+</code></pre>
+<h4 id="不能重名的情况">不能重名的情况</h4>
+<ul>
+<li>在同一个作用域中，比如在同一个成员方法中，两个局部变量不能重名</li>
+</ul>
+<h4 id="生命周期不同">生命周期不同</h4>
+<ul>
+<li><strong>属性生命周期较长</strong>，伴随着对象的创建而创建，伴随着对象的销毁而销毁。</li>
+<li><strong>局部变量生命周期短</strong>，伴随着它的代码块的执行而创建，伴随着代码块的结束而销毁，即在一次方法的调用过程中。</li>
+</ul>
+<h4 id="作用范围不同">作用范围不同</h4>
+<ul>
+<li><strong>全局变量</strong>/属性：可以被本类使用，或者其他类使用(通过对象调用)</li>
+<li><strong>局部变量</strong>：只能在本类中的对应方法中使用</li>
+</ul>
+<pre><code class="language-java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span> {
+    <span class="hljs-comment">//1、通过在方法内创建对象调用隔壁类的方法</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">test</span><span class="hljs-params">()</span> {
+        <span class="hljs-type">Person</span> <span class="hljs-variable">p1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">person</span>();
+        <span class="hljs-comment">//调用Person类的全局变量</span>
+        System.out.println(p1.name);
+    }
+    <span class="hljs-comment">//2、向方法传入对象再调用该对象所属类的方法</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">test2</span><span class="hljs-params">(Person p)</span> {
+        System.out.println(p.name);
+    }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> {
+    <span class="hljs-comment">//创建全局变量</span>
+    <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;jack&quot;</span>;
+}
+</code></pre>
+<h4 id="修饰符不同">修饰符不同</h4>
+<ul>
+<li><strong>全局变量</strong>/属性 可以添加修饰符</li>
+<li><strong>局部变量</strong> 不可以添加修饰符</li>
+</ul>
+<pre><code class="language-java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-variable">age</span> <span class="hljs-operator">=</span> <span class="hljs-number">20</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">test</span><span class="hljs-params">()</span> {
+        <span class="hljs-comment">//下面的局部变量 不可以加修饰符</span>
+        <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-variable">age</span> <span class="hljs-operator">=</span> <span class="hljs-number">20</span>;
+    }
+}
+</code></pre>
 
             
             <script async type="text/javascript">

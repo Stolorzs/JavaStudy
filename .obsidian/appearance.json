@@ -3,5 +3,8 @@
   "theme": "obsidian",
   "enabledCssSnippets": [
     "关闭内部链接下划线"
-  ]
+  ],
+  "interfaceFontFamily": "Microsoft YaHei",
+  "textFontFamily": "Microsoft YaHei",
+  "baseFontSize": 13
 }

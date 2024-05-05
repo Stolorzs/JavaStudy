@@ -1,4 +1,7 @@
 {
   "useMarkdownLinks": true,
-  "propertiesInDocument": "hidden"
+  "propertiesInDocument": "hidden",
+  "alwaysUpdateLinks": true,
+  "showInlineTitle": false,
+  "autoConvertHtml": true
 }
