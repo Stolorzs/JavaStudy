@@ -128,7 +128,7 @@ class T {
 }
 ```
 
-4）访问构造器的语法：`this(参数列表);` **注意只能在构造器中使用，即只能在构造器中访问另外一个构造器**  
+4）<font color="pink">访问构造器</font>的语法：`this(参数列表);` **注意只能在构造器中使用，即只能在构造器中访问另外一个构造器**  
 ```java
 public class ThisDetail {
     public static void main(String[] args) {

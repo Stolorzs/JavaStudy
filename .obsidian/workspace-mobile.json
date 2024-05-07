@@ -11,8 +11,12 @@
             "id": "0878719b81c0afeb",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "markdown/面向对象编程.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "markdown/面向对象编程.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "markdown/面向对象编程.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -107,7 +113,9 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {}
+          "state": {
+            "file": "markdown/面向对象编程.md"
+          }
         }
       }
     ],
@@ -125,6 +133,13 @@
   },
   "active": "0878719b81c0afeb",
   "lastOpenFiles": [
+    "markdown/index.md",
+    "markdown/汉诺塔.md",
+    "markdown/八皇后问题.md",
+    "markdown/数组、排序和查找.md",
+    "markdown/面向对象编程.md",
+    "markdown/成员方法.md",
+    "markdown/类与对象.md",
     "docs/反射.html",
     "docs/String.html"
   ]
