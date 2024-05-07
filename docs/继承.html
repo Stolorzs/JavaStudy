@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title></title>
+            <title>&#x7ee7;&#x627f;</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -340,8 +340,285 @@ pre::-webkit-scrollbar {
             <span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <hr>
-<hr>
+                <p><a href="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.html">返回</a></p>
+<h1 id="继承">继承</h1>
+<ul>
+<li><a href="#%E7%BB%A7%E6%89%BF">继承</a>
+<ul>
+<li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95">基本语法</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E7%BB%86%E8%8A%82"><strong>使用细节</strong></a></li>
+<li><a href="#%E6%A1%88%E4%BE%8B%E5%85%A5%E9%97%A8">案例入门</a></li>
+<li><a href="#%E7%BB%A7%E6%89%BF%E7%9A%84%E5%86%85%E5%AD%98%E6%9C%AC%E8%B4%A8">继承的内存本质</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="介绍">介绍</h2>
+<p>继承可以解决代码复用问题，让我们的变成更加接近人类思维，当多个类存在相同的<strong>属性</strong>(变量)和<strong>方法</strong>时，可以从这些类中抽象出父类，在父类中定义这些相同的属性和方法，所有的子类不需要重新定义这些属性和方法，只需要通过<font color="pink">extends</font>来声明继承父类即可</p>
+<pre style="all:unset;"><div class="mermaid">graph BT;
+
+subgraph A[A类：父类，基类，超类]
+    属性
+    方法
+end
+subgraph B[B类：子类、派生类]
+    特有属性
+    特有方法
+end
+subgraph C[C类：子类、派生类]
+    c1[特有属性]
+    c2[特有方法]
+end
+subgraph D[D类：子类、派生类]
+    D1[特有属性]
+    D2[特有方法]
+end
+subgraph E[E类：子类、派生类]
+    E1[特有属性]
+    E2[特有方法]
+end
+B--extends--&gt;A
+C--extends--&gt;A
+D--extends--&gt;B
+E--extends--&gt;C</div></pre>
+<h2 id="基本语法">基本语法</h2>
+<pre><code class="language-java">class 子类 extends 父类 {
+}
+</code></pre>
+<p>1）子类就会自动拥有父类定义的属性和方法<br>
+2）父类又叫超类、基类<br>
+3）子类又叫派生类</p>
+<p>继承可以：<br>
+1）提高代码复用性<br>
+2）提高代码扩展性和维护性</p>
+<h2 id="使用细节"><strong>使用细节</strong></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">访问级别</th>
+<th style="text-align:center">访问控制修饰符</th>
+<th style="text-align:center"><strong>本类</strong></th>
+<th style="text-align:center">同包</th>
+<th style="text-align:center">子类</th>
+<th style="text-align:center">不同包</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">公开</td>
+<td style="text-align:center"><strong>public</strong></td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+</tr>
+<tr>
+<td style="text-align:center">受保护</td>
+<td style="text-align:center"><strong>protected</strong></td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">❌</td>
+</tr>
+<tr>
+<td style="text-align:center">默认</td>
+<td style="text-align:center"><strong>无修饰符</strong></td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">❌</td>
+</tr>
+<tr>
+<td style="text-align:center">私有</td>
+<td style="text-align:center"><strong>private</strong></td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">❌</td>
+</tr>
+</tbody>
+</table>
+<p>1）子类继承父类所有的属性和方法，但私有属性和方法<strong>不能在子类中直接访问</strong>，要通过<strong>公共</strong>(<font color="pink">父类提供的</font>)<strong>的方法</strong>去访问，而非私有的属性和方法可以在子类直接访问</p>
+<p>2）子类<strong>必须</strong>调用<strong>父类的构造器</strong>，完成父类的初始化：创建子类时，会先调用Base()，再调用Sub()</p>
+<pre><code class="language-java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Base</span><span class="hljs-params">()</span> {
+
+    }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Sub</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Base</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Sub</span><span class="hljs-params">()</span> {
+        <span class="hljs-built_in">super</span>();<span class="hljs-comment">//隐藏内容，默认调用父类无参构造器</span>
+    }
+}
+</code></pre>
+<p>3）当创建子类对象时，不管使用子类的哪个构造器，<strong>默认情况下总会去调用父类的无参构造器</strong>；<font color="pink">如果父类没有提供无参构造器</font>，则必须在子类的构造器中用<strong>super</strong>去指定使用<strong>父类的哪个构造器</strong>完成对父类的初始化，否则，编译不会通过 #⭐</p>
+<pre><code class="language-java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> {
+    String name;
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Base</span><span class="hljs-params">(String name)</span> {} <span class="hljs-comment">//父类没有无参构造器</span>
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Sub</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Base</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Sub</span><span class="hljs-params">()</span> {
+        <span class="hljs-built_in">super</span>(<span class="hljs-string">&quot;smith&quot;</span>) <span class="hljs-comment">//必须指定使用父类的哪个构造器</span>
+    }
+}
+</code></pre>
+<p>4）如果希望指定去调用父类的某个构造器，则需显式的调用一下：<code>super(参数列表)</code></p>
+<pre><code class="language-java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Sub</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Sub</span><span class="hljs-params">(String name, <span class="hljs-type">int</span> age)</span>{
+        <span class="hljs-built_in">super</span>(); <span class="hljs-comment">//调用父类的无参构造器，也可以什么都不写</span>
+        <span class="hljs-built_in">super</span>(name, age);<span class="hljs-comment">//调用父另一个构造器</span>
+    }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> {
+    String name;
+    <span class="hljs-type">int</span> age;
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Base</span><span class="hljs-params">()</span>{}
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Base</span><span class="hljs-params">(String name, <span class="hljs-type">int</span> age)</span> {}
+}
+</code></pre>
+<p>5）<code>super()</code>只能在<strong>构造器</strong>中使用，不能在成员方法中使用。且<code>super()</code>在使用时，必须放在<strong>构造器第一条语句</strong></p>
+<p>6）<code>super()</code>和<code>this()</code>都只能放在构造器第一行，因此这两个方法<strong>不能共存</strong>于同一个<strong>构造器</strong></p>
+<p>7）Java所有类都是<strong>Object类</strong>的子类，<strong>Object类</strong>是所有类的基类</p>
+<p>8）父类构造器的调用不限于直接父类，将一直追溯直到<strong>Object类</strong>(顶级父类)</p>
+<pre style="all:unset;"><div class="mermaid">graph RL;
+C---&gt;B
+B---&gt;A
+A---&gt;object</div></pre>
+<p>9）子类最多只能继承一个父类(直接继承)，即java是<strong>单继承机制</strong></p>
+<p>10）不能滥用继承，子类和父类之间必须满足<font color="pink">is-a</font>的逻辑关系</p>
+<ul>
+<li><a href="%E7%BB%83%E4%B9%A0%E9%A2%98-%E7%BB%A7%E6%89%BF.html">练习题-继承</a></li>
+</ul>
+<h2 id="案例入门">案例入门</h2>
+<blockquote>
+<p>编写两个类，一个是Pupil类(小学生)，一个是Graduate(大学毕业生).
+问题：两个类的属性和方法有很多是相同的，怎么办</p>
+</blockquote>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.extend;
+
+<span class="hljs-comment">//父类，Pupil和Graduate的父类</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span> {
+    <span class="hljs-comment">//共有属性</span>
+    <span class="hljs-keyword">public</span> String name;<span class="hljs-comment">//姓名</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> age;<span class="hljs-comment">//年龄</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">double</span> score;<span class="hljs-comment">//成绩</span>
+
+    <span class="hljs-comment">//共有方法</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setScore</span><span class="hljs-params">(<span class="hljs-type">double</span> score)</span> {
+        <span class="hljs-built_in">this</span>.score = score;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showInfo</span><span class="hljs-params">()</span> {
+        System.out.println(<span class="hljs-string">&quot;学生名=&quot;</span> + name + <span class="hljs-string">&quot; 年龄=&quot;</span> + <span class="hljs-string">&quot; 成绩=&quot;</span> + score);
+    }
+}
+</code></pre>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.extend;
+
+<span class="hljs-comment">//Graduate 继承 Student</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Graduate</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Student</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testing</span><span class="hljs-params">()</span> {
+        System.out.println(<span class="hljs-string">&quot;大学生&quot;</span> + name + <span class="hljs-string">&quot;正在考大学数学...&quot;</span>);
+    }
+}
+</code></pre>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.extend;
+
+<span class="hljs-comment">//Pupil 继承 Student</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Pupil</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Student</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testing</span><span class="hljs-params">()</span> {
+        System.out.println(<span class="hljs-string">&quot;小学生&quot;</span> + name + <span class="hljs-string">&quot;正在考小学数学...&quot;</span>);
+    }
+}
+</code></pre>
+<h2 id="继承的内存本质">继承的内存本质</h2>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ExtendsTheory</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">Son</span> <span class="hljs-variable">son</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Son</span>();
+        <span class="hljs-comment">//内存布局</span>
+        <span class="hljs-comment">//要按照查找关系来返回信息</span>
+        <span class="hljs-comment">//1）首先看子类是否有该属性</span>
+        <span class="hljs-comment">//2）如果有子类并且可以访问，则返回其信息，有但不可访问就报错</span>
+        <span class="hljs-comment">//3）如果子类没有这个属性，就看父类有没有这个属性，</span>
+        <span class="hljs-comment">//如果父类有该属性，并且可以访问，就返回信息</span>
+        <span class="hljs-comment">//4）如果父类没有，就按照3）的规则继续找上级父类，都没有就报错</span>
+        System.out.println(son.name);<span class="hljs-comment">//返回大头儿子</span>
+        System.out.println(son.age);<span class="hljs-comment">//返回39</span>
+        System.out.println(son.hobby);<span class="hljs-comment">//返回旅游</span>
+    }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">GrandPa</span> {
+    <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;大头爷爷&quot;</span>;
+    <span class="hljs-type">String</span> <span class="hljs-variable">hobby</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;旅游&quot;</span>;
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Father</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">GrandPa</span> {
+    <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;大头爸爸&quot;</span>;
+    <span class="hljs-type">int</span> <span class="hljs-variable">age</span> <span class="hljs-operator">=</span> <span class="hljs-number">39</span>;
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Son</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Father</span> {
+    <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;大头儿子&quot;</span>;
+}
+</code></pre>
+<pre style="all:unset;"><div class="mermaid">%% Java内存结构mermaid模版
+%% 外层块
+block-beta 
+    %% 列数为9
+    columns 9
+    %%=====栈=======(1+8=9)===
+    %% 栈标题
+    栈:1
+    %% 栈内容,标记为Za,Zb,总共占8col
+    block:Za["main(栈)\n\n\n\n\n\n\n"]:4
+        space
+        columns 1
+        Za1["Son--&gt;0x11"]
+        space
+        end
+    block:Zb["(栈)"]:4
+        space
+        end
+    %%=====堆=======(1+5=6)===
+    %% 堆标题标题
+    堆:1
+    %% 堆内容,标记为Da,Db,总共占5col
+    block:Da["0x11\n\n\n\n\n\n\n\n\n"]:2
+        space
+        columns 1
+        Da1["name:0x22\nhobby:0x33"]
+        Da2["name:0x44\nage = 39"]
+        Da3["name:0x55"]
+        end
+        Za1----&gt;Da
+    block:Db[" "]:1
+        space
+        end
+    %%=====方法区===(1+2=3)====
+    %% 方法区标题
+    方法区:1
+    %% 方法区内容,标记为Fa,Fb,总共占2col
+    block:Fa["常量池\n\n\n\n\n\n"]:2
+        columns 1
+        Fa1["常量池\n大头爷爷:0x22\n旅游:0x33\n大头爸爸:0x44\n大头儿子:0x55"]
+        end
+        Da1----&gt;Fa1
+        Da2----&gt;Fa1
+        Da3----&gt;Fa1
+    block:Fb[" "]:2
+        columns 1
+        Fb1["Object"]
+        Fb2["↑GrandPa"]
+        Fb3["↑Father"]
+        Fb4["↑Son"]
+        end
+
+%%============Style区=============
+%%====绿色====
+    %% style Za fill:#560,stroke:#560;
+%%====粉色====
+    %% style Zb fill:#969,stroke:#969;
+%%====红色====
+    %% style Da fill:#500,stroke:#500;
+%%====蓝色====
+    %% style Fa fill:#249,stroke:#249;</div></pre>
 
             
             <script async type="text/javascript">

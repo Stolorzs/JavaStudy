@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title></title>
+            <title>&#x5c01;&#x88c5;</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -340,8 +340,109 @@ pre::-webkit-scrollbar {
             <span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <hr>
-<hr>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<p><a href="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.html">返回</a></p>
+<h1 id="封装">封装</h1>
+<h2 id="介绍">介绍</h2>
+<p>面向对象编程三大特征：封装、继承、多态</p>
+<p><font color="pink">封装(encapsulastion)：</font>把抽象出来的数据(<strong>属性</strong>)和对数据的操作(<strong>方法</strong>)封装在一起，数据被保护在内部，程序的其他方法只有通过被授权的操作(<strong>方法</strong>)，才能对数据进行操作</p>
+<ul>
+<li>封装的好处：
+<ul>
+<li>1）隐藏实现的细节</li>
+<li>2）可以对数据进行验证，保证安全合理</li>
+</ul>
+</li>
+</ul>
+<h2 id="封装实现的步骤">封装实现的步骤</h2>
+<p>1）将属性进行私有化<strong>private</strong>，外部不能直接修改属性<br>
+2）提供一个公共的 public <strong>set方法</strong>，用于对属性判断赋值</p>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setXxx</span><span class="hljs-params">(类型 参数名)</span> {
+    <span class="hljs-comment">//加入数据验证的业务逻辑</span>
+    属性 = 参数名;
+}
+</code></pre>
+<p>3）提供一个公共的 public <strong>get方法</strong>，用于获取属性的值</p>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> 数据类型 getXxx() {
+    <span class="hljs-comment">//加入对权限的判断</span>
+    <span class="hljs-keyword">return</span> Xxx;
+}
+</code></pre>
+<h2 id="案例入门">案例入门</h2>
+<blockquote>
+<p><code>Encap.java</code><br>
+1）不能随便查看人的年龄，工资等隐私，并对设置的年龄进行合理的验证。年龄合理就设置，否则就给默认<br>
+2）年龄必须在1-120，年龄、工资不能直接查看，name的长度在2-6之间<br>
+3 ）注意：构造器也要有防护机制</p>
+</blockquote>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.hspedu.encap;
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Encap01</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">Person</span> <span class="hljs-variable">person</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>();
+        person.setName(<span class="hljs-string">&quot;jack&quot;</span>);
+        person.setAge(<span class="hljs-number">30</span>);
+        person.setSalary(<span class="hljs-number">30000</span>);
+        person.getSalary();
+        System.out.printf(person.info());
+    }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Person</span><span class="hljs-params">()</span> {
+    }
+    <span class="hljs-comment">//    有三个属性的构造器</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Person</span><span class="hljs-params">(String name, <span class="hljs-type">int</span> age, <span class="hljs-type">double</span> salary)</span> {
+<span class="hljs-comment">//        this.name = name;</span>
+<span class="hljs-comment">//        this.age = age;</span>
+<span class="hljs-comment">//        this.salary = salary;</span>
+<span class="hljs-comment">//        可以将set方法写在构造器中，也能验证数据</span>
+        setName(name);
+        setSalary(salary);
+        setAge(age);
+    }
+    <span class="hljs-keyword">public</span> String name;<span class="hljs-comment">//名字公开</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> age;<span class="hljs-comment">//年龄私有</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-type">double</span> salary;<span class="hljs-comment">//工资私有</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String name)</span> {
+        <span class="hljs-comment">//加入对数据的检测</span>
+        <span class="hljs-keyword">if</span> (name.length() &gt;= <span class="hljs-number">2</span> &amp;&amp; name.length() &lt; <span class="hljs-number">6</span>) {
+            <span class="hljs-built_in">this</span>.name = name;
+        } <span class="hljs-keyword">else</span> {
+            System.out.printf(<span class="hljs-string">&quot;名字的长度不对&quot;</span>);
+            <span class="hljs-built_in">this</span>.name = <span class="hljs-string">&quot;无名人&quot;</span>;
+        }
+    }
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> name;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getAge</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> age;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setAge</span><span class="hljs-params">(<span class="hljs-type">int</span> age)</span> {
+        <span class="hljs-comment">//判断</span>
+        <span class="hljs-keyword">if</span> (age &gt;= <span class="hljs-number">1</span> &amp;&amp; age &lt;= <span class="hljs-number">120</span>) {
+            <span class="hljs-built_in">this</span>.age = age;
+        } <span class="hljs-keyword">else</span> {
+            System.out.printf(<span class="hljs-string">&quot;你输出的年龄不对，年龄需要在1-120&quot;</span>);
+            <span class="hljs-built_in">this</span>.age = <span class="hljs-number">18</span>;
+        }
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getSalary</span><span class="hljs-params">()</span> {
+        <span class="hljs-comment">//增加对当前对象的权限判断</span>
+        <span class="hljs-keyword">return</span> salary;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setSalary</span><span class="hljs-params">(<span class="hljs-type">double</span> salary)</span> {
+        <span class="hljs-built_in">this</span>.salary = salary;
+    }
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">info</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;信息为name=&quot;</span> + name + <span class="hljs-string">&quot; age=&quot;</span> + age + <span class="hljs-string">&quot; 薪水=&quot;</span> + salary;
+    }
+}
+
+</code></pre>
 
             
             <script async type="text/javascript">

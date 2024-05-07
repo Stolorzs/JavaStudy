@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title></title>
+            <title>&#x8bbf;&#x95ee;&#x4fee;&#x9970;&#x7b26;</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -340,18 +340,104 @@ pre::-webkit-scrollbar {
             <span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <p><a href="%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1.html#%E5%B1%9E%E6%80%A7%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">返回类与对象</a> | <a href="%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95.html#%E7%BB%86%E8%8A%82">成员方法</a></p>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<p><a href="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.html">返回</a> | <a href="%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1.html#%E5%B1%9E%E6%80%A7%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">返回类与对象</a> | <a href="%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95.html#%E7%BB%86%E8%8A%82">成员方法</a></p>
+<h1 id="访问修饰符">访问修饰符</h1>
+<h2 id="介绍">介绍</h2>
+<p>java提供四种访问控制修饰符号控制<strong>方法</strong>和<strong>属性</strong>(成员变量) 的访问权限(范围):</p>
 <ul>
 <li>控制属性的访问范围</li>
 <li>有四种访问修饰符：
 <ul>
-<li>public</li>
-<li>protected</li>
-<li>默认</li>
-<li>private</li>
+<li>public：公开级别，对外公开</li>
+<li>protected：受保护级别，对子类和同一包的类公开</li>
+<li>默认：默认，无修饰符，向同一包的类公开</li>
+<li>private：私有级别，只有类本身可以访问，不对外公开</li>
 </ul>
 </li>
 </ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">访问级别</th>
+<th style="text-align:center">访问控制修饰符</th>
+<th style="text-align:center"><strong>本类</strong></th>
+<th style="text-align:center">同包</th>
+<th style="text-align:center">子类</th>
+<th style="text-align:center">不同包</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">公开</td>
+<td style="text-align:center"><strong>public</strong></td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+</tr>
+<tr>
+<td style="text-align:center">受保护</td>
+<td style="text-align:center"><strong>protected</strong></td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">❌</td>
+</tr>
+<tr>
+<td style="text-align:center">默认</td>
+<td style="text-align:center"><strong>无修饰符</strong></td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">❌</td>
+</tr>
+<tr>
+<td style="text-align:center">私有</td>
+<td style="text-align:center"><strong>private</strong></td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">❌</td>
+</tr>
+</tbody>
+</table>
+<h2 id="使用细节">使用细节</h2>
+<p>1）修饰符可以用来修饰类中的<strong>属性</strong>、<strong>成员方法</strong>以及<strong>类</strong><br>
+2）只有<strong>默认</strong>和<strong>public</strong>才能修饰<font color="pink">类</font>，并且遵循上面访问权限的特点<br>
+3）关于子类的访问权限见：<a href="%E7%BB%A7%E6%89%BF.html">继承</a><br>
+4）<strong>成员方法</strong>的访问规则和<strong>属性</strong>完全一样</p>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.hspedu.modifier;
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span> {
+  <span class="hljs-comment">// 四个属性，分别使用不同的访问修饰符</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-variable">n1</span> <span class="hljs-operator">=</span> <span class="hljs-number">100</span>;
+  <span class="hljs-keyword">protected</span> <span class="hljs-type">int</span> <span class="hljs-variable">n2</span> <span class="hljs-operator">=</span> <span class="hljs-number">200</span>;
+  <span class="hljs-type">int</span> <span class="hljs-variable">n3</span> <span class="hljs-operator">=</span> <span class="hljs-number">300</span>;
+  <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">n4</span> <span class="hljs-operator">=</span> <span class="hljs-number">400</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">m1</span><span class="hljs-params">()</span> {
+    <span class="hljs-comment">//在本类中，该方法可以访问四个属性</span>
+    <span class="hljs-comment">// ……</span>
+    System.out.println(n1 + n2 + n3 + n4);
+  }
+}
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">B</span> {
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">say</span><span class="hljs-params">()</span> {
+    <span class="hljs-type">A</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">a</span>();
+    <span class="hljs-comment">// 在同一个包下，可以访问</span>
+    <span class="hljs-comment">// public, protected和默认，不能访问private的属性或方法</span>
+    System.out.println(a.n1 + a.n2 + a.n3);
+  }
+}
+</code></pre>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.hspedu.pkg;
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">C</span> {
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+    <span class="hljs-type">A</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">A</span>();
+    <span class="hljs-comment">// 在不同的包下，只能访问public修饰的属性和方法</span>
+    System.out.println(a.n1)
+  }
+}
+</code></pre>
 
             
             <script async type="text/javascript">

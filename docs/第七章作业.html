@@ -353,25 +353,25 @@ pre::-webkit-scrollbar {
 <li><a href="#8%E8%AF%BB%E4%BB%A3%E7%A0%81">8）读代码</a></li>
 <li><a href="#9music%E7%B1%BB">9）Music类</a></li>
 <li><a href="#10%E8%AF%BB%E4%BB%A3%E7%A0%81">10）读代码</a></li>
-<li><a href="#11">11</a></li>
-<li><a href="#12">12</a></li>
-<li><a href="#13">13</a></li>
-<li><a href="#14">14</a></li>
+<li><a href="#11%E6%96%B9%E6%B3%95%E5%AE%9A%E4%B9%89%E5%BD%A2%E5%BC%8F%E5%88%A4%E6%96%AD">11）方法定义形式判断</a></li>
+<li><a href="#12employee%E7%B1%BB">12）Employee类</a></li>
+<li><a href="#13%E5%9C%86%E7%B1%BB%E5%BD%93%E4%BD%9C%E6%96%B9%E6%B3%95%E5%8F%82%E6%95%B0">13）圆类当作方法参数</a></li>
+<li><a href="#14%E7%8C%9C%E6%8B%B3">14）猜拳</a></li>
 </ul>
 <h3 id="1求double数组最大值">1）求double数组最大值</h3>
 <p><img src="https://raw.githubusercontent.com/Stolorzs/Picgo/master/1diqizhang.png" alt="alt text"></p>
 <pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Homework01</span> {
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
         <span class="hljs-type">A01</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">A01</span>();
-        <span class="hljs-type">double</span>[] arr = {<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>,<span class="hljs-number">6</span>};
-        System.out.println(a.max(<span class="hljs-string">&quot;arr&quot;</span>));
+        <span class="hljs-type">double</span>[] arr = {<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">8</span>,<span class="hljs-number">6</span>,<span class="hljs-number">6</span>};
+        System.out.println(a.max(arr));
     }
 }
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">A01</span> {
-    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">max</span><span class="hljs-params">(<span class="hljs-type">double</span>[][] arr)</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">max</span><span class="hljs-params">(<span class="hljs-type">double</span>[] arr)</span> {
         <span class="hljs-type">double</span> <span class="hljs-variable">max</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; arr.length - <span class="hljs-number">1</span>; i++) {
-            max = arr[i] &gt; arr[i+<span class="hljs-number">1</span>] ? arr[i] : arr[i+<span class="hljs-number">1</span>];
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; arr.length; i++) {
+            max = max &gt; arr[i] ? max : arr[i];
         }
         <span class="hljs-keyword">return</span> max;
     }
@@ -381,18 +381,19 @@ pre::-webkit-scrollbar {
 <p><img src="https://raw.githubusercontent.com/Stolorzs/Picgo/master/2diqizhang.png" alt="alt text"></p>
 <pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Homework02</span> {
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
-        <span class="hljs-type">String</span> <span class="hljs-variable">arr</span> <span class="hljs-operator">=</span> {<span class="hljs-string">&quot;ad&quot;</span>,<span class="hljs-string">&quot;d&quot;</span>,<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;f&quot;</span>};
+        String [] arr = {<span class="hljs-string">&quot;ad&quot;</span>,<span class="hljs-string">&quot;d&quot;</span>,<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;f&quot;</span>};
         <span class="hljs-type">A02</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">A02</span>();   
-        System.out.println(a.find(arr, <span class="hljs-string">&quot;a&quot;</span>));
+        System.out.println(a.find(arr, <span class="hljs-string">&quot;n&quot;</span>));
     }
 }
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">A02</span> {
     <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">find</span><span class="hljs-params">(String[] arr,String n)</span> {
-        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> = <span class="hljs-number">0</span>; i &lt; arr.length; i++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; arr.length; i++) {
             <span class="hljs-keyword">if</span> (arr[i].equals(n)) {
                 <span class="hljs-keyword">return</span> i;
             }
-        } <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+        } 
+        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
     }
 }
 </code></pre>
@@ -401,7 +402,8 @@ pre::-webkit-scrollbar {
 <pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Homework03</span> {
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
         <span class="hljs-type">Book</span> <span class="hljs-variable">book1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Book</span>(<span class="hljs-number">104</span>);
-        System.price.println(book1.updatePrice().price);
+        book1.updatePrice();
+        System.out.println(book1.price);
     }
 }
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">Book</span> {
@@ -432,28 +434,28 @@ pre::-webkit-scrollbar {
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">A03</span> {
     <span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] copyArr(<span class="hljs-type">int</span>[] arr) {
         <span class="hljs-type">int</span>[] arr2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[arr.length];
-        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; arr.length; i++){
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; arr.length; i++){
             arr2[i] = arr[i]; 
         }
         <span class="hljs-keyword">return</span> arr2;
     }
     <span class="hljs-keyword">public</span> <span class="hljs-type">double</span>[] copyArr(<span class="hljs-type">double</span>[] arr) {
         <span class="hljs-type">double</span>[] arr2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">double</span>[arr.length];
-        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; arr.length; i++){
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; arr.length; i++){
             arr2[i] = arr[i]; 
         }
         <span class="hljs-keyword">return</span> arr2;
     }
-    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span>[] copyArr(<span class="hljs-type">double</span>[] arr) {
-        <span class="hljs-type">int</span>[] arr2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[arr.length];
-        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; arr.length; i++){
+    <span class="hljs-keyword">public</span> <span class="hljs-type">char</span>[] copyArr(<span class="hljs-type">char</span>[] arr) {
+        <span class="hljs-type">char</span>[] arr2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">char</span>[arr.length];
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; arr.length; i++){
             arr2[i] = arr[i]; 
         }
         <span class="hljs-keyword">return</span> arr2;
     }
     <span class="hljs-keyword">public</span> String[] copyArr(String[] arr) {
-        <span class="hljs-type">int</span>[] arr2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[arr.length];
-        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; arr.length; i++){
+        String[] arr2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[arr.length];
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; arr.length; i++){
             arr2[i] = arr[i]; 
         }
         <span class="hljs-keyword">return</span> arr2;
@@ -465,8 +467,8 @@ pre::-webkit-scrollbar {
 <pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Homework05</span> {
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
         <span class="hljs-type">Circle</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span>  <span class="hljs-keyword">new</span> <span class="hljs-title class_">Circle</span>(<span class="hljs-number">4</span>);
-        c.showC;
-        c.showS;
+        c.showC();
+        c.showS();
     }
 }
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">Circle</span> {
@@ -475,8 +477,8 @@ pre::-webkit-scrollbar {
     <span class="hljs-type">double</span> C;
     <span class="hljs-keyword">public</span> <span class="hljs-title function_">Circle</span><span class="hljs-params">(<span class="hljs-type">double</span> r)</span> {
         <span class="hljs-built_in">this</span>.r = r;
-        <span class="hljs-built_in">this</span>.S = <span class="hljs-number">3.14</span> * r * r;
-        <span class="hljs-built_in">this</span>.C = <span class="hljs-number">2</span> * <span class="hljs-number">3.14</span> * r;
+        <span class="hljs-built_in">this</span>.S = Math.PI * r * r;
+        <span class="hljs-built_in">this</span>.C = <span class="hljs-number">2</span> * Math.PI  * r;
     }
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showC</span><span class="hljs-params">()</span> {
         System.out.println(<span class="hljs-string">&quot;圆的周长为&quot;</span> + <span class="hljs-built_in">this</span>.C);
@@ -494,16 +496,16 @@ pre::-webkit-scrollbar {
         <span class="hljs-type">Cale</span> <span class="hljs-variable">sub</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cale</span>(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);
         <span class="hljs-type">Cale</span> <span class="hljs-variable">multi</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cale</span>(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);
         <span class="hljs-type">Cale</span> <span class="hljs-variable">div</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cale</span>(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);
-        System.out.println(<span class="hljs-string">&quot;add=&quot;</span> add.add());
-        System.out.println(<span class="hljs-string">&quot;sub=&quot;</span> sub.sub());
-        System.out.println(<span class="hljs-string">&quot;multi&quot;</span> multi.multi());
-        System.out.println(<span class="hljs-string">&quot;div&quot;</span> div.div());
+        System.out.println(<span class="hljs-string">&quot;add=&quot;</span> + add.add());
+        System.out.println(<span class="hljs-string">&quot;sub=&quot;</span> + sub.sub());
+        System.out.println(<span class="hljs-string">&quot;multi=&quot;</span> + multi.multi());
+        System.out.println(<span class="hljs-string">&quot;div=&quot;</span> + div.div());
     }
 }
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">Cale</span> {
     <span class="hljs-type">double</span> num1;
     <span class="hljs-type">double</span> num2;
-    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Cale</span><span class="hljs-params">(<span class="hljs-type">double</span> num1, <span class="hljs-type">double</span> numb2)</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Cale</span><span class="hljs-params">(<span class="hljs-type">double</span> num1, <span class="hljs-type">double</span> num2)</span> {
         <span class="hljs-built_in">this</span>.num1 = num1;
         <span class="hljs-built_in">this</span>.num2 = num2;
     }
@@ -516,10 +518,10 @@ pre::-webkit-scrollbar {
     <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">multi</span><span class="hljs-params">()</span> {
         <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.num1 * <span class="hljs-built_in">this</span>.num2;
     }
-    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">div</span><span class="hljs-params">()</span> {
+    <span class="hljs-keyword">public</span> Double <span class="hljs-title function_">div</span><span class="hljs-params">()</span> { <span class="hljs-comment">//包装类，可以返回空</span>
         <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.num2 == <span class="hljs-number">0</span>) {
-            System.out.println(<span class="hljs-string">&quot;除数不能为0&quot;</span>)
-            <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+            System.out.println(<span class="hljs-string">&quot;除数不能为0&quot;</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
         } <span class="hljs-keyword">else</span> {
             <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.num1 / <span class="hljs-built_in">this</span>.num2;
         }
@@ -553,17 +555,20 @@ pre::-webkit-scrollbar {
 <h3 id="8读代码">8）读代码</h3>
 <p><img src="https://raw.githubusercontent.com/Stolorzs/Picgo/master/8diqizhang.png" alt="alt text"></p>
 <pre><code class="language-java">count1 = <span class="hljs-number">10</span>
+count1 = <span class="hljs-number">9</span>
 count1 = <span class="hljs-number">10</span>
-count1 = <span class="hljs-number">11</span>
-<span class="hljs-comment">//最后count = 12</span>
+
+<span class="hljs-comment">//1）new.Text是匿名对象，没有名字的对象，只能用一次，使用后会被销毁</span>
+<span class="hljs-comment">//2）newText.count1();创建好匿名对象后，立即调用count1()</span>
+new.Text().count1(); 
 </code></pre>
 <h3 id="9music类">9）Music类</h3>
 <p><img src="https://raw.githubusercontent.com/Stolorzs/Picgo/master/9diqizhang.png" alt="alt text"></p>
 <pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Homework09</span> {
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
         <span class="hljs-type">Music</span> <span class="hljs-variable">m1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Music</span>(<span class="hljs-string">&quot;小天之歌&quot;</span>, <span class="hljs-number">10</span>);
-        m1.play;
-        m1.getInfo;
+        m1.play();
+        m1.getInfo();
     }
 }
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">Music</span> {
@@ -575,7 +580,7 @@ count1 = <span class="hljs-number">11</span>
     }
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">play</span><span class="hljs-params">()</span> {
         System.out.println(<span class="hljs-string">&quot;开始播放&quot;</span>);
-        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; <span class="hljs-type">int</span> &lt; <span class="hljs-number">11</span>; i++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">11</span>; i++) {
             System.out.println(<span class="hljs-string">&quot;~~~~~~&quot;</span>);
         }
         System.out.println(<span class="hljs-string">&quot;播放完毕&quot;</span>);
@@ -595,14 +600,159 @@ j=<span class="hljs-number">100</span>
 <span class="hljs-number">101</span>
 <span class="hljs-number">101</span>
 </code></pre>
-<h3 id="11">11</h3>
+<h3 id="11方法定义形式判断">11）方法定义形式判断</h3>
 <p><img src="https://raw.githubusercontent.com/Stolorzs/Picgo/master/11diqizhang.png" alt="alt text"></p>
-<h3 id="12">12</h3>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">method</span><span class="hljs-params">(<span class="hljs-type">double</span> a, <span class="hljs-type">double</span> b)</span> {}
+</code></pre>
+<h3 id="12employee类">12）Employee类</h3>
 <p><img src="https://raw.githubusercontent.com/Stolorzs/Picgo/master/12diqizhang.png" alt="alt text"></p>
-<h3 id="13">13</h3>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Homework12</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        
+    }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Employee</span> {
+    String name;
+    <span class="hljs-type">char</span> gender;
+    <span class="hljs-type">int</span> age;
+    String position;
+    <span class="hljs-type">int</span> salary;
+    <span class="hljs-comment">//要求复用构造器，先写少的构造器</span>
+    <span class="hljs-comment">//职位，薪水</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Employee</span><span class="hljs-params">(String position, <span class="hljs-type">int</span> salary)</span> {
+        <span class="hljs-built_in">this</span>.position = position;
+        <span class="hljs-built_in">this</span>.salary = salary;
+    }
+    <span class="hljs-comment">//名字，性别，年龄</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Employee</span><span class="hljs-params">(String name, <span class="hljs-type">char</span> gender, <span class="hljs-type">int</span> age)</span> {
+        <span class="hljs-built_in">this</span>.name = name;
+        <span class="hljs-built_in">this</span>.gender = gender;
+        <span class="hljs-built_in">this</span>.age = age;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Employee</span><span class="hljs-params">(Sring name, <span class="hljs-type">char</span> gender, <span class="hljs-type">int</span> age, String position, <span class="hljs-type">int</span> salary)</span> {
+        <span class="hljs-comment">//使用前面的构造器</span>
+        <span class="hljs-built_in">this</span>(name, gender, age);
+        <span class="hljs-comment">//this(参数)只能放在构造器第一行</span>
+        <span class="hljs-built_in">this</span>.position = position;
+        <span class="hljs-built_in">this</span>.salary = salary;
+    }
+}
+</code></pre>
+<h3 id="13圆类当作方法参数">13）圆类当作方法参数</h3>
 <p><img src="https://raw.githubusercontent.com/Stolorzs/Picgo/master/13diqizhang.png" alt="alt text"></p>
-<h3 id="14">14</h3>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Homework13</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">PassObject</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PassObject</span>();
+        <span class="hljs-type">Circle</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Circle</span>();
+        p.printArea(c, <span class="hljs-number">5</span>);
+    }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Circle</span> {
+    <span class="hljs-type">double</span> radius;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">findArea</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> Math.PI * radius * radius;
+    }
+    <span class="hljs-comment">//添加setRadius方法，用来修改半径</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setRadius</span><span class="hljs-params">(<span class="hljs-type">double</span> radius)</span> {
+        <span class="hljs-built_in">this</span>.radius = radius;
+    }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">PassObject</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">printArea</span><span class="hljs-params">(Circle c, <span class="hljs-type">int</span> times)</span> {
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt;= times; i ++) {
+            c.setRadius(i);
+            System.out.println(<span class="hljs-string">&quot;半径=&quot;</span> + i + <span class="hljs-string">&quot;时，面积=&quot;</span> + c.findArea());
+        }
+    }
+}
+</code></pre>
+<h3 id="14猜拳">14）猜拳</h3>
 <p><img src="https://raw.githubusercontent.com/Stolorzs/Picgo/master/14diqizhang.png" alt="alt text"></p>
+<blockquote>
+<p><code>Math.random()</code> = <code>[0,1)</code><br>
+<code>[0,2] = (int)(Math.random() * 3)</code></p>
+<p><a href="https://www.bilibili.com/video/BV1fh411y7R8?t=362.1&amp;p=262">空降</a></p>
+</blockquote>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E7%8C%9C%E6%8B%B3%E5%B0%8F%E6%B8%B8%E6%88%8F.html">猜拳小游戏</a></li>
+</ul>
+<pre><code class="language-java"><span class="hljs-keyword">import</span> java.util.Scanner;
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Homework14</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">Scanner</span> <span class="hljs-variable">myScanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);
+        <span class="hljs-type">Player</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Player</span>();
+        <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
+            System.out.println(<span class="hljs-string">&quot;猜拳：输入0出石头，输入1出剪刀，输入2出布，输入list查看输赢清单&quot;</span>);
+            <span class="hljs-comment">//接收值</span>
+            <span class="hljs-type">String</span> <span class="hljs-variable">accept</span> <span class="hljs-operator">=</span> myScanner.next();
+            <span class="hljs-keyword">if</span> (accept.equals(<span class="hljs-string">&quot;0&quot;</span>)||accept.equals(<span class="hljs-string">&quot;1&quot;</span>)||accept.equals(<span class="hljs-string">&quot;2&quot;</span>)) {
+                p.play(accept);
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (accept.equals(<span class="hljs-string">&quot;list&quot;</span>)) {
+                p.list();
+            } <span class="hljs-keyword">else</span> {
+                System.out.println(<span class="hljs-string">&quot;输出错误，请重新输入&quot;</span>);
+            }
+        }
+    }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Player</span> {
+    <span class="hljs-comment">//输赢的次数 </span>
+    <span class="hljs-type">int</span> <span class="hljs-variable">winCount</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-type">int</span> <span class="hljs-variable">lowCount</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-type">int</span> <span class="hljs-variable">drawCount</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-comment">//猜拳方法</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">play</span><span class="hljs-params">(String accept)</span> {
+        <span class="hljs-comment">//接收玩家数据 </span>
+        <span class="hljs-type">int</span> <span class="hljs-variable">numP</span> <span class="hljs-operator">=</span> Integer.parseInt(accept);
+        <span class="hljs-comment">//接受电脑数据 </span>
+        <span class="hljs-type">int</span> <span class="hljs-variable">numC</span> <span class="hljs-operator">=</span> (<span class="hljs-type">int</span>)(Math.random() * <span class="hljs-number">3</span>);
+        <span class="hljs-comment">//0&gt;1  1&gt;2  2&gt;0</span>
+        <span class="hljs-keyword">if</span> (numP == <span class="hljs-number">0</span>) {
+            System.out.print(<span class="hljs-string">&quot;你出了石头，&quot;</span>);
+            <span class="hljs-keyword">if</span> (numC == <span class="hljs-number">0</span>) {
+                System.out.println(<span class="hljs-string">&quot;电脑也出了石头，你们平局了&quot;</span>);
+                <span class="hljs-built_in">this</span>.drawCount++;
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (numC == <span class="hljs-number">1</span>) {
+                System.out.println(<span class="hljs-string">&quot;电脑出了剪刀，你赢了&quot;</span>);
+                <span class="hljs-built_in">this</span>.winCount++;
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (numC == <span class="hljs-number">2</span>) {
+                System.out.println(<span class="hljs-string">&quot;电脑出了布，你输了&quot;</span>);
+                <span class="hljs-built_in">this</span>.lowCount++;
+            }
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (numP == <span class="hljs-number">1</span>) {
+            System.out.print(<span class="hljs-string">&quot;你出了剪刀，&quot;</span>);
+            <span class="hljs-keyword">if</span> (numC == <span class="hljs-number">0</span>) {
+                System.out.println(<span class="hljs-string">&quot;电脑出了石头，你输了&quot;</span>);
+                <span class="hljs-built_in">this</span>.lowCount++;
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (numC == <span class="hljs-number">1</span>) {
+                System.out.println(<span class="hljs-string">&quot;电脑也出了剪刀，你们平局了&quot;</span>);
+                <span class="hljs-built_in">this</span>.drawCount++;
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (numC == <span class="hljs-number">2</span>) {
+                System.out.println(<span class="hljs-string">&quot;电脑出了布，你赢了&quot;</span>);
+                <span class="hljs-built_in">this</span>.winCount++;
+            }
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (numP == <span class="hljs-number">2</span>) {
+            System.out.print(<span class="hljs-string">&quot;你出了布，&quot;</span>);
+            <span class="hljs-keyword">if</span> (numC == <span class="hljs-number">0</span>) {
+                System.out.println(<span class="hljs-string">&quot;电脑出了石头，你赢了&quot;</span>);
+                <span class="hljs-built_in">this</span>.winCount++;
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (numC == <span class="hljs-number">1</span>) {
+                System.out.println(<span class="hljs-string">&quot;电脑出了剪刀，你输了&quot;</span>);
+                <span class="hljs-built_in">this</span>.lowCount++;
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (numC == <span class="hljs-number">2</span>) {
+                System.out.println(<span class="hljs-string">&quot;电脑也出了布，你们平局了&quot;</span>);
+                <span class="hljs-built_in">this</span>.drawCount++;
+            }
+        }
+    }
+    <span class="hljs-comment">//查看清单方法</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">list</span><span class="hljs-params">()</span> {
+        System.out.println(<span class="hljs-string">&quot;你一共赢了&quot;</span> + <span class="hljs-built_in">this</span>.winCount + <span class="hljs-string">&quot;次&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;你一共输了&quot;</span> + <span class="hljs-built_in">this</span>.lowCount + <span class="hljs-string">&quot;次&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;你一共平了&quot;</span> + <span class="hljs-built_in">this</span>.drawCount + <span class="hljs-string">&quot;次&quot;</span>);
+    }
+}
+</code></pre>
 
             
             <script async type="text/javascript">
