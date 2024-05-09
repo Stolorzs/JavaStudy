@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>Java</title>
+            <title>&#x591a;&#x6001;&#x7684;&#x5e94;&#x7528;</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -340,71 +340,342 @@ pre::-webkit-scrollbar {
             <span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<ul class="contains-task-list">
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox">  <a href="https://www.bilibili.com/video/BV1fh411y7R8?t=70.4&amp;p=343">进度</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%A8%A1%E6%9D%BF.html">模板</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E7%BB%83%E4%B9%A0%E9%A2%98.html">练习题</a></li>
-</ul>
-<h1 id="java">Java</h1>
-<h1 id="第一部分-java基础">第一部分 Java基础</h1>
-<ul class="contains-task-list">
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> 第一阶段：编程思想
-<ul class="contains-task-list">
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="Java%E6%A6%82%E8%BF%B0.html">Java概述</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E5%8F%98%E9%87%8F.html">变量</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E8%BF%90%E7%AE%97%E7%AC%A6.html">运算符</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84.html">控制结构</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE.html">数组、排序和查找</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.html">面向对象编程</a> #⭐️</li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <strong>项目</strong>
-<ul class="contains-task-list">
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E7%8C%9C%E6%8B%B3%E5%B0%8F%E6%B8%B8%E6%88%8F.html">猜拳小游戏</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E8%BF%B7%E5%AE%AB%E9%97%AE%E9%A2%98.html">迷宫问题</a> #❗️</li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E5%85%AB%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98.html">八皇后问题</a> #❗</li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%B1%89%E8%AF%BA%E5%A1%94">汉诺塔</a> #❗</li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E9%9B%B6%E9%92%B1%E9%80%9A.html">零钱通</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%88%BF%E5%B1%8B%E5%87%BA%E7%A7%9F%E7%B3%BB%E7%BB%9F.html">房屋出租系统</a></li>
+                <p><a href="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.html">返回</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a href="%E5%A4%9A%E6%80%81.html">多态</a></th>
+<th style="text-align:center"><a href="%E7%BB%83%E4%B9%A0%E9%A2%98-%E5%A4%9A%E6%80%81.html">练习题-多态</a></th>
+<th style="text-align:center"><a href="%E5%A4%9A%E6%80%81%E7%9A%84%E5%BA%94%E7%94%A8.html"><strong>多态的应用</strong></a></th>
+</tr>
+</thead>
+</table>
+<h1 id="多态的应用">多态的应用</h1>
+<ul>
+<li><a href="#%E5%A4%9A%E6%80%81%E7%9A%84%E5%BA%94%E7%94%A8">多态的应用</a>
+<ul>
+<li><a href="#%E5%A4%9A%E6%80%81%E6%95%B0%E7%BB%84">多态数组</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B-%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B">案例-向上转型</a></li>
+<li><a href="#%E6%A1%88%E4%BE%8B-%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B">案例-向下转型</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> 第二阶段：编程能力
-<ul class="contains-task-list">
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.html">面向对象编程</a> #⭐</li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3.html">枚举和注解</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E5%BC%82%E5%B8%B8.html">异常</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E5%B8%B8%E7%94%A8%E7%B1%BB.html">常用类</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E9%9B%86%E5%90%88.html">集合</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%B3%9B%E5%9E%8B.html">泛型</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E7%BA%BF%E7%A8%8B.html">线程</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="IO%E6%B5%81.html">IO流</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> 项目
-<ul class="contains-task-list">
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98.html">坦克大战</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> 第三阶段：分析和代码实现
-<ul class="contains-task-list">
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.html">网络编程</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E5%8F%8D%E5%B0%84.html">反射</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="Mysql%E5%9F%BA%E7%A1%80.html">Mysql基础</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="JDBC%E5%92%8C%E8%BF%9E%E6%8E%A5%E6%B1%A0.html">JDBC和连接池</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html">正则表达式</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> 项目
-<ul class="contains-task-list">
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E9%AA%91%E5%A3%AB%E5%91%A8%E6%B8%B8%E9%97%AE%E9%A2%98.html">骑士周游问题</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%BB%A1%E6%B1%89%E6%A5%BC.html">满汉楼</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E5%A4%9A%E7%94%A8%E6%88%B7%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F.html">多用户通信系统</a></li>
+<li><a href="#%E5%A4%9A%E6%80%81%E5%8F%82%E6%95%B0">多态参数</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B1-%E5%96%82%E5%8A%A8%E7%89%A9">案例1-喂动物</a></li>
+<li><a href="#%E6%A1%88%E4%BE%8B2">案例2</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h1 id="第二部分-java高级">第二部分 Java高级</h1>
+<h2 id="多态数组">多态数组</h2>
+<p><a href="%5Bhttps://%5D(https://www.bilibili.com/video/BV1fh411y7R8?t=68.8&amp;p=316)">空降</a></p>
+<p>介绍：数组的定义为<strong>父类类型</strong>，里面保存的实际元素类型为<strong>子类类型</strong></p>
+<h3 id="案例-向上转型">案例-向上转型</h3>
+<center>
+<pre style="all:unset;"><div class="mermaid">---
+title: 人类图
+---
+classDiagram
+    Person &lt;|-- Student
+    Person &lt;|-- Teacher
+    class Person {
+        -name String
+        -age int
+        +say()String
+    }
+    class Student {
+        -socre double
+    }
+    class Teacher {
+        -salary double
+    }</div></pre>
+</center>
+<blockquote>
+<p>继承结构如上，要求创建1个Person对象、2个Student对象和2个Teacher对象，统一放在一个数组中，并调用每个对象的say方法</p>
+</blockquote>
+<details>
+<summary>Text</summary>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.poly.polyarray;
 
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Text</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        Person[] persons = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>[<span class="hljs-number">5</span>];
+        persons[<span class="hljs-number">0</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(<span class="hljs-string">&quot;jack&quot;</span>, <span class="hljs-number">20</span>);
+        persons[<span class="hljs-number">1</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>(<span class="hljs-string">&quot;jack&quot;</span>, <span class="hljs-number">18</span>, <span class="hljs-number">100</span>);
+        persons[<span class="hljs-number">2</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>(<span class="hljs-string">&quot;smith&quot;</span>, <span class="hljs-number">19</span>, <span class="hljs-number">30.1</span>);
+        persons[<span class="hljs-number">3</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Teacher</span>(<span class="hljs-string">&quot;scott&quot;</span>, <span class="hljs-number">30</span>, <span class="hljs-number">20000</span>);
+        persons[<span class="hljs-number">4</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Teacher</span>(<span class="hljs-string">&quot;king&quot;</span>, <span class="hljs-number">50</span>, <span class="hljs-number">25000</span>);
+        <span class="hljs-comment">//循环遍历多态数组，调用say方法</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt;persons.length; i++) {
+            <span class="hljs-comment">//person[i]编译类型是Person，运行类型根据实际情况变化</span>
+            System.out.println(persons[i].say());<span class="hljs-comment">//动态绑定机制</span>
+        }
+    }
+}
+</code></pre>
+</details>
+<details><summary>Person</summary>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.poly.polyarray;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> {
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> age;
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Person</span><span class="hljs-params">(String name, <span class="hljs-type">int</span> age)</span> {
+        <span class="hljs-built_in">this</span>.name = name;
+        <span class="hljs-built_in">this</span>.age = age;
+    }
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> name;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String name)</span> {
+        <span class="hljs-built_in">this</span>.name = name;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getAge</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> age;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setAge</span><span class="hljs-params">(<span class="hljs-type">int</span> age)</span> {
+        <span class="hljs-built_in">this</span>.age = age;
+    }
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">say</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> name + <span class="hljs-string">&quot;\t&quot;</span> +  age;
+    }
+}
+</code></pre>
+</details>
+<details><summary>Teacher</summary>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.poly.polyarray;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Teacher</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Person</span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-type">double</span> salary;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Teacher</span><span class="hljs-params">(String name, <span class="hljs-type">int</span> age, <span class="hljs-type">double</span> salary)</span> {
+        <span class="hljs-built_in">super</span>(name, age);
+        <span class="hljs-built_in">this</span>.salary = salary;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getSalary</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> salary;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setSalary</span><span class="hljs-params">(<span class="hljs-type">double</span> salary)</span> {
+        <span class="hljs-built_in">this</span>.salary = salary;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">say</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">super</span>.say() + <span class="hljs-string">&quot; salary=&quot;</span> + salary;
+    }
+}
+
+</code></pre>
+</details>
+<details><summary>Student</summary>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.poly.polyarray;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Person</span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-type">double</span> score;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Student</span><span class="hljs-params">(String name, <span class="hljs-type">int</span> age, <span class="hljs-type">double</span> score)</span> {
+        <span class="hljs-built_in">super</span>(name, age);
+        <span class="hljs-built_in">this</span>.score = score;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getScore</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> score;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setScore</span><span class="hljs-params">(<span class="hljs-type">double</span> score)</span> {
+        <span class="hljs-built_in">this</span>.score = score;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">say</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">super</span>.say() + <span class="hljs-string">&quot; score=&quot;</span> + score;
+    }
+}
+</code></pre>
+</details>
+<h3 id="案例-向下转型">案例-向下转型</h3>
+<p>如果需要调用子类各自<strong>特有方法</strong></p>
+<details><summary>Text</summary>
+<pre><code class="language-java"><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt;persons.length; i++) {
+    <span class="hljs-comment">//person[i]编译类型是Person，运行类型根据实际情况变化</span>
+    System.out.println(persons[i].say());<span class="hljs-comment">//动态绑定机制</span>
+    <span class="hljs-comment">//如何调用老师和学生各自特殊的方法</span>
+    <span class="hljs-keyword">if</span>(persons[i] <span class="hljs-keyword">instanceof</span> Student) { <span class="hljs-comment">//判断Person的运行类型</span>
+        ((Student)persons[i]).study();
+        <span class="hljs-comment">// 拆解如下</span>
+        <span class="hljs-comment">// Student student = (Student) persons[i];</span>
+        <span class="hljs-comment">// student.study();</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (persons[i] <span class="hljs-keyword">instanceof</span> Teacher) {
+        ((Teacher)persons[i]).teach();
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (persons[i] instanceOf Person) {
+        <span class="hljs-comment">// 做任何处理</span>
+    } <span class="hljs-keyword">else</span> {
+        System.out.println(<span class="hljs-string">&quot;类型有误，请自己检查&quot;</span>);
+    }
+}
+</code></pre>
+</details>
+<details><summary>Teacehr</summary>
+<pre><code class="language-java"><span class="hljs-comment">//特有方法</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">teach</span><span class="hljs-params">()</span> {
+    System.out.println(<span class="hljs-string">&quot;老师 &quot;</span> + getName() + <span class="hljs-string">&quot;正在授课&quot;</span>);
+}
+</code></pre>
+</details>
+<details><summary>Student</summary>
+<pre><code class="language-java"><span class="hljs-comment">//特有方法</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">study</span><span class="hljs-params">()</span> {
+    System.out.println(<span class="hljs-string">&quot;学生 &quot;</span> + getName() + <span class="hljs-string">&quot;正在学习...&quot;</span>);
+}
+</code></pre>
+</details>
+<h2 id="多态参数">多态参数</h2>
+<p><strong>多态参数</strong>：方法定义的<strong>形参类型</strong>为父类类型，<strong>实参类型</strong>允许为子类类型</p>
+<h3 id="案例1-喂动物">案例1-喂动物</h3>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Master</span> {
+    <span class="hljs-comment">//animal 编译类型是Animal，可以指向其子类的对象</span>
+    <span class="hljs-comment">//food 编译类型是Food，可以指向其子类的对象</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">feed</span><span class="hljs-params">(Animal animal, Food food)</span> {
+        System.out.println(<span class="hljs-string">&quot;主人 &quot;</span> + name + <span class="hljs-string">&quot; 给 &quot;</span>
+        + animal.getName() + <span class="hljs-string">&quot; 吃 &quot;</span> +  food.getName );
+    }
+}
+<span class="hljs-keyword">public</span> Text {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-comment">//向上转型</span>
+        <span class="hljs-type">Animal</span> <span class="hljs-variable">dog</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Dog</span>();
+        <span class="hljs-type">Food</span> <span class="hljs-variable">bone</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Bone</span>();
+        <span class="hljs-type">Master</span> <span class="hljs-variable">master</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Master</span>();
+        <span class="hljs-comment">//多态参数，给狗喂骨头</span>
+        master.feed(Animal dog, Food bone);
+    }
+}
+</code></pre>
+<h3 id="案例2">案例2</h3>
+<p><code>PolyParameter.java</code></p>
+<blockquote>
+<p>定义员工类<strong>Employee</strong>，包含<strong>姓名</strong>和<strong>月工资</strong>[private]，以及计算年工资<strong>getAnnual</strong>的方法。<strong>普通员工</strong>和<strong>经理</strong>继承了<strong>员工</strong>，经理类多了奖金<strong>bonus</strong>属性和管理<strong>manage</strong>方法，普通员工类多了<strong>work</strong>方法，普通员工和经理类要求分别重写<strong>getAnnual</strong>方法</p>
+</blockquote>
+<blockquote>
+<p>测试类中添加一个方法<strong>showEmpAnnual(Employee e)</strong>，实现获取任何员工对象的<strong>年工资</strong>，并在<strong>main</strong>方法中调用该方法[<strong>e.getAnnual()</strong>]</p>
+</blockquote>
+<blockquote>
+<p>测试类中添加一个方法，<strong>testWork</strong>，如果是普通员工，则调用<strong>work</strong>方法，如果是经理，则调用<strong>manage</strong>方法</p>
+</blockquote>
+<details><summary>Text</summary>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.poly.polyparameter;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">Test</span> <span class="hljs-variable">test</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Test</span>();
+
+        <span class="hljs-type">Employee</span> <span class="hljs-variable">e1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Employee</span>(<span class="hljs-string">&quot;小天&quot;</span>, <span class="hljs-number">1000</span>);
+        <span class="hljs-type">Employee</span> <span class="hljs-variable">o1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">OrdEmployee</span>(<span class="hljs-string">&quot;大地&quot;</span>, <span class="hljs-number">100</span>);
+        <span class="hljs-type">Employee</span> <span class="hljs-variable">m1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Manager</span>(<span class="hljs-string">&quot;中宇&quot;</span>, <span class="hljs-number">6000</span>, <span class="hljs-number">50000</span>);
+        test.showEmpAnnual(e1);
+        test.showEmpAnnual(o1);
+        test.showEmpAnnual(m1);
+        test.testWork(e1);
+        test.testWork(o1);
+        test.testWork(m1);
+    }
+    <span class="hljs-keyword">void</span> <span class="hljs-title function_">showEmpAnnual</span><span class="hljs-params">(Employee e)</span> {
+        System.out.println(e.getName() + <span class="hljs-string">&quot; 的年薪=&quot;</span>+ e.getAnnul());
+    }
+    <span class="hljs-keyword">void</span> <span class="hljs-title function_">testWork</span><span class="hljs-params">(Employee e)</span> {
+        <span class="hljs-keyword">if</span>(e <span class="hljs-keyword">instanceof</span> OrdEmployee) {
+            ((OrdEmployee) e).work();
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (e <span class="hljs-keyword">instanceof</span> Manager) {
+            ((Manager) e).manage();
+        } <span class="hljs-keyword">else</span> {
+            System.out.println(e.getName() + <span class="hljs-string">&quot; 没在工作&quot;</span>);
+        }
+    }
+}
+</code></pre>
+</details>
+<details><summary>Employee</summary>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.poly.polyparameter;
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Employee</span> {
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">double</span> salary;
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Employee</span><span class="hljs-params">(String name, <span class="hljs-type">double</span> salary)</span> {
+        <span class="hljs-built_in">this</span>.name = name;
+        <span class="hljs-built_in">this</span>.salary = salary;
+    }
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> name;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String name)</span> {
+        <span class="hljs-built_in">this</span>.name = name;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getSalary</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> salary;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setSalary</span><span class="hljs-params">(<span class="hljs-type">double</span> salary)</span> {
+        <span class="hljs-built_in">this</span>.salary = salary;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getAnnul</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">12</span> * salary;
+    }
+}
+</code></pre>
+</details> 
+<details><summary>OrdEmploee</summary>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.poly.polyparameter;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OrdEmployee</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Employee</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">OrdEmployee</span><span class="hljs-params">(String name, <span class="hljs-type">double</span> salary)</span> {
+        <span class="hljs-built_in">super</span>(name, salary);
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">work</span><span class="hljs-params">()</span> {
+        System.out.println(<span class="hljs-string">&quot;普通员工 &quot;</span>+ getName() + <span class="hljs-string">&quot;在工作...&quot;</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getAnnul</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">super</span>.getAnnul();
+    }
+}
+</code></pre>
+</details>
+<details><summary>Manager</summary>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.poly.polyparameter;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Manager</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Employee</span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-type">double</span> bonus;
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Manager</span><span class="hljs-params">(String name, <span class="hljs-type">double</span> salary, <span class="hljs-type">double</span> bonus)</span> {
+        <span class="hljs-built_in">super</span>(name, salary);
+        <span class="hljs-built_in">this</span>.bonus = bonus;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getBonus</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> bonus;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setBonus</span><span class="hljs-params">(<span class="hljs-type">double</span> bonus)</span> {
+        <span class="hljs-built_in">this</span>.bonus = bonus;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">manage</span><span class="hljs-params">()</span> {
+        System.out.println(<span class="hljs-string">&quot;经理 &quot;</span> + getName() + <span class="hljs-string">&quot;在管理...&quot;</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getAnnul</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">super</span>.getAnnul() + bonus;
+    }
+}
+</code></pre>
+</details>
             
             <script async type="text/javascript">
 /* From extension bierner.markdown-mermaid */

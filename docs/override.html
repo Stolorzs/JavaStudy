@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>Java</title>
+            <title>override</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -341,69 +341,93 @@ pre::-webkit-scrollbar {
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<ul class="contains-task-list">
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox">  <a href="https://www.bilibili.com/video/BV1fh411y7R8?t=70.4&amp;p=343">进度</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%A8%A1%E6%9D%BF.html">模板</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E7%BB%83%E4%B9%A0%E9%A2%98.html">练习题</a></li>
-</ul>
-<h1 id="java">Java</h1>
-<h1 id="第一部分-java基础">第一部分 Java基础</h1>
-<ul class="contains-task-list">
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> 第一阶段：编程思想
-<ul class="contains-task-list">
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="Java%E6%A6%82%E8%BF%B0.html">Java概述</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E5%8F%98%E9%87%8F.html">变量</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E8%BF%90%E7%AE%97%E7%AC%A6.html">运算符</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84.html">控制结构</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%95%B0%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E5%92%8C%E6%9F%A5%E6%89%BE.html">数组、排序和查找</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.html">面向对象编程</a> #⭐️</li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <strong>项目</strong>
-<ul class="contains-task-list">
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E7%8C%9C%E6%8B%B3%E5%B0%8F%E6%B8%B8%E6%88%8F.html">猜拳小游戏</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E8%BF%B7%E5%AE%AB%E9%97%AE%E9%A2%98.html">迷宫问题</a> #❗️</li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E5%85%AB%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98.html">八皇后问题</a> #❗</li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%B1%89%E8%AF%BA%E5%A1%94">汉诺塔</a> #❗</li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E9%9B%B6%E9%92%B1%E9%80%9A.html">零钱通</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%88%BF%E5%B1%8B%E5%87%BA%E7%A7%9F%E7%B3%BB%E7%BB%9F.html">房屋出租系统</a></li>
+<p><a href="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.html">返回</a></p>
+<p><a href="overload.html">overload</a></p>
+<h1 id="override">override</h1>
+<ul>
+<li><a href="#override">override</a>
+<ul>
+<li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
+<li><a href="#%E6%A1%88%E4%BE%8B%E5%85%A5%E9%97%A8">案例入门</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E7%BB%86%E8%8A%82">使用细节</a></li>
+<li><a href="#%E5%92%8C%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD%E7%9A%84%E6%AF%94%E8%BE%83">和方法重载的比较</a></li>
 </ul>
 </li>
 </ul>
-</li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> 第二阶段：编程能力
-<ul class="contains-task-list">
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.html">面向对象编程</a> #⭐</li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3.html">枚举和注解</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E5%BC%82%E5%B8%B8.html">异常</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E5%B8%B8%E7%94%A8%E7%B1%BB.html">常用类</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E9%9B%86%E5%90%88.html">集合</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%B3%9B%E5%9E%8B.html">泛型</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E7%BA%BF%E7%A8%8B.html">线程</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="IO%E6%B5%81.html">IO流</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> 项目
-<ul class="contains-task-list">
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98.html">坦克大战</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> 第三阶段：分析和代码实现
-<ul class="contains-task-list">
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.html">网络编程</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E5%8F%8D%E5%B0%84.html">反射</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="Mysql%E5%9F%BA%E7%A1%80.html">Mysql基础</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="JDBC%E5%92%8C%E8%BF%9E%E6%8E%A5%E6%B1%A0.html">JDBC和连接池</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html">正则表达式</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> 项目
-<ul class="contains-task-list">
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E9%AA%91%E5%A3%AB%E5%91%A8%E6%B8%B8%E9%97%AE%E9%A2%98.html">骑士周游问题</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E6%BB%A1%E6%B1%89%E6%A5%BC.html">满汉楼</a></li>
-<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <a href="%E5%A4%9A%E7%94%A8%E6%88%B7%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F.html">多用户通信系统</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="第二部分-java高级">第二部分 Java高级</h1>
+<h2 id="介绍">介绍</h2>
+<p><strong>方法重写或方法覆盖</strong>：override就是子类中有一个方法，和父类的某个方法名称、返回类型、参数一样，那么就是子类的这个方法覆盖了父类的那个方法（<strong>就近原则</strong>）<br>
+----&gt;即优先调用近的</p>
+<h2 id="案例入门">案例入门</h2>
+<pre style="all:unset;"><div class="mermaid">graph LR;
+
+subgraph A[A类]
+    A1["……"]
+end
+subgraph B[B类]
+    B2["void cry()"]
+end
+subgraph C[C类]
+    C2[……]
+end
+subgraph D[D类]
+    D2["void cry()"]
+end
+subgraph E[E类]
+    E2[……]
+end
+B--&gt;|extends|A
+C--&gt;|extends|A
+D--extends--&gt;B
+E--extends--&gt;C
+
+D2--&gt;|"D类重写了\nB类的方法"|B2</div></pre>
+<h2 id="使用细节">使用细节</h2>
+<p>方法重写也叫方法覆盖，需要满足以下条件：<br>
+1）子类的方法<font color="pink">参数、方法名称</font>要和父类方法的参数，方法名称<strong>完全一样</strong><br>
+2）子类的返回类型和父类方法<strong>返回类型</strong>一样，或者是父类返回类型的子类</p>
+<pre><code class="language-java"><span class="hljs-comment">//String… 可重写 Object…</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Animals</span> {
+    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">getInfo</span><span class="hljs-params">()</span>{} <span class="hljs-comment">//父类的方法</span>
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Animals</span> {
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getInfo</span><span class="hljs-params">()</span>{} <span class="hljs-comment">//子类的方法</span>
+}
+</code></pre>
+<p>3）子类方法不能缩小父类方法的访问权限</p>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> &gt; <span class="hljs-keyword">protected</span> &gt; 默认 &gt; <span class="hljs-keyword">private</span>
+</code></pre>
+<h2 id="和方法重载的比较">和方法重载的比较</h2>
+<p><a href="overload.html">方法重载</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">范围</th>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">参数列表</th>
+<th style="text-align:center">返回类型</th>
+<th style="text-align:center">修饰符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">overload</td>
+<td style="text-align:center">本类</td>
+<td style="text-align:center"><strong>相同</strong></td>
+<td style="text-align:center">类型、个数、顺序至少有一个不同</td>
+<td style="text-align:center">无要求</td>
+<td style="text-align:center">无要求</td>
+</tr>
+<tr>
+<td style="text-align:center">override</td>
+<td style="text-align:center">父子类</td>
+<td style="text-align:center"><strong>相同</strong></td>
+<td style="text-align:center"><strong>相同</strong></td>
+<td style="text-align:center"><strong>相同</strong>或继承</td>
+<td style="text-align:center">不能缩小父类范围</td>
+</tr>
+</tbody>
+</table>
 
             
             <script async type="text/javascript">

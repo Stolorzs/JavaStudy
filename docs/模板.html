@@ -344,6 +344,7 @@ pre::-webkit-scrollbar {
 <ul>
 <li><a href="%5Bhttps://%5D(https://zhuanlan.zhihu.com/p/627356428)">mermaid绘图</a></li>
 </ul>
+<script src="https://gist.github.com/Ashton-W/864d09d71f7cb8e5b47ebaac02b98455.js"></script>
 <pre style="all:unset;"><div class="mermaid">classDiagram
 Class01 &lt;|-- AveryLongClass : Cool
 Class03 *-- Class04
@@ -486,7 +487,88 @@ block-beta
     style Da fill:#500,stroke:#500;
 %%====蓝色====
     style Fa fill:#249,stroke:#249;</div></pre>
+<pre style="all:unset;"><div class="mermaid">---
+title: Animal example
+---
+classDiagram
+    note "From Duck till Zebra"
+    Animal &lt;|-- Duck
+    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
+    Animal &lt;|-- Fish
+    Animal &lt;|-- Zebra
+    Animal : +int age
+    Animal : +String gender
+    Animal: +isMammal()
+    Animal: +mate()
+    class Duck{
+        +String beakColor
+        +swim()
+        +quack()
+    }
+    class Fish{
+        -int sizeInFeet
+        -canEat()
+    }
+    class Zebra{
+        +bool is_wild
+        +run()
+    }</div></pre>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>切换代码框</title>
+    <style>
+        .code-box {
+            display: none; /* 默认隐藏 */
+        }
+    </style>
+</head>
+<body>
+    <button onclick="showCodeBox(1)">显示代码框 1</button>
+    <button onclick="showCodeBox(2)">显示代码框 2</button>
+    <button onclick="showCodeBox(3)">显示代码框 3</button>
+    <button onclick="showCodeBox(4)">显示代码框 4</button>
+    <div id="code-box-1" class="code-box" style="display: block;">
+        <pre><code>// 这是代码框 1 的内容
+alert("Hello, world!");
+        </code></pre>
+    </div>
+    <div id="code-box-2" class="code-box">
+        <pre><code>// 这是代码框 2 的内容
+console.log("Hello, world!");
+        </code></pre>
+    </div>
+    <div id="code-box-3" class="code-box">
+        <pre><code>// 这是代码框 3 的内容
+document.write("Hello, world!");
+        </code></pre>
+    </div>
+    <div id="code-box-4" class="code-box">
+        <pre><code>// 这是代码框 4 的内容
+console.error("Hello, world!");
+        </code></pre>
+    </div>
+    <script>
+        function showCodeBox(boxNumber) {
+            // 隐藏所有代码框
+            var codeBoxes = document.getElementsByClassName('code-box');
+            for (var i = 0; i < codeBoxes.length; i++) {
+                codeBoxes[i].style.display = 'none';
+            }
+            // 显示指定的代码框
+            var codeBox = document.getElementById('code-box-' + boxNumber);
+            if (codeBox) {
+                codeBox.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
+<details><summary>Text</summary>
+<pre><code class="language-java">
 
+</code></pre>
+</details>
             
             <script async type="text/javascript">
 /* From extension bierner.markdown-mermaid */

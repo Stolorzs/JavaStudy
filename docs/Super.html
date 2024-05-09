@@ -347,7 +347,8 @@ pre::-webkit-scrollbar {
 <ul>
 <li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
 <li><a href="#%E8%AF%AD%E6%B3%95">语法</a></li>
-<li><a href="#%E6%A1%88%E4%BE%8B">案例</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E7%BB%86%E8%8A%82">使用细节</a></li>
+<li><a href="#%E5%92%8Cthis%E6%AF%94%E8%BE%83">和this比较</a></li>
 </ul>
 </li>
 </ul>
@@ -388,7 +389,78 @@ pre::-webkit-scrollbar {
     }
 }
 </code></pre>
-<h2 id="案例">案例</h2>
+<h2 id="使用细节">使用细节</h2>
+<p>1）调用父类构造器的好处：分工明确，<strong>父类属性由父初始化</strong>，<strong>子类属性由子类初始化</strong></p>
+<p>2）当子类中有和父类中的成员(属性和方法)<strong>重名时</strong>，为了访问父类的成员，必须通过super。<strong>如果没有重名</strong>，使用super、this、直接访问是一样的效果</p>
+<center> 
+<font color="pink">子类成员继承关系图</font>
+<pre style="all:unset;"><div class="mermaid">graph BT;
+subgraph a["&lt;font color="Cyan"&gt;Animal&lt;/font&gt;"]
+    a2("run()")
+    a1("sleep()")
+    a3("eat()")
+end
+subgraph b["&lt;font color="pink"&gt;Cat&lt;/font&gt;"]
+    b1("eat()方法重写")
+    b2("catchMouse()")
+    b3("&lt;font color="cyan"&gt;super&lt;/font&gt;.eat()")
+    b3--&gt;|super 跳过本类|a3
+end
+subgraph c["&lt;font color="pink"&gt;Cat&lt;/font&gt; cat = new  &lt;font color="pink"&gt;Cat()&lt;/font&gt; 外部调用"]
+    c1["cat.eat()"]
+    c2["cat.run()"]
+    c3["cat.catchMouse()"]
+    c4["cat.()"]
+end
+c1--&gt;|&lt;font color="pink"&gt;就 近 原 则 &lt;/font&gt;|b1
+c2--&gt;|在Cat没有找到------&gt;\n&lt;font color="Cyan"&gt;就 近 原 则&lt;/font&gt;\n向 上 查 找|a2
+c~~~b
+b--&gt;|extends|a
+c3--&gt;|特殊成员|b2</div></pre>
+</center>
+<pre><code class="language-java">在父类中查找 方法 或 属性 的顺序：
+<span class="hljs-number">1</span>）先找本类，如果有则调用
+<span class="hljs-number">2</span>）如果没有，找父类，有且可以调用则调用
+<span class="hljs-number">3</span>）如果父类没有，则继续向上直到Object类
+提示：
+<span class="hljs-number">1</span>）在查找的过程中，如果找到了，但不访问，则报错
+<span class="hljs-number">2</span>）在查找的过程中，没有找到，则提示方法不存在
+<span class="hljs-built_in">this</span>.call(); 等价于 call();
+<span class="hljs-built_in">super</span>.call(); 直接从父类开始查找，跳过本类
+</code></pre>
+<p>3）suepr的访问不限于直接父类，如果<strong>爷爷类和本类中有同名的成员</strong>，也可以使用super去访问，如果多个基类中都有同名的成员，则使用super访问遵循<strong>就近原则</strong></p>
+<h2 id="和this比较">和this比较</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">this</th>
+<th style="text-align:center">super</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">访问属性</td>
+<td style="text-align:center">访问本类属性，没有此属性则从父中继续查找</td>
+<td style="text-align:center">跳过本类，按照就近原则从父类开始查找属性</td>
+</tr>
+<tr>
+<td style="text-align:center">调用方法</td>
+<td style="text-align:center">同上</td>
+<td style="text-align:center">同上</td>
+</tr>
+<tr>
+<td style="text-align:center">调用构造器</td>
+<td style="text-align:center">调用本类构造器，必须放在首行</td>
+<td style="text-align:center">调用父类的构造器，必须放首行</td>
+</tr>
+<tr>
+<td style="text-align:center">特殊</td>
+<td style="text-align:center">表示当前对象</td>
+<td style="text-align:center">子类中访问父类</td>
+</tr>
+</tbody>
+</table>
 
             
             <script async type="text/javascript">

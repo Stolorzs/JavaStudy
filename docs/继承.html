@@ -442,7 +442,7 @@ E--extends--&gt;C</div></pre>
 <p>2）子类<strong>必须</strong>调用<strong>父类的构造器</strong>，完成父类的初始化：创建子类时，会先调用Base()，再调用Sub()</p>
 <pre><code class="language-java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> {
     <span class="hljs-keyword">public</span> <span class="hljs-title function_">Base</span><span class="hljs-params">()</span> {
-
+        <span class="hljs-built_in">super</span>();<span class="hljs-comment">//父类仍有隐藏的super</span>
     }
 }
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">Sub</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Base</span> {
@@ -619,7 +619,32 @@ block-beta
     %% style Da fill:#500,stroke:#500;
 %%====蓝色====
     %% style Fa fill:#249,stroke:#249;</div></pre>
-
+<center> 
+<font color="pink">子类成员继承关系图</font>
+<pre style="all:unset;"><div class="mermaid">graph BT;
+subgraph a["&lt;font color="Cyan"&gt;Animal&lt;/font&gt;"]
+    a2("run()")
+    a1("sleep()")
+    a3("eat()")
+end
+subgraph b["&lt;font color="pink"&gt;Cat&lt;/font&gt;"]
+    b1("eat()方法重写")
+    b2("catchMouse()")
+    b3("&lt;font color="cyan"&gt;super&lt;/font&gt;.eat()")
+    b3--&gt;|super 跳过本类|a3
+end
+subgraph c["&lt;font color="pink"&gt;Cat&lt;/font&gt; cat = new  &lt;font color="pink"&gt;Cat()&lt;/font&gt; 外部调用"]
+    c1["cat.eat()"]
+    c2["cat.run()"]
+    c3["cat.catchMouse()"]
+    c4["cat.()"]
+end
+c1--&gt;|&lt;font color="pink"&gt;就 近 原 则 &lt;/font&gt;|b1
+c2--&gt;|在Cat没有找到------&gt;\n&lt;font color="Cyan"&gt;就 近 原 则&lt;/font&gt;\n向 上 查 找|a2
+c~~~b
+b--&gt;|extends|a
+c3--&gt;|特殊成员|b2</div></pre>
+</center>
             
             <script async type="text/javascript">
 /* From extension bierner.markdown-mermaid */

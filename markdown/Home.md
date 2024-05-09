@@ -1,6 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-- [ ]  [进度](https://www.bilibili.com/video/BV1fh411y7R8?t=81.0&p=252)     
+- [ ]  [进度](https://www.bilibili.com/video/BV1fh411y7R8?t=70.4&p=343)     
 - [ ] [模板](模板.md)
 - [ ] [练习题](练习题.md)  
 # Java
@@ -22,7 +22,7 @@
 		- [ ] [零钱通](零钱通.md) 
 		- [ ] [房屋出租系统](房屋出租系统.md) 
 - [ ] 第二阶段：编程能力 
-	- [ ] [面向对象编程](面向对象编程.md) 
+	- [ ] [面向对象编程](面向对象编程.md) #⭐
 	- [ ] [枚举和注解](枚举和注解.md) 
 	- [ ] [异常](异常.md) 
 	- [ ] [常用类](常用类.md)  

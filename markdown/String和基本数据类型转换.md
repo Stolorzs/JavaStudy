@@ -1,17 +1,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-[返回](变量.md)  
+[返回目录](home.md)  
+
+|[变量](变量.md)|[数据类型](数据类型.md)|[基本数据类型转换](基本数据类型转换.md)|[**String和基本数据类型转换**](String和基本数据类型转换.md)|
+|:-:|:-:|:-:|:-:|
+|||[练习题](练习题-数据类型转换.md)||
 
 # String和基本数据类型的转换
 
 - [String和基本数据类型的转换](#string和基本数据类型的转换)
-	- [基本数据类型—»字符串(String)](#基本数据类型字符串string)
-	- [字符串(String)—»基本数据类型](#字符串string基本数据类型)
-	- [字符串—»字符](#字符串字符)
+	- [基本数据类型--\>字符串(String)](#基本数据类型--字符串string)
+	- [字符串(String)--\>基本数据类型](#字符串string--基本数据类型)
+	- [字符串--\>字符](#字符串--字符)
 	- [注意事项](#注意事项)
 
 
-## 基本数据类型—»字符串(String)
+## 基本数据类型-->字符串(String)
 - 语法：基本数据类型+`""`即可
 ```java
 int n1 = 100;
@@ -25,7 +29,7 @@ String s1 = b1 + "";
 System.out.printfl(s1 + "" + s1 + "" + s3 + "" + s4);
 ```
 
-## 字符串(String)—»基本数据类型
+## 字符串(String)-->基本数据类型
 - 语法：通过基本数据类型的**包装类**调用`parseXX`方法即可
 ```java
 String s5 = "123";
@@ -43,7 +47,7 @@ System.out.println(num1 + 1); //输出124
 System.out.println(s5 + 1); //输出1231
 ```
 
-## 字符串—»字符
+## 字符串-->字符
 - 在计算机中的含义：取第一个字符
 ```java
 String s5 = "123";

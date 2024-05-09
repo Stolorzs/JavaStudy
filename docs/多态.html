@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title></title>
+            <title>&#x591a;&#x6001;</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -130,7 +130,8 @@ body.marp-vscode blockquote {
 }
 
 </style>
-            
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
 <style>
@@ -340,10 +341,327 @@ pre::-webkit-scrollbar {
             <span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <hr>
-<hr>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<p><a href="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.html">返回</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a href="%E5%A4%9A%E6%80%81.html"><strong>多态</strong></a></th>
+<th style="text-align:center"><a href="%E7%BB%83%E4%B9%A0%E9%A2%98-%E5%A4%9A%E6%80%81.html">练习题-多态</a></th>
+<th style="text-align:center"><a href="%E5%A4%9A%E6%80%81%E7%9A%84%E5%BA%94%E7%94%A8.html">多态的应用</a></th>
+</tr>
+</thead>
+</table>
+<h1 id="多态">多态</h1>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>o</mi><mi>l</mi><mi>y</mi><mi>m</mi><mi>o</mi><mi>r</mi><mi>p</mi><mi>h</mi><mi>i</mi><mi>c</mi></mrow><annotation encoding="application/x-tex">Polymorphic</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal">m</span><span class="mord mathnormal" style="margin-right:0.02778em;">or</span><span class="mord mathnormal">p</span><span class="mord mathnormal">hi</span><span class="mord mathnormal">c</span></span></span></span></p>
+<ul>
+<li><a href="#%E5%A4%9A%E6%80%81">多态</a>
+<ul>
+<li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
+<li><a href="#%E5%A4%9A%E6%80%81%E7%9A%84%E5%85%B7%E4%BD%93%E4%BD%93%E7%8E%B0">多态的具体体现</a>
+<ul>
+<li><a href="#1%E6%96%B9%E6%B3%95%E7%9A%84%E5%A4%9A%E6%80%81">1）方法的多态</a></li>
+<li><a href="#2%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%A4%9A%E6%80%81">2）对象的多态</a></li>
+</ul>
+</li>
+<li><a href="#%E6%A1%88%E4%BE%8B%E5%85%A5%E9%97%A8">案例入门</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E7%BB%86%E8%8A%82">使用细节</a>
+<ul>
+<li><a href="#1%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B">1）向上转型</a></li>
+<li><a href="#2%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B">2）向下转型</a></li>
+<li><a href="#%E5%B1%9E%E6%80%A7%E6%97%A0%E9%87%8D%E5%86%99%E5%92%8Cinstanceof">属性无重写和instanceOf</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E6%9C%BA%E5%88%B6">动态绑定机制</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="介绍">介绍</h2>
+<p>传统方法代码复用性不高，不利于代码的维护</p>
+<p><strong>多态</strong>：指方法或对象的多种形态。是面向对象的第三大特征，多态是建立在封装和继承基础之上的</p>
+<h2 id="多态的具体体现">多态的具体体现</h2>
+<h3 id="1方法的多态">1）方法的多态</h3>
+<ul>
+<li>方法的重载体现多态：传入同的参数，调用不同的方法</li>
+</ul>
+<pre><code class="language-java">a.sum(<span class="hljs-number">10</span>,<span class="hljs-number">20</span>);
+a.sum(<span class="hljs-number">10</span>,<span class="hljs-number">20</span>,<span class="hljs-number">30</span>)
+</code></pre>
+<ul>
+<li>方法的重写体现多态：</li>
+</ul>
+<pre><code class="language-java">b <span class="hljs-keyword">extends</span> <span class="hljs-title class_">a</span>
+a.say();
+b.say();
+</code></pre>
+<h3 id="2对象的多态">2）对象的多态</h3>
+<p>#⭐ <strong>核心、困难、重点</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><font color="#67bfa0">Animal</font></th>
+<th style="text-align:center"><font color="#ac70b7">animal</font></th>
+<th style="text-align:center">=</th>
+<th style="text-align:center"><font color="#7088ca">new</font></th>
+<th style="text-align:center"><font color="#d4d69a">Dog()</font></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><font color="#67bfa0">编译类型</font></td>
+<td style="text-align:center"><font color="#ac70b7">animal</font></td>
+<td style="text-align:center">=</td>
+<td style="text-align:center"><font color="#7088ca">new</font></td>
+<td style="text-align:center"><font color="#d4d69a">运行类型</font></td>
+</tr>
+</tbody>
+</table>
+<p><font color="pink">1）一个对象的编译类型和运行类型可以不一致</font></p>
+<pre><code class="language-java"><span class="hljs-comment">//animal的编译类型是Animal，运行类型是Dog</span>
+<span class="hljs-comment">//父类的引用animal --指向--&gt; 子类的对象</span>
+<span class="hljs-type">Animal</span> <span class="hljs-variable">animal</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Dog</span>();
+编译类型 animal = <span class="hljs-keyword">new</span> 运行类型;
+</code></pre>
+<p><font color="pink">2）编译类型在定义对象时，就确定了，不能改变</font></p>
+<p><font color="pink">3）运行类型是可以变化的  </font></p>
+<pre><code class="language-java"><span class="hljs-type">Animal</span> <span class="hljs-variable">animal</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Dog</span>();
+<span class="hljs-comment">//animal的运行类型变成Cat,但编译类型仍为Animal</span>
+animal = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cat</span>();
+</code></pre>
+<p><font color="pink">4）编译类型看定义时 =号 的左边，运行类型看 =号 的右边</font></p>
+<p>案例如下：</p>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.poly;
 
-            
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Text</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-comment">//animal 的编译类型是Animal</span>
+        <span class="hljs-comment">//运行类型是Dog;</span>
+        <span class="hljs-type">Animal</span> <span class="hljs-variable">animal</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Dog</span>();
+        <span class="hljs-comment">//运行时，执行到该行时，animal的运行类型是Dog，所以是Dog cry</span>
+        animal.cry();<span class="hljs-comment">//小狗汪汪叫</span>
+
+        <span class="hljs-comment">//animal 编译类型 Animal,运行类型是Cat</span>
+        animal = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cat</span>();
+        animal.cry();<span class="hljs-comment">//小猫喵喵叫</span>
+    }
+}
+</code></pre>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.poly;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Animal</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">cry</span><span class="hljs-params">()</span> {
+        System.out.println(<span class="hljs-string">&quot;Animal cry() 动物在叫....&quot;</span>);
+    }
+}
+</code></pre>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.poly;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Cat</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Animal</span> {
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">cry</span><span class="hljs-params">()</span> {
+        System.out.println(<span class="hljs-string">&quot;Cat cry() 小猫喵喵叫...&quot;</span>);
+    }
+}
+</code></pre>
+<pre><code class="language-java"><span class="hljs-keyword">package</span> com.poly;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Animal</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">cry</span><span class="hljs-params">()</span> {
+        System.out.println(<span class="hljs-string">&quot;Dog cry() 小狗汪汪叫...&quot;</span>);
+    }
+}
+</code></pre>
+<h2 id="案例入门">案例入门</h2>
+<pre style="all:unset;"><div class="mermaid">graph BT;
+
+a1[Fish\n鱼肉类] & a2[Bone\n骨头类] & a3[Rice\n米饭类]---&gt;|extends|a[Food\n食物类]
+
+D[Master\n主人类]
+
+
+b1[Cat\n猫类] & b2[Dog\n狗类] & b3[Pig\n猪类]---&gt;|extends|b[Animals\n动物类]</div></pre>
+<blockquote>
+<p>编写<code>feed()</code>方法把左边喂给右边</p>
+</blockquote>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Master</span> {
+    <span class="hljs-comment">//animal 编译类型是Animal，可以指向其子类的对象</span>
+    <span class="hljs-comment">//food 编译类型是Food，可以指向其子类的对象</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">feed</span><span class="hljs-params">(Animal animal, Food food)</span> {
+        System.out.println(<span class="hljs-string">&quot;主人 &quot;</span> + name + <span class="hljs-string">&quot; 给 &quot;</span>
+        + animal.getName() + <span class="hljs-string">&quot; 吃 &quot;</span> +  food.getName );
+    }
+}
+<span class="hljs-keyword">public</span> Text {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-comment">//向上转型</span>
+        <span class="hljs-type">Animal</span> <span class="hljs-variable">dog</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Dog</span>();
+        <span class="hljs-type">Food</span> <span class="hljs-variable">bone</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Bone</span>();
+        <span class="hljs-type">Master</span> <span class="hljs-variable">master</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Master</span>();
+        master.feed(Animal dog, Food bone);
+    }
+}
+</code></pre>
+<h2 id="使用细节">使用细节</h2>
+<p>多态的前提：<strong>两个对象(类)存在继承关系</strong></p>
+<h3 id="1向上转型">1）向上转型</h3>
+<pre style="all:unset;"><div class="mermaid">---
+title: 向上转型方法调用机制
+---
+graph BT;
+subgraph a["&lt;font color="Cyan"&gt;Animal&lt;/font&gt; 类"]
+    a2("run()")
+    a1("sleep()")
+    a3("eat()")
+    a4("show()")
+end
+subgraph b["&lt;font color="pink"&gt;Cat&lt;/font&gt; 类"]
+    b1("eat()方法重写")
+    b2("catchMouse()")
+end
+subgraph c["&lt;font color="Cyan"&gt;Animal&lt;/font&gt; animal = new  &lt;font color="pink"&gt;Cat()&lt;/font&gt;  &lt;font color="red"&gt;\n\n\nps:属性调编译类型的属性,即Animal ~~~~~~~~~~&lt;/font&gt;"]
+    c1["animal.eat()"]
+    c2["animal.run()"]
+    c3["animal.catchMouse()\n编译报错❌"]
+end
+c1--&gt;|&lt;font color="pink"&gt;就 近 原 则 &lt;/font&gt;|b1
+c2--&gt;|在Cat没有找到----&gt;\n&lt;font color="Cyan"&gt;就 近 原 则&lt;/font&gt;\n向 上 查 找|a2
+c~~~b
+b--&gt;|extends|a</div></pre>
+<p><a href="https://www.bilibili.com/video/BV1fh411y7R8?t=348.2&amp;p=310">空降</a></p>
+<p>1）本质：父类的引用指向了子类的对象<br>
+2）语法：</p>
+<pre><code class="language-java">父类类型 引用名 = <span class="hljs-keyword">new</span> 子类类型();
+</code></pre>
+<p>3）特点：</p>
+<ul>
+<li>编译类型看左边，运行类型看右边</li>
+<li>可以调用父类中的<strong>所有成员</strong>(需要遵守访问权限) ；</li>
+<li>不能调用子类中的<strong>特有成员</strong>；</li>
+</ul>
+<pre><code class="language-java">因为在编译阶段，能调用哪些成员，是由编译类型决定的
+</code></pre>
+<ul>
+<li>最终运行效果看子类(<strong>运行类型</strong>)的具体实现</li>
+</ul>
+<p>4）<strong>向上转型可隐式发生</strong></p>
+<h3 id="2向下转型">2）向下转型</h3>
+<pre style="all:unset;"><div class="mermaid">---
+title: 向下转型方法调用机制
+---
+graph BT;
+subgraph a["&lt;font color="Cyan"&gt;Animal&lt;/font&gt; 类"]
+    a2("run()")
+    a1("sleep()")
+    a3("eat()")
+    a4("show()")
+end
+subgraph b["&lt;font color="pink"&gt;Cat&lt;/font&gt; 类"]
+    b1("eat()方法重写")
+    b2("catchMouse()")
+end
+subgraph c["&lt;font color="Cyan"&gt;Animal&lt;/font&gt; animal = new  &lt;font color="pink"&gt;Cat()&lt;/font&gt;\n"]
+    c3["animal.catchMouse()\n编译报错❌"]
+end
+subgraph d["&lt;font color="pink"&gt;Cat&lt;/font&gt; cat = (&lt;font color="pink"&gt;Cat&lt;/font&gt;) animal\n编译类型和运行类型都是Cat"]
+    d1["cat.catchMouse()"]
+end
+c~~~b
+d~~~b
+d1--&gt;b2
+b--&gt;|extends|a</div></pre>
+<p>1）语法：</p>
+<pre><code class="language-java">子类类型 引用名 = (子类类型) 父类引用;
+</code></pre>
+<p>2）只能强转父类的<strong>引用</strong>，不能强转父类的<strong>对象</strong><br>
+3）要求<strong>父类的引用</strong>必须指向的是当前<strong>目标类型的对象</strong></p>
+<pre><code class="language-java"><span class="hljs-type">Animal</span> <span class="hljs-variable">animal</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cat</span>();
+<span class="hljs-type">Cat</span> <span class="hljs-variable">cat</span> <span class="hljs-operator">=</span> (Cat) animal;
+要求animal原本指向的就是 Cat()
+</code></pre>
+<p>4）当向下转型后，可以调用子类型中所有的成员</p>
+<h3 id="属性无重写和instanceof">属性无重写和instanceOf</h3>
+<p>1）属性没有重写之说——<strong>看编译类型</strong></p>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Text</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">Base</span> <span class="hljs-variable">base</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Sub</span>();
+        System.out.println(base.count);
+        <span class="hljs-comment">//打印10 即Base，看编译类型</span>
+        <span class="hljs-type">Sub</span> <span class="hljs-variable">sub</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Sub</span>();
+        System.out.println(sub.count);
+        <span class="hljs-comment">//打印20</span>
+    } 
+}
+</code></pre>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> Base {
+    <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;
+}
+</code></pre>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> Sub <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Base</span> {
+    <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">20</span>;
+}
+</code></pre>
+<p>2）<code>instancesOf</code>比较操作符，用于判断对象的<strong>运行类型</strong>是否为XX类或XX类型的子类型</p>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Text</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">BB</span> <span class="hljs-variable">bb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BB</span>();
+        System.out.println(bb instanceOf BB);<span class="hljs-comment">//true</span>
+        System.out.println(bb instanceOf AA);<span class="hljs-comment">//true</span>
+        <span class="hljs-comment">//编译AA 运行BB</span>
+        <span class="hljs-type">AA</span> <span class="hljs-variable">aa</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BB</span>();
+        System.out.println(aa instanceOf AA);<span class="hljs-comment">//true</span>
+        System.out.println(aa instanceOf BB);<span class="hljs-comment">//true</span>
+        <span class="hljs-type">Object</span> <span class="hljs-variable">obj</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>();
+        System.out.println(obj instanceOf AA);<span class="hljs-comment">//false</span>
+    }
+}
+</code></pre>
+<pre><code class="language-java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">AA</span> {}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">BB</span> extentds AA {}
+</code></pre>
+<h3 id="总结">总结</h3>
+<p>向上转型：<strong>方法看运行类型,属性看编译类型</strong><br>
+向下转型：<strong>编译类型和运行类型相统一了</strong></p>
+<h2 id="动态绑定机制">动态绑定机制</h2>
+<p>动态绑定机制：<br>
+1）当调用对象<strong>方法</strong>的时候，该<strong>方法</strong>会和该对象的<strong>内存地址/运行类型</strong>绑定<br>
+2）当调用对象<strong>属性</strong>时，没有动态绑定机制，哪里声明，哪里使用</p>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Text</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">A</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">B</span>();
+        System.out.printin(a.sum());<span class="hljs-comment">//30</span>
+        <span class="hljs-comment">//在A类中执行geti()时，执行的是B类的geti()</span>
+    }
+}
+</code></pre>
+<pre><code class="language-java">Class A {
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">sum</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> geti() + <span class="hljs-number">10</span>;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">sum1</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> i + <span class="hljs-number">10</span>;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">geti</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> i;
+    }
+}
+</code></pre>
+<pre><code class="language-java">Class B <span class="hljs-keyword">extends</span> <span class="hljs-title class_">A</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">20</span>;
+    <span class="hljs-comment">// public int sum() {</span>
+    <span class="hljs-comment">//     return i + 20;</span>
+    <span class="hljs-comment">// }</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">sum1</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> i + <span class="hljs-number">10</span>;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">geti</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> i;
+    }
+}
+</code></pre>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
             <script async type="text/javascript">
 /* From extension bierner.markdown-mermaid */
 /*! For license information please see index.bundle.js.LICENSE.txt */
