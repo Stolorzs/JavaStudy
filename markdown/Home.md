@@ -1,10 +1,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-- [ ]  [进度](https://www.bilibili.com/video/BV1fh411y7R8?t=70.4&p=343)     
+- [ ]  [进度](https://www.bilibili.com/video/BV1fh411y7R8?t=3.8&p=382)  
 - [ ] [模板](模板.md)
 - [ ] [练习题](练习题.md)  
 # Java
 
+
+[临时](临时.md)
 # 第一部分 Java基础
 
 - [ ] 第一阶段：编程思想
