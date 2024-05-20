@@ -57,9 +57,11 @@ public class B extends A{
 2）当子类中有和父类中的成员(属性和方法)**重名时**，为了访问父类的成员，必须通过super。**如果没有重名**，使用super、this、直接访问是一样的效果
 
 <center> 
-<font color="pink">子类成员继承关系图</font>
 
 ```mermaid
+---
+title : 子类成员继承关系图
+---
 graph BT;
 subgraph a["<font color="Cyan">Animal</font>"]
     a2("run()")
