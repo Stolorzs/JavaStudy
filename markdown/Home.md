@@ -1,6 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-- [ ]  [进度](https://www.bilibili.com/video/BV1fh411y7R8?t=2.1&p=428)  
+- [ ]  [进度](https://www.bilibili.com/video/BV1fh411y7R8?t=2.5&p=437)  
 - [ ] [模板](模板.md)
 - [ ] [练习题](练习题.md)  
 - [ ] [java学习路线](Java学习路线.md)
@@ -13,7 +13,7 @@
 |[Java概述](Java概述.md) |[变量(4)](变量.md)	|[运算符(11)](运算符.md)|[控制结构(6)](控制结构.md) |
 |[数组、排序和查找(4)](数组、排序和查找.md) |[面向对象编程(26)](面向对象编程.md) #⭐|||
 |第二阶段||||
-|[枚举和注解](枚举和注解.md)|[异常](异常.md) |[集合](集合.md) |[泛型](泛型.md)|
+|[枚举和注解(4)](枚举和注解.md)|[异常](异常.md) |[集合](集合.md) |[泛型](泛型.md)|
 |[线程](线程.md)  |[IO流](IO流.md)|||
 |第三阶段||||
 |[网络编程](网络编程.md)|[反射](反射.md) |[Mysql基础](Mysql基础.md) |[JDBC和连接池](JDBC和连接池.md) |
