@@ -279,8 +279,9 @@ body {
 /* 修改代码的字体和颜色 */
 pre code {
     white-space: pre;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.5;
+    font-family: 'Agave-Regular';
 }
 
 .hljs-comment {
@@ -295,8 +296,8 @@ pre code {
 }
 
 code {
-    background-color: #323232;
-
+    background-color: #404040;
+    color:violet;
 }
 
 pre {
@@ -331,9 +332,100 @@ pre::-webkit-scrollbar {
 
 /*===响应式设计===*/
 
-/*===行号===*/
+/*=============代码高亮=============*/
 
 
+
+/*
+
+Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+
+*/
+/* 
+.cnblogs-markdown .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background: #23241f !important;
+    color:white;
+    font-size:16px !important;
+  }
+  
+  .hljs,
+  .hljs-tag,
+  .hljs-subst {
+    color: #f8f8f2;
+  }
+  
+  .hljs-strong,
+  .hljs-emphasis {
+    color: #a8a8a2;
+  }
+  
+  .hljs-bullet,
+  .hljs-quote,
+  .hljs-number,
+  .hljs-regexp,
+  .hljs-literal,
+  .hljs-link {
+    color: #ae81ff;
+  }
+  
+  .hljs-code,
+  .hljs-title,
+  .hljs-section,
+  .hljs-selector-class {
+    color: #a6e22e;
+  }
+  
+  .hljs-strong {
+    font-weight: bold;
+  }
+  
+  .hljs-emphasis {
+    font-style: italic;
+  }
+  
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-name,
+  .hljs-attr {
+    color: #f92672;
+  }
+  .hljs-keyword,.hljs-built_in{
+    color:#66d9ef;
+  }
+  
+  .hljs-symbol,
+  .hljs-attribute {
+    color: #66d9ef;
+  }
+  
+  .hljs-params,
+  .hljs-class .hljs-title {
+    color: #f8f8f2;
+  }
+  
+  .hljs-string,
+  .hljs-type,
+  .hljs-builtin-name,
+  .hljs-selector-id,
+  .hljs-selector-attr,
+  .hljs-selector-pseudo,
+  .hljs-addition,
+  .hljs-variable,
+  .hljs-template-variable {
+    color: #e6db74;
+  }
+  
+  .hljs-comment,
+  .hljs-deletion{
+    color: #75715e;
+  }
+  
+  .hljs-meta{
+    color: #f92672;
+  } */
 </style>
         </head>
         <body class="vscode-body vscode-dark">
@@ -393,8 +485,10 @@ pre::-webkit-scrollbar {
 <p>1）调用父类构造器的好处：分工明确，<strong>父类属性由父初始化</strong>，<strong>子类属性由子类初始化</strong></p>
 <p>2）当子类中有和父类中的成员(属性和方法)<strong>重名时</strong>，为了访问父类的成员，必须通过super。<strong>如果没有重名</strong>，使用super、this、直接访问是一样的效果</p>
 <center> 
-<font color="pink">子类成员继承关系图</font>
-<pre style="all:unset;"><div class="mermaid">graph BT;
+<pre style="all:unset;"><div class="mermaid">---
+title : 子类成员继承关系图
+---
+graph BT;
 subgraph a["&lt;font color="Cyan"&gt;Animal&lt;/font&gt;"]
     a2("run()")
     a1("sleep()")

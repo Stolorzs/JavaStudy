@@ -280,8 +280,9 @@ body {
 /* 修改代码的字体和颜色 */
 pre code {
     white-space: pre;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.5;
+    font-family: 'Agave-Regular';
 }
 
 .hljs-comment {
@@ -296,8 +297,8 @@ pre code {
 }
 
 code {
-    background-color: #323232;
-
+    background-color: #404040;
+    color:violet;
 }
 
 pre {
@@ -332,9 +333,100 @@ pre::-webkit-scrollbar {
 
 /*===响应式设计===*/
 
-/*===行号===*/
+/*=============代码高亮=============*/
 
 
+
+/*
+
+Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+
+*/
+/* 
+.cnblogs-markdown .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background: #23241f !important;
+    color:white;
+    font-size:16px !important;
+  }
+  
+  .hljs,
+  .hljs-tag,
+  .hljs-subst {
+    color: #f8f8f2;
+  }
+  
+  .hljs-strong,
+  .hljs-emphasis {
+    color: #a8a8a2;
+  }
+  
+  .hljs-bullet,
+  .hljs-quote,
+  .hljs-number,
+  .hljs-regexp,
+  .hljs-literal,
+  .hljs-link {
+    color: #ae81ff;
+  }
+  
+  .hljs-code,
+  .hljs-title,
+  .hljs-section,
+  .hljs-selector-class {
+    color: #a6e22e;
+  }
+  
+  .hljs-strong {
+    font-weight: bold;
+  }
+  
+  .hljs-emphasis {
+    font-style: italic;
+  }
+  
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-name,
+  .hljs-attr {
+    color: #f92672;
+  }
+  .hljs-keyword,.hljs-built_in{
+    color:#66d9ef;
+  }
+  
+  .hljs-symbol,
+  .hljs-attribute {
+    color: #66d9ef;
+  }
+  
+  .hljs-params,
+  .hljs-class .hljs-title {
+    color: #f8f8f2;
+  }
+  
+  .hljs-string,
+  .hljs-type,
+  .hljs-builtin-name,
+  .hljs-selector-id,
+  .hljs-selector-attr,
+  .hljs-selector-pseudo,
+  .hljs-addition,
+  .hljs-variable,
+  .hljs-template-variable {
+    color: #e6db74;
+  }
+  
+  .hljs-comment,
+  .hljs-deletion{
+    color: #75715e;
+  }
+  
+  .hljs-meta{
+    color: #f92672;
+  } */
 </style>
         </head>
         <body class="vscode-body vscode-dark">
@@ -360,15 +452,15 @@ pre::-webkit-scrollbar {
 <li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
 <li><a href="#%E5%A4%9A%E6%80%81%E7%9A%84%E5%85%B7%E4%BD%93%E4%BD%93%E7%8E%B0">多态的具体体现</a>
 <ul>
-<li><a href="#1%E6%96%B9%E6%B3%95%E7%9A%84%E5%A4%9A%E6%80%81">1）方法的多态</a></li>
-<li><a href="#2%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%A4%9A%E6%80%81">2）对象的多态</a></li>
+<li><a href="#%E4%B8%80%E6%96%B9%E6%B3%95%E7%9A%84%E5%A4%9A%E6%80%81">一、方法的多态</a></li>
+<li><a href="#%E4%BA%8C%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%A4%9A%E6%80%81">二、对象的多态</a></li>
 </ul>
 </li>
 <li><a href="#%E6%A1%88%E4%BE%8B%E5%85%A5%E9%97%A8">案例入门</a></li>
 <li><a href="#%E4%BD%BF%E7%94%A8%E7%BB%86%E8%8A%82">使用细节</a>
 <ul>
-<li><a href="#1%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B">1）向上转型</a></li>
-<li><a href="#2%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B">2）向下转型</a></li>
+<li><a href="#%E4%B8%80%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B">一、向上转型</a></li>
+<li><a href="#%E4%BA%8C%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B">二、向下转型</a></li>
 <li><a href="#%E5%B1%9E%E6%80%A7%E6%97%A0%E9%87%8D%E5%86%99%E5%92%8Cinstanceof">属性无重写和instanceOf</a></li>
 <li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
 </ul>
@@ -381,7 +473,7 @@ pre::-webkit-scrollbar {
 <p>传统方法代码复用性不高，不利于代码的维护</p>
 <p><strong>多态</strong>：指方法或对象的多种形态。是面向对象的第三大特征，多态是建立在封装和继承基础之上的</p>
 <h2 id="多态的具体体现">多态的具体体现</h2>
-<h3 id="1方法的多态">1）方法的多态</h3>
+<h3 id="一方法的多态">一、方法的多态</h3>
 <ul>
 <li>方法的重载体现多态：传入同的参数，调用不同的方法</li>
 </ul>
@@ -395,7 +487,7 @@ a.sum(<span class="hljs-number">10</span>,<span class="hljs-number">20</span>,<s
 a.say();
 b.say();
 </code></pre>
-<h3 id="2对象的多态">2）对象的多态</h3>
+<h3 id="二对象的多态">二、对象的多态</h3>
 <p>#⭐ <strong>核心、困难、重点</strong></p>
 <table>
 <thead>
@@ -504,7 +596,7 @@ b1[Cat\n猫类] & b2[Dog\n狗类] & b3[Pig\n猪类]---&gt;|extends|b[Animals\n�
 </code></pre>
 <h2 id="使用细节">使用细节</h2>
 <p>多态的前提：<strong>两个对象(类)存在继承关系</strong></p>
-<h3 id="1向上转型">1）向上转型</h3>
+<h3 id="一向上转型">一、向上转型</h3>
 <pre style="all:unset;"><div class="mermaid">---
 title: 向上转型方法调用机制
 ---
@@ -519,7 +611,7 @@ subgraph b["&lt;font color="pink"&gt;Cat&lt;/font&gt; 类"]
     b1("eat()方法重写")
     b2("catchMouse()")
 end
-subgraph c["&lt;font color="Cyan"&gt;Animal&lt;/font&gt; animal = new  &lt;font color="pink"&gt;Cat()&lt;/font&gt;  &lt;font color="red"&gt;\n\n\nps:属性调编译类型的属性,即Animal ~~~~~~~~~~&lt;/font&gt;"]
+subgraph c["&lt;font color="Cyan"&gt;Animal&lt;/font&gt; animal = new  &lt;font color="pink"&gt;Cat()&lt;/font&gt;  &lt;font color="red"&gt;\n\n\nps:属性会访问编译类型的属性,即Animal ~~~~~~~~~~~~~~&lt;/font&gt;"]
     c1["animal.eat()"]
     c2["animal.run()"]
     c3["animal.catchMouse()\n编译报错❌"]
@@ -527,7 +619,8 @@ end
 c1--&gt;|&lt;font color="pink"&gt;就 近 原 则 &lt;/font&gt;|b1
 c2--&gt;|在Cat没有找到----&gt;\n&lt;font color="Cyan"&gt;就 近 原 则&lt;/font&gt;\n向 上 查 找|a2
 c~~~b
-b--&gt;|extends|a</div></pre>
+b--&gt;|extends|a
+c3-.-&gt;|无法访问子类独有的方法\n若想独有，只能重写父类方法|b2</div></pre>
 <p><a href="https://www.bilibili.com/video/BV1fh411y7R8?t=348.2&amp;p=310">空降</a></p>
 <p>1）本质：父类的引用指向了子类的对象<br>
 2）语法：</p>
@@ -545,7 +638,7 @@ b--&gt;|extends|a</div></pre>
 <li>最终运行效果看子类(<strong>运行类型</strong>)的具体实现</li>
 </ul>
 <p>4）<strong>向上转型可隐式发生</strong></p>
-<h3 id="2向下转型">2）向下转型</h3>
+<h3 id="二向下转型">二、向下转型</h3>
 <pre style="all:unset;"><div class="mermaid">---
 title: 向下转型方法调用机制
 ---
@@ -568,7 +661,7 @@ subgraph d["&lt;font color="pink"&gt;Cat&lt;/font&gt; cat = (&lt;font color="pin
 end
 c~~~b
 d~~~b
-d1--&gt;b2
+d1--&gt;|可以调用|b2
 b--&gt;|extends|a</div></pre>
 <p>1）语法：</p>
 <pre><code class="language-java">子类类型 引用名 = (子类类型) 父类引用;

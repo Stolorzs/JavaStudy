@@ -279,8 +279,9 @@ body {
 /* 修改代码的字体和颜色 */
 pre code {
     white-space: pre;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.5;
+    font-family: 'Agave-Regular';
 }
 
 .hljs-comment {
@@ -295,8 +296,8 @@ pre code {
 }
 
 code {
-    background-color: #323232;
-
+    background-color: #404040;
+    color:violet;
 }
 
 pre {
@@ -331,9 +332,100 @@ pre::-webkit-scrollbar {
 
 /*===响应式设计===*/
 
-/*===行号===*/
+/*=============代码高亮=============*/
 
 
+
+/*
+
+Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+
+*/
+/* 
+.cnblogs-markdown .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background: #23241f !important;
+    color:white;
+    font-size:16px !important;
+  }
+  
+  .hljs,
+  .hljs-tag,
+  .hljs-subst {
+    color: #f8f8f2;
+  }
+  
+  .hljs-strong,
+  .hljs-emphasis {
+    color: #a8a8a2;
+  }
+  
+  .hljs-bullet,
+  .hljs-quote,
+  .hljs-number,
+  .hljs-regexp,
+  .hljs-literal,
+  .hljs-link {
+    color: #ae81ff;
+  }
+  
+  .hljs-code,
+  .hljs-title,
+  .hljs-section,
+  .hljs-selector-class {
+    color: #a6e22e;
+  }
+  
+  .hljs-strong {
+    font-weight: bold;
+  }
+  
+  .hljs-emphasis {
+    font-style: italic;
+  }
+  
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-name,
+  .hljs-attr {
+    color: #f92672;
+  }
+  .hljs-keyword,.hljs-built_in{
+    color:#66d9ef;
+  }
+  
+  .hljs-symbol,
+  .hljs-attribute {
+    color: #66d9ef;
+  }
+  
+  .hljs-params,
+  .hljs-class .hljs-title {
+    color: #f8f8f2;
+  }
+  
+  .hljs-string,
+  .hljs-type,
+  .hljs-builtin-name,
+  .hljs-selector-id,
+  .hljs-selector-attr,
+  .hljs-selector-pseudo,
+  .hljs-addition,
+  .hljs-variable,
+  .hljs-template-variable {
+    color: #e6db74;
+  }
+  
+  .hljs-comment,
+  .hljs-deletion{
+    color: #75715e;
+  }
+  
+  .hljs-meta{
+    color: #f92672;
+  } */
 </style>
         </head>
         <body class="vscode-body vscode-dark">
@@ -343,6 +435,15 @@ pre::-webkit-scrollbar {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <p><a href="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.html">返回</a></p>
 <h1 id="封装">封装</h1>
+<ul>
+<li><a href="#%E5%B0%81%E8%A3%85">封装</a>
+<ul>
+<li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
+<li><a href="#%E5%B0%81%E8%A3%85%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%AD%A5%E9%AA%A4">封装实现的步骤</a></li>
+<li><a href="#%E6%A1%88%E4%BE%8B%E5%85%A5%E9%97%A8">案例入门</a></li>
+</ul>
+</li>
+</ul>
 <h2 id="介绍">介绍</h2>
 <p>面向对象编程三大特征：封装、继承、多态</p>
 <p><font color="pink">封装(encapsulastion)：</font>把抽象出来的数据(<strong>属性</strong>)和对数据的操作(<strong>方法</strong>)封装在一起，数据被保护在内部，程序的其他方法只有通过被授权的操作(<strong>方法</strong>)，才能对数据进行操作</p>
@@ -441,7 +542,6 @@ pre::-webkit-scrollbar {
         <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;信息为name=&quot;</span> + name + <span class="hljs-string">&quot; age=&quot;</span> + age + <span class="hljs-string">&quot; 薪水=&quot;</span> + salary;
     }
 }
-
 </code></pre>
 
             

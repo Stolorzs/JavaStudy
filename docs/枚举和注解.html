@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title></title>
+            <title>&#x679a;&#x4e3e;</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -279,8 +279,9 @@ body {
 /* 修改代码的字体和颜色 */
 pre code {
     white-space: pre;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.5;
+    font-family: 'Agave-Regular';
 }
 
 .hljs-comment {
@@ -295,8 +296,8 @@ pre code {
 }
 
 code {
-    background-color: #323232;
-
+    background-color: #404040;
+    color:violet;
 }
 
 pre {
@@ -331,18 +332,159 @@ pre::-webkit-scrollbar {
 
 /*===响应式设计===*/
 
-/*===行号===*/
+/*=============代码高亮=============*/
 
 
+
+/*
+
+Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+
+*/
+/* 
+.cnblogs-markdown .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background: #23241f !important;
+    color:white;
+    font-size:16px !important;
+  }
+  
+  .hljs,
+  .hljs-tag,
+  .hljs-subst {
+    color: #f8f8f2;
+  }
+  
+  .hljs-strong,
+  .hljs-emphasis {
+    color: #a8a8a2;
+  }
+  
+  .hljs-bullet,
+  .hljs-quote,
+  .hljs-number,
+  .hljs-regexp,
+  .hljs-literal,
+  .hljs-link {
+    color: #ae81ff;
+  }
+  
+  .hljs-code,
+  .hljs-title,
+  .hljs-section,
+  .hljs-selector-class {
+    color: #a6e22e;
+  }
+  
+  .hljs-strong {
+    font-weight: bold;
+  }
+  
+  .hljs-emphasis {
+    font-style: italic;
+  }
+  
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-name,
+  .hljs-attr {
+    color: #f92672;
+  }
+  .hljs-keyword,.hljs-built_in{
+    color:#66d9ef;
+  }
+  
+  .hljs-symbol,
+  .hljs-attribute {
+    color: #66d9ef;
+  }
+  
+  .hljs-params,
+  .hljs-class .hljs-title {
+    color: #f8f8f2;
+  }
+  
+  .hljs-string,
+  .hljs-type,
+  .hljs-builtin-name,
+  .hljs-selector-id,
+  .hljs-selector-attr,
+  .hljs-selector-pseudo,
+  .hljs-addition,
+  .hljs-variable,
+  .hljs-template-variable {
+    color: #e6db74;
+  }
+  
+  .hljs-comment,
+  .hljs-deletion{
+    color: #75715e;
+  }
+  
+  .hljs-meta{
+    color: #f92672;
+  } */
 </style>
         </head>
         <body class="vscode-body vscode-dark">
             <span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <hr>
-<hr>
-<p><a href="Home.html">返回目录</a></p>
+                <p><a href="Home.html">返回目录</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a href="%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3.html"><strong>自定义类实现枚举</strong></a></th>
+<th style="text-align:center"><a href="enum%E5%85%B3%E9%94%AE%E5%AD%97%E5%AE%9E%E7%8E%B0%E6%9E%9A%E4%B8%BE.html">enum关键字实现枚举</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="JDK%E5%86%85%E7%BD%AE%E5%9F%BA%E6%9C%AC%E6%B3%A8%E8%A7%A3.html">JDK内置的基本注解类型</a></td>
+<td style="text-align:center"><a href="%E5%85%83%E6%B3%A8%E8%A7%A3.html">元注解</a></td>
+</tr>
+</tbody>
+</table>
+<p><a href="%5Bhttps://%5D(https://www.bilibili.com/video/BV1fh411y7R8?t=450.5&amp;p=425)">空降</a></p>
+<h2 id="枚举">枚举</h2>
+<p>介绍<br>
+1）枚举对应的英文是<code>enmueration</code><br>
+2）枚举是一组常量的集合<br>
+3）可以理解为：枚举属于一种特殊的类，里面只包含一组<strong>有限的</strong>、<strong>特定的</strong>对象</p>
+<h2 id="自定义类实现枚举">自定义类实现枚举</h2>
+<pre><code class="language-java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Season</span> {
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-keyword">private</span> String desc;
+
+    <span class="hljs-comment">//1）构造器私有化，防止直接new</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-title function_">Season</span><span class="hljs-params">(String name, String desc)</span> {
+        <span class="hljs-built_in">this</span>.name = name;
+        <span class="hljs-built_in">this</span>.desc = desc;
+    }
+
+    <span class="hljs-comment">//2）去掉set相关的方法，防止属性被修改</span>
+    <span class="hljs-comment">// public void setName(String name) {</span>
+    <span class="hljs-comment">//     this.name = name;</span>
+    <span class="hljs-comment">// }</span>
+    <span class="hljs-comment">//3）在season内部直接创建固定的对象(属性)</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">Season</span> <span class="hljs-variable">SPRING</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Season</span>(<span class="hljs-string">&quot;春天&quot;</span>,<span class="hljs-string">&quot;温暖&quot;</span>);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">Season</span> <span class="hljs-variable">WINTER</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Season</span>(<span class="hljs-string">&quot;冬天&quot;</span>,<span class="hljs-string">&quot;寒冷&quot;</span>);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">Season</span> <span class="hljs-variable">AUTUMN</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Season</span>(<span class="hljs-string">&quot;秋天&quot;</span>,<span class="hljs-string">&quot;温暖&quot;</span>);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">Season</span> <span class="hljs-variable">SUMMER</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Season</span>(<span class="hljs-string">&quot;夏天&quot;</span>,<span class="hljs-string">&quot;炎热&quot;</span>);   
+    <span class="hljs-comment">//4）使用final修饰，使该属性不能被修改</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Season</span> <span class="hljs-variable">SPRING</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Season</span>(<span class="hljs-string">&quot;春天&quot;</span>,<span class="hljs-string">&quot;温暖&quot;</span>);
+    <span class="hljs-comment">//...</span>
+}
+</code></pre>
+<h2 id="总结">总结</h2>
+<p>1）不需要提供<code>set</code>方法，枚举对象只读，可以使用<code>get</code>方法<br>
+2）对枚举对象/属性使用<code>final + static</code>共同修饰，实现底层优化，<strong>对外暴露对象</strong><br>
+3）枚举对象名通常使用<strong>全部大写，常量</strong>的命名规范<br>
+4）枚举对象根据需要，也可以有<strong>多个属性</strong><br>
+5）构造器私有化<br>
+6）本类内部创建一组对象</p>
 
             
             <script async type="text/javascript">
