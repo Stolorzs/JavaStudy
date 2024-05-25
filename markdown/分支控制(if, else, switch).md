@@ -11,6 +11,7 @@
 	- [`if`多分支](#if多分支)
 	- [`if`嵌套分支](#if嵌套分支)
 	- [`switch`分支结构](#switch分支结构)
+		- [增强的`switch`](#增强的switch)
 	- [`if` `switch` 比较](#if-switch-比较)
 
 ## 介绍
@@ -158,6 +159,22 @@ switch(c){ //错误
 - 3、`case`子句中的值必须是**常量**或常量表达式，不能是**变量**
 - 4、`default`子句是可选的，当没有匹配的`case`时，会执行`default`，如果没有`default`也没有匹配任何常量，则没有任何输出。
 - 5、`break`语句在用来执行完一个`case`分支后使程序跳出`swtich`语句块，如果没有写，则程序按顺序执行，直到遇到下一个`break` 
+### 增强的`switch`
+```java
+switch (expression) {
+    case value1 -> {
+        // 代码块1
+    }
+    case value2 -> {
+        // 代码块2
+    }
+    // 更多case语句
+    default -> {
+        // 默认代码块
+    }
+}
+```
+
 
 ## `if` `switch` 比较
 - 1、如果判断的具体数值不多，而且符合`byte` `short` `int` `char` `enum`(枚举) `String` 6种类型。虽然两个都可以使用，但建议使用`switch`语句
