@@ -278,11 +278,20 @@ body {
 
 /* 修改代码的字体和颜色 */
 pre code {
-    white-space: pre;
-    font-size: 14px;
-    line-height: 1.5;
-    font-family: 'Agave-Regular';
+  white-space: pre;
+  font-size: 12px;
+  line-height: 1.5;
+  /* font-family: 'Agave-Regular'; */
 }
+pre code.language-ditaa{
+  white-space: pre;
+  font-size: 14px;
+  line-height: 1.1;
+  font-family: 'Agave-Regular';
+  /* font-family: Simsun,sans-serif !important; */
+}
+
+
 
 .hljs-comment {
     color: gray;
@@ -328,6 +337,36 @@ pre::-webkit-scrollbar {
     /* 滚动条边框圆角 */
     border: 1px solid #ccc;
     /* 滚动条边框颜色 */
+}
+/*=============di视图=============*/
+
+.di {
+  white-space: pre;
+  font-family: Simsun,sans-serif;
+  /* font-family: 'Agave-Regular', 'Microsoft YaHei', 'Courier New', Courier, monospace; */
+  line-height: 1.4;
+  padding-top: 0px; 
+  padding-bottom: 0px;
+  /* display: flex;
+  justify-content: center;  */
+}
+.di b{
+  color:pink;
+}
+.di strong {
+  color:cyan;
+}
+
+
+.di > span.red {
+  color: red; /* 修改后的颜色 */
+}
+/*=============白色图片背景=============*/
+.white{
+  display: inline-block;
+  background-color: white;
+  filter:invert(100%);
+  /* grayscale(100%) */
 }
 
 /*===响应式设计===*/
@@ -447,6 +486,22 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 </li>
 </ul>
 <h2 id="介绍">介绍</h2>
+<pre><code class="language-ditaa">        懒汉式
++--------Cat()----------+
+|  -String name         |            
+|  -static Cat cat+-----|----+
++-----------------------+    |
+|  +static Cat getIn()&lt;-|----+
++-----------------------+
+
+            饿汉式
++-----------Cat()-------------+
+|  -String name               |                  
+|  -static Cat cat = new Cat()+---+
++-----------------------------+   |
+|  +static Cat getIn()&lt;-------|---+                  
++-----------------------------+
+</code></pre>
 <p>设计模式是在大量的实践中总结和理论化之后优选的代码结构，编程风格、以及解决问题的思考方式。<br>
 设计模式就像是经典的棋谱，不同的棋局，我们用不同的棋谱，面去自己再思考摸索</p>
 <h2 id="单例模式">单例模式</h2>

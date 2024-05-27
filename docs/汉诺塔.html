@@ -278,11 +278,20 @@ body {
 
 /* 修改代码的字体和颜色 */
 pre code {
-    white-space: pre;
-    font-size: 14px;
-    line-height: 1.5;
-    font-family: 'Agave-Regular';
+  white-space: pre;
+  font-size: 12px;
+  line-height: 1.5;
+  /* font-family: 'Agave-Regular'; */
 }
+pre code.language-ditaa{
+  white-space: pre;
+  font-size: 14px;
+  line-height: 1.1;
+  font-family: 'Agave-Regular';
+  /* font-family: Simsun,sans-serif !important; */
+}
+
+
 
 .hljs-comment {
     color: gray;
@@ -328,6 +337,36 @@ pre::-webkit-scrollbar {
     /* 滚动条边框圆角 */
     border: 1px solid #ccc;
     /* 滚动条边框颜色 */
+}
+/*=============di视图=============*/
+
+.di {
+  white-space: pre;
+  font-family: Simsun,sans-serif;
+  /* font-family: 'Agave-Regular', 'Microsoft YaHei', 'Courier New', Courier, monospace; */
+  line-height: 1.4;
+  padding-top: 0px; 
+  padding-bottom: 0px;
+  /* display: flex;
+  justify-content: center;  */
+}
+.di b{
+  color:pink;
+}
+.di strong {
+  color:cyan;
+}
+
+
+.di > span.red {
+  color: red; /* 修改后的颜色 */
+}
+/*=============白色图片背景=============*/
+.white{
+  display: inline-block;
+  background-color: white;
+  filter:invert(100%);
+  /* grayscale(100%) */
 }
 
 /*===响应式设计===*/
@@ -433,7 +472,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<p><a href="Home.html">返回</a></p>
+<p><a href="index.html">返回</a></p>
 <h1 id="汉诺塔">汉诺塔</h1>
 <p>汉诺塔：汉诺塔（又称河内塔）问题是源于印度一个古老传说的益智玩具。大梵天创造世界的时候做了三根金刚石柱子，在一根柱子上从下往上按照大小顺序摞着64片圆盘。大梵天命令婆罗门把圆盘从下面开始按大小顺序重新摆放在另一根柱子上。并且规定，在小圆盘上不‘能放大圆盘，在三根柱子之间一次只能移动一个圆盘。</p>
 <p>假如每秒钟移动一次，共需多长时间呢？移完这些金片需要5845.54亿年以上，太阳系的预期寿命据说也就是数百亿年。真的过了5845.54亿年，地球上的一切生命，连同梵塔、庙宇等，都早已经灰飞烟灭</p>

@@ -1,6 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-[返回目录](Home.md)
+[返回目录](index.md)
 
 # Java概述
 - [Java概述](#java概述)

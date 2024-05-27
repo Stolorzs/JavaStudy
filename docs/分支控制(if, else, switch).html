@@ -278,11 +278,20 @@ body {
 
 /* 修改代码的字体和颜色 */
 pre code {
-    white-space: pre;
-    font-size: 14px;
-    line-height: 1.5;
-    font-family: 'Agave-Regular';
+  white-space: pre;
+  font-size: 12px;
+  line-height: 1.5;
+  /* font-family: 'Agave-Regular'; */
 }
+pre code.language-ditaa{
+  white-space: pre;
+  font-size: 14px;
+  line-height: 1.1;
+  font-family: 'Agave-Regular';
+  /* font-family: Simsun,sans-serif !important; */
+}
+
+
 
 .hljs-comment {
     color: gray;
@@ -328,6 +337,36 @@ pre::-webkit-scrollbar {
     /* 滚动条边框圆角 */
     border: 1px solid #ccc;
     /* 滚动条边框颜色 */
+}
+/*=============di视图=============*/
+
+.di {
+  white-space: pre;
+  font-family: Simsun,sans-serif;
+  /* font-family: 'Agave-Regular', 'Microsoft YaHei', 'Courier New', Courier, monospace; */
+  line-height: 1.4;
+  padding-top: 0px; 
+  padding-bottom: 0px;
+  /* display: flex;
+  justify-content: center;  */
+}
+.di b{
+  color:pink;
+}
+.di strong {
+  color:cyan;
+}
+
+
+.di > span.red {
+  color: red; /* 修改后的颜色 */
+}
+/*=============白色图片背景=============*/
+.white{
+  display: inline-block;
+  background-color: white;
+  filter:invert(100%);
+  /* grayscale(100%) */
 }
 
 /*===响应式设计===*/
@@ -443,7 +482,11 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 <li><a href="#if%E5%8F%8C%E5%88%86%E6%94%AF"><code>if</code>双分支</a></li>
 <li><a href="#if%E5%A4%9A%E5%88%86%E6%94%AF"><code>if</code>多分支</a></li>
 <li><a href="#if%E5%B5%8C%E5%A5%97%E5%88%86%E6%94%AF"><code>if</code>嵌套分支</a></li>
-<li><a href="#switch%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84"><code>switch</code>分支结构</a></li>
+<li><a href="#switch%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84"><code>switch</code>分支结构</a>
+<ul>
+<li><a href="#%E5%A2%9E%E5%BC%BA%E7%9A%84switch">增强的<code>switch</code></a></li>
+</ul>
+</li>
 <li><a href="#if-switch-%E6%AF%94%E8%BE%83"><code>if</code> <code>switch</code> 比较</a></li>
 </ul>
 </li>
@@ -611,6 +654,20 @@ sn--&gt;|没有|de</div></pre>
 <li>4、<code>default</code>子句是可选的，当没有匹配的<code>case</code>时，会执行<code>default</code>，如果没有<code>default</code>也没有匹配任何常量，则没有任何输出。</li>
 <li>5、<code>break</code>语句在用来执行完一个<code>case</code>分支后使程序跳出<code>swtich</code>语句块，如果没有写，则程序按顺序执行，直到遇到下一个<code>break</code></li>
 </ul>
+<h3 id="增强的switch">增强的<code>switch</code></h3>
+<pre><code class="language-java"><span class="hljs-keyword">switch</span> (expression) {
+    <span class="hljs-keyword">case</span> value1 -&gt; {
+        <span class="hljs-comment">// 代码块1</span>
+    }
+    <span class="hljs-keyword">case</span> value2 -&gt; {
+        <span class="hljs-comment">// 代码块2</span>
+    }
+    <span class="hljs-comment">// 更多case语句</span>
+    <span class="hljs-keyword">default</span> -&gt; {
+        <span class="hljs-comment">// 默认代码块</span>
+    }
+}
+</code></pre>
 <h2 id="if-switch-比较"><code>if</code> <code>switch</code> 比较</h2>
 <ul>
 <li>1、如果判断的具体数值不多，而且符合<code>byte</code> <code>short</code> <code>int</code> <code>char</code> <code>enum</code>(枚举) <code>String</code> 6种类型。虽然两个都可以使用，但建议使用<code>switch</code>语句</li>

@@ -279,11 +279,20 @@ body {
 
 /* 修改代码的字体和颜色 */
 pre code {
-    white-space: pre;
-    font-size: 14px;
-    line-height: 1.5;
-    font-family: 'Agave-Regular';
+  white-space: pre;
+  font-size: 12px;
+  line-height: 1.5;
+  /* font-family: 'Agave-Regular'; */
 }
+pre code.language-ditaa{
+  white-space: pre;
+  font-size: 14px;
+  line-height: 1.1;
+  font-family: 'Agave-Regular';
+  /* font-family: Simsun,sans-serif !important; */
+}
+
+
 
 .hljs-comment {
     color: gray;
@@ -329,6 +338,36 @@ pre::-webkit-scrollbar {
     /* 滚动条边框圆角 */
     border: 1px solid #ccc;
     /* 滚动条边框颜色 */
+}
+/*=============di视图=============*/
+
+.di {
+  white-space: pre;
+  font-family: Simsun,sans-serif;
+  /* font-family: 'Agave-Regular', 'Microsoft YaHei', 'Courier New', Courier, monospace; */
+  line-height: 1.4;
+  padding-top: 0px; 
+  padding-bottom: 0px;
+  /* display: flex;
+  justify-content: center;  */
+}
+.di b{
+  color:pink;
+}
+.di strong {
+  color:cyan;
+}
+
+
+.di > span.red {
+  color: red; /* 修改后的颜色 */
+}
+/*=============白色图片背景=============*/
+.white{
+  display: inline-block;
+  background-color: white;
+  filter:invert(100%);
+  /* grayscale(100%) */
 }
 
 /*===响应式设计===*/
@@ -434,7 +473,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<p><a href="home.html">返回目录</a> | <a href="%E6%95%B0%E7%BB%84.html">数组</a> #⭐️</p>
+<p><a href="index.html">返回目录</a> | <a href="%E6%95%B0%E7%BB%84.html">数组</a> #⭐️</p>
 <table>
 <thead>
 <tr>

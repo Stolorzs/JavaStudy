@@ -278,11 +278,20 @@ body {
 
 /* 修改代码的字体和颜色 */
 pre code {
-    white-space: pre;
-    font-size: 14px;
-    line-height: 1.5;
-    font-family: 'Agave-Regular';
+  white-space: pre;
+  font-size: 12px;
+  line-height: 1.5;
+  /* font-family: 'Agave-Regular'; */
 }
+pre code.language-ditaa{
+  white-space: pre;
+  font-size: 14px;
+  line-height: 1.1;
+  font-family: 'Agave-Regular';
+  /* font-family: Simsun,sans-serif !important; */
+}
+
+
 
 .hljs-comment {
     color: gray;
@@ -328,6 +337,36 @@ pre::-webkit-scrollbar {
     /* 滚动条边框圆角 */
     border: 1px solid #ccc;
     /* 滚动条边框颜色 */
+}
+/*=============di视图=============*/
+
+.di {
+  white-space: pre;
+  font-family: Simsun,sans-serif;
+  /* font-family: 'Agave-Regular', 'Microsoft YaHei', 'Courier New', Courier, monospace; */
+  line-height: 1.4;
+  padding-top: 0px; 
+  padding-bottom: 0px;
+  /* display: flex;
+  justify-content: center;  */
+}
+.di b{
+  color:pink;
+}
+.di strong {
+  color:cyan;
+}
+
+
+.di > span.red {
+  color: red; /* 修改后的颜色 */
+}
+/*=============白色图片背景=============*/
+.white{
+  display: inline-block;
+  background-color: white;
+  filter:invert(100%);
+  /* grayscale(100%) */
 }
 
 /*===响应式设计===*/
@@ -433,7 +472,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<p><a href="Home.html">返回目录</a></p>
+<p><a href="index.html">返回目录</a></p>
 <center> 
 <pre style="all:unset;"><div class="mermaid">graph TD;
 subgraph a["类的五大成员"]
@@ -502,7 +541,7 @@ end</div></pre>
 <td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center"><a href="%E7%B1%BB%E5%8F%98%E9%87%8F%E5%92%8C%E7%B1%BB%E6%96%B9%E6%B3%95.html">类变量和类方法</a></td>
+<td style="text-align:center"><a href="%E7%B1%BB%E5%8F%98%E9%87%8F%E5%92%8C%E7%B1%BB%E6%96%B9%E6%B3%95.html">类变量和类方法 #⭐</a></td>
 <td style="text-align:center"><a href="main%E6%96%B9%E6%B3%95%E8%AF%AD%E6%B3%95.html">main方法语法</a></td>
 <td style="text-align:center"><a href="%E4%BB%A3%E7%A0%81%E5%9D%97.html">代码块</a></td>
 <td style="text-align:center"><a href="%E5%8D%95%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html">单例设计模式</a></td>
@@ -522,6 +561,7 @@ end</div></pre>
 </tbody>
 </table>
 </center>
+<p><a class='foam-note-link' title='面向对象编程-案例' href='/markdown/面向对象编程-案例.md' data-href='/markdown/面向对象编程-案例.md'>面向对象编程-案例</a></p>
 <details><summary>备用</summary>
 <h4 id="基础">基础</h4>
 <ul class="contains-task-list">

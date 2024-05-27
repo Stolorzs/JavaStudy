@@ -278,11 +278,20 @@ body {
 
 /* 修改代码的字体和颜色 */
 pre code {
-    white-space: pre;
-    font-size: 14px;
-    line-height: 1.5;
-    font-family: 'Agave-Regular';
+  white-space: pre;
+  font-size: 12px;
+  line-height: 1.5;
+  /* font-family: 'Agave-Regular'; */
 }
+pre code.language-ditaa{
+  white-space: pre;
+  font-size: 14px;
+  line-height: 1.1;
+  font-family: 'Agave-Regular';
+  /* font-family: Simsun,sans-serif !important; */
+}
+
+
 
 .hljs-comment {
     color: gray;
@@ -328,6 +337,36 @@ pre::-webkit-scrollbar {
     /* 滚动条边框圆角 */
     border: 1px solid #ccc;
     /* 滚动条边框颜色 */
+}
+/*=============di视图=============*/
+
+.di {
+  white-space: pre;
+  font-family: Simsun,sans-serif;
+  /* font-family: 'Agave-Regular', 'Microsoft YaHei', 'Courier New', Courier, monospace; */
+  line-height: 1.4;
+  padding-top: 0px; 
+  padding-bottom: 0px;
+  /* display: flex;
+  justify-content: center;  */
+}
+.di b{
+  color:pink;
+}
+.di strong {
+  color:cyan;
+}
+
+
+.di > span.red {
+  color: red; /* 修改后的颜色 */
+}
+/*=============白色图片背景=============*/
+.white{
+  display: inline-block;
+  background-color: white;
+  filter:invert(100%);
+  /* grayscale(100%) */
 }
 
 /*===响应式设计===*/
@@ -457,7 +496,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 4）抽象类，是考官比较爱问的知识点，在框架和设计模式使用较多</p>
 <h2 id="使用细节">使用细节</h2>
 <p>1）抽象类<font color="pink">不能被实例化</font><br>
-2）抽象类不一定要包含abstract方法，<strong>可以没有</strong>abstract方法，还可以有实现方法<br>
+2）抽象类<strong>不一定</strong>要包含abstract方法，<strong>可以没有</strong>abstract方法，还可以有<strong>实现的方法</strong><br>
 3）<strong>一旦包含了abstract方法</strong>，则这个类必须被声明为abstract<br>
 4）abstract只能修饰类和方法，不能修饰属性和其他的<br>
 5）抽象类本质还是类，<strong>可以有任意成员</strong>：构造器、属性、方法、静态属性等<br>

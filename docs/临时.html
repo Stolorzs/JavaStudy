@@ -278,11 +278,20 @@ body {
 
 /* 修改代码的字体和颜色 */
 pre code {
-    white-space: pre;
-    font-size: 14px;
-    line-height: 1.5;
-    font-family: 'Agave-Regular';
+  white-space: pre;
+  font-size: 12px;
+  line-height: 1.5;
+  /* font-family: 'Agave-Regular'; */
 }
+pre code.language-ditaa{
+  white-space: pre;
+  font-size: 14px;
+  line-height: 1.1;
+  font-family: 'Agave-Regular';
+  /* font-family: Simsun,sans-serif !important; */
+}
+
+
 
 .hljs-comment {
     color: gray;
@@ -328,6 +337,36 @@ pre::-webkit-scrollbar {
     /* 滚动条边框圆角 */
     border: 1px solid #ccc;
     /* 滚动条边框颜色 */
+}
+/*=============di视图=============*/
+
+.di {
+  white-space: pre;
+  font-family: Simsun,sans-serif;
+  /* font-family: 'Agave-Regular', 'Microsoft YaHei', 'Courier New', Courier, monospace; */
+  line-height: 1.4;
+  padding-top: 0px; 
+  padding-bottom: 0px;
+  /* display: flex;
+  justify-content: center;  */
+}
+.di b{
+  color:pink;
+}
+.di strong {
+  color:cyan;
+}
+
+
+.di > span.red {
+  color: red; /* 修改后的颜色 */
+}
+/*=============白色图片背景=============*/
+.white{
+  display: inline-block;
+  background-color: white;
+  filter:invert(100%);
+  /* grayscale(100%) */
 }
 
 /*===响应式设计===*/
@@ -432,19 +471,19 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
             <span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <p><a href="Home.html">返回</a></p>
+                <p><a href="index.html">返回</a></p>
 <p>在意物品</p>
 <pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> RegistryObject&lt;Item&gt; EXAMPLE_ITEM = ITEMS.register(<span class="hljs-string">&quot;example_item&quot;</span>, () -&gt; <span class="hljs-keyword">new</span> <span class="hljs-title class_">Item</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Item</span>.Properties().food(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FoodProperties</span>.Builder()
             .alwaysEat().nutrition(<span class="hljs-number">1</span>).saturationMod(<span class="hljs-number">2f</span>).build())));
 </code></pre>
-<pre><code class="language-java">              多态继承图
+<pre><code class="language-ditaa">              多态继承图
 +------------Animal 类---------------+
 |                                    |
 |方法 run()  sleep()  eat() show()   |
-|    ^                 的            |
-+--------------^---------------------+
+|    ^                               |
++----|---------^---------------------+
      |         |extends
-     |      +-------Cat 类-----------+
+     |      +--+----Cat 类-----------+
      |      |                        |
      +----&gt; |                        |
      |就近  | eat()&lt;+   catchMouse() |
@@ -457,36 +496,23 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 |    +        animal.eat()     +     |
 | animal.run()    animal.catchMouse()|
 |                     编译报错       |
-+------<span class="hljs-type">Animal</span> <span class="hljs-variable">animal</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cat</span>()-----+
-</code></pre>
-<pre><code class="language-java">              多态继承图
-+------------Animal 类---------------+
-|                                    |
-|方法 run()  sleep()  eat() show()    |
-|    ^                 的            |
-+--------------^---------------------+
-     |         |
-     |         |extends
-     |      +-------Cat 类-----------+
-     |      |                        |
-     +----&gt; |                        |
-     |就近   | eat()&lt;+   catchMouse() |
-     |原则   | 方法  |          ^     |
-     |      | 重写   |          |     |
-     |      +------------------------+
-     |              |          |无法调用子类独有方法
-+------------------------------------+
-|    |              +          |     |
-|    +        animal.eat()     +     |
-| animal.run()    animal.catchMouse()|
-|                     编译报错        |
-+------<span class="hljs-type">Animal</span> <span class="hljs-variable">animal</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cat</span>()-----+
++------Animal animal = new Cat()-----+
 </code></pre>
 <pre><code class="language-java"><span class="hljs-comment">//static color = white-&gt;red</span>
 <span class="hljs-comment">//c.price = 9</span>
 <span class="hljs-comment">//c1.price = 100</span>
 <span class="hljs-number">9.0</span>  red
 <span class="hljs-number">100</span>  red
+</code></pre>
+<pre><code class="language-java">i = <span class="hljs-number">4</span>
+<span class="hljs-keyword">return</span> <span class="hljs-number">5</span>
+</code></pre>
+<pre><code>//
+进入方法A
+用A方法的finally
+制造异常
+进入方法B
+调用方法B的finally
 </code></pre>
 
             

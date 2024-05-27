@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title></title>
+            <title>String</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -278,11 +278,20 @@ body {
 
 /* 修改代码的字体和颜色 */
 pre code {
-    white-space: pre;
-    font-size: 14px;
-    line-height: 1.5;
-    font-family: 'Agave-Regular';
+  white-space: pre;
+  font-size: 12px;
+  line-height: 1.5;
+  /* font-family: 'Agave-Regular'; */
 }
+pre code.language-ditaa{
+  white-space: pre;
+  font-size: 14px;
+  line-height: 1.1;
+  font-family: 'Agave-Regular';
+  /* font-family: Simsun,sans-serif !important; */
+}
+
+
 
 .hljs-comment {
     color: gray;
@@ -328,6 +337,36 @@ pre::-webkit-scrollbar {
     /* 滚动条边框圆角 */
     border: 1px solid #ccc;
     /* 滚动条边框颜色 */
+}
+/*=============di视图=============*/
+
+.di {
+  white-space: pre;
+  font-family: Simsun,sans-serif;
+  /* font-family: 'Agave-Regular', 'Microsoft YaHei', 'Courier New', Courier, monospace; */
+  line-height: 1.4;
+  padding-top: 0px; 
+  padding-bottom: 0px;
+  /* display: flex;
+  justify-content: center;  */
+}
+.di b{
+  color:pink;
+}
+.di strong {
+  color:cyan;
+}
+
+
+.di > span.red {
+  color: red; /* 修改后的颜色 */
+}
+/*=============白色图片背景=============*/
+.white{
+  display: inline-block;
+  background-color: white;
+  filter:invert(100%);
+  /* grayscale(100%) */
 }
 
 /*===响应式设计===*/
@@ -432,7 +471,223 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
             <span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                
+                <p><a href="%E5%B8%B8%E7%94%A8%E7%B1%BB.html">返回</a></p>
+<h1 id="string">String</h1>
+<ul>
+<li><a href="#string">String</a>
+<ul>
+<li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
+<li><a href="#%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB">继承关系</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BAstring%E5%AF%B9%E8%B1%A1">创建String对象</a></li>
+<li><a href="#intern%E6%96%B9%E6%B3%95">intern()方法</a></li>
+<li><a href="#string%E7%9A%84%E7%89%B9%E6%80%A7">String的特性</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B1">案例1</a></li>
+<li><a href="#%E6%A1%88%E4%BE%8B2">案例2</a></li>
+</ul>
+</li>
+<li><a href="#string%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95">String类的常用方法</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="介绍">介绍</h2>
+<p>1）String对象用于保存字符串，也就是一组字符序列<br>
+2）<strong>字符串常量对象</strong>是用双引号括起的字符序列，例如<code>&quot;你好&quot;</code>,<code>&quot;12.97&quot;</code>,<code>&quot;boy&quot;</code>等<br>
+3）字符串的字符使用的是<code>Unicode</code>字符编码，一个字符(不区分字母还是汉字)占两个字节<br>
+4）String类较<strong>常用的构造方法</strong>(其他看手册)</p>
+<pre><code class="language-java"><span class="hljs-type">String</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>();
+<span class="hljs-type">String</span> <span class="hljs-variable">s2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(String original);
+<span class="hljs-type">String</span> <span class="hljs-variable">s3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-type">char</span>[] a);
+<span class="hljs-type">String</span> <span class="hljs-variable">s4</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-type">char</span>[]a, <span class="hljs-type">int</span> startIndex, <span class="hljs-type">int</span> count);
+<span class="hljs-type">String</span> <span class="hljs-variable">s5</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-type">byte</span>[] b);
+</code></pre>
+<p>5）实现了<code>Serializable接口</code>，可以<strong>串行化</strong>，在网络上传输；实现了<code>Comparable接口</code>，可以比较大小<br>
+6）<code>String</code>是<code>final</code>类，不能被其他的类<strong>继承</strong><br>
+7）<code>String</code>有属性<code>private final char value[];</code>用于存放字符串内容：<code>value</code>是一个<code>final</code>类型，不可以修改<br>
+ps：<code>value</code><strong>是一个地址</strong>，<code>value[i]</code><strong>是其指向的数据内容</strong></p>
+<h2 id="继承关系">继承关系</h2>
+<pre style="all:unset;"><div class="mermaid">classDiagram
+Serializable : 实现该接口可以串行化\n，可以在网络上传输
+Comparable : 实现该接口可以比较大小
+Serializable &lt;|.. String
+Comparable &lt;|.. String
+CharSequence &lt;|.. String
+Object &lt;|-- String</div></pre>
+<h2 id="创建string对象">创建String对象</h2>
+<p>1）方式一：直接赋值<code>String s = &quot;hspedu&quot;</code>;<br>
+2）方式二：调用构造器<code>String s = new String(&quot;hspedu&quot;)</code>;</p>
+<p>1）方式一介绍：先从<strong>常量池</strong>查看是否有<code>&quot;hsp&quot;</code>数据空间，如果有，直接直向；如果没有则重新创建，然后指向。<code>s</code>最终指向的是<strong>常量池</strong>的空间地址</p>
+<p>2）方式二介绍：先在堆中创建空间，里面维护了<code>value属性</code>，指向常量池的<code>hsp空间</code>。如果常量池中没有<code>&quot;hsp&quot;</code>，则创新创建，如果有，直接通过<code>value</code>指向。最终指向的是<strong>堆</strong>中的空间地址</p>
+<pre><code class="language-java">直接赋值：<span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;hsp&quot;</span>;               
+调用构造器：<span class="hljs-type">String</span> <span class="hljs-variable">s2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">&quot;hsp&quot;</span>);
+</code></pre>
+<img src="https://stolorzs.github.io/Picgo/drawio/StringMemory.png">
+<div class="di">
++---------------Jvm的内存:String的内存布局---------------+
+| 栈          | 堆                                       |
+|             |  +----<b>0x11</b>----+                          |
+|             |  |value:[<strong>0x99</strong>]|--+                       |
+|         +---|->+            |  |                       |
+|         |   |  |            |  |                       |
+|         |   |  +------------+  |                       |
+|         |   +------------------------------------------+
+|         |   | 方法区           |                       |
+|         |   |                  |                       |
+|main方法 +   | +--常量池 ---+   |                       |
+|s2->[<b>0x11</b>]   | |            |   |                       |
+|s->[<strong>0x99</strong>]+---|-|>"hsp"[<strong>0x99</strong>]<---+                       |
+|             | |            |                           |
+|             | |            |                           |
+|             | +------------+                           |
++-------------+------------------------------------------+</div>
+<h2 id="intern方法">intern()方法</h2>
+<pre><code class="language-java"><span class="hljs-type">String</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;hsp&quot;</span>;
+<span class="hljs-type">String</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">&quot;hsp&quot;</span>);
+System.out.println(a.equals(b));<span class="hljs-comment">//T</span>
+System.out.println(a == b);<span class="hljs-comment">//F</span>
+System.out.println(a == b.intern());<span class="hljs-comment">//T</span>
+System.out.println(b == b.intern());<span class="hljs-comment">//F</span>
+</code></pre>
+<div class="di">
+          堆
+          +-----------+
+<b>b</b>---------|--> value  |
+          +-------+---+
+                  |     <strong>b.intern</strong>
+          常量池  |        +
+          +-------v---+    |
+<b>a</b>---------|--->"hsp"<-|----+
+          +-----------+
+</div>
+<p>当调用<code>intern</code>方法时，如果池中已经包含了一个等于此<code>String</code>对象的字符串(用<code>equals(Object)方法</code>确定)，则返回池中的字符串。否则，将此<code>String</code>对象添加到池中，并返回此<code>String</code>对象的引用</p>
+<pre><code class="language-java">ps:<span class="hljs-string">&quot;hspedu&quot;</span>返回的地址就是常量池的地址
+</code></pre>
+<img class ="white" src="https://stolorzs.github.io/Picgo/drawio/StringExercise05.png">
+<h2 id="string的特性">String的特性</h2>
+<h3 id="案例1">案例1</h3>
+<pre><code class="language-java"><span class="hljs-comment">//以下语句创建了几个对象 </span>
+<span class="hljs-type">String</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;hello&quot;</span>;
+s1 = <span class="hljs-string">&quot;haha&quot;</span>;
+<span class="hljs-comment">//两个 </span>
+</code></pre>
+<pre><code class="language-java"><span class="hljs-comment">//以下语句创建了几个对象</span>
+<span class="hljs-type">String</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;hello&quot;</span> + <span class="hljs-string">&quot;abc&quot;</span>;
+<span class="hljs-comment">//编译器优化为|</span>
+<span class="hljs-comment">//          |</span>
+<span class="hljs-comment">//          v</span>
+<span class="hljs-type">String</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;helloabc&quot;</span>;
+<span class="hljs-comment">//只有一个对象</span>
+</code></pre>
+<pre><code class="language-java"><span class="hljs-comment">//以下语句创建了几个对象</span>
+<span class="hljs-type">String</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> ”hello“;
+<span class="hljs-type">String</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;abc&quot;</span>;
+<span class="hljs-comment">//</span>
+<span class="hljs-type">String</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> a + b;
+<span class="hljs-comment">//答：一共创建了3个对象</span>
+<span class="hljs-comment">//===========具体执行如下===========</span>
+<span class="hljs-comment">//1）先创建一个</span>
+<span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> StringBuilder();
+<span class="hljs-comment">//2）执行</span>
+sb.append(<span class="hljs-string">&quot;hello&quot;</span>);
+<span class="hljs-comment">//3）执行</span>
+sb.append(<span class="hljs-string">&quot;abc&quot;</span>);
+<span class="hljs-comment">//4）调用</span>
+sb.toString();
+<span class="hljs-comment">/*
+toString() {
+  return new String(value, 0 , count)
+}
+*/</span>
+<span class="hljs-comment">//将其返回给c</span>
+<span class="hljs-comment">//============举一反三==============</span>
+<span class="hljs-type">String</span> <span class="hljs-variable">d</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;helloabc&quot;</span>
+System.out.println(<span class="hljs-string">&quot;c == d&quot;</span>)<span class="hljs-comment">//F</span>
+</code></pre>
+<p>其实是让c指向堆中的对象(<code>String</code>)，其属性<code>value[]</code>指向池中的<code>&quot;helloabc&quot;</code><br>
+<strong>小结</strong>：常量相加，看池；变量相加，在堆中</p>
+<img class ="white" src="https://stolorzs.github.io/Picgo/drawio/StringExercise08.png">
+<h3 id="案例2">案例2</h3>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test1</span> {
+  <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">&quot;hsp&quot;</span>);
+  <span class="hljs-keyword">final</span> <span class="hljs-type">char</span>[] ch = {<span class="hljs-string">&#x27;j&#x27;</span>, <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;v&#x27;</span>, <span class="hljs-string">&#x27;a&#x27;</span>};
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">change</span><span class="hljs-params">(String str, <span class="hljs-type">char</span> ch[])</span> {
+    str = <span class="hljs-string">&quot;java&quot;</span>;
+    ch[<span class="hljs-number">0</span>] = <span class="hljs-string">&#x27;j&#x27;</span>;
+  }
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+    <span class="hljs-type">Test1</span> <span class="hljs-variable">ex</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Test1</span>();
+    ex.change(ex.str, ex.ch);
+    System.out.print(ex.str + <span class="hljs-string">&quot;and&quot;</span>);
+    System.out.println(ex.ch);
+    <span class="hljs-comment">//结果：hspandhava</span>
+  }
+}
+</code></pre>
+<img src="https://stolorzs.github.io/Picgo/drawio/StringExercise09.png">
+<h2 id="string类的常用方法">String类的常用方法</h2>
+<p>说明：String类是保存字符串常量的，每次更新都需要重新开辟新空间，效率较低，因此java设计者还提供了<code>StringBuilder</code>和<code>StringBuffer</code>来增强String的功能，并提高效率</p>
+<hr>
+<ul>
+<li><code>equals</code>：<strong>区分大小写</strong>，判断内容是否相等</li>
+<li><code>equalsgnoreCase</code>：<strong>忽略大小写</strong>，判断内容是否相等</li>
+<li><code>length</code>：获取字符的个数，字符串的长度</li>
+<li><code>indexOf</code>：获取字符(<strong>或串</strong>)在字符串中第一次出现的索引，索引从0开始，如果找不到，返回 <strong>-1</strong></li>
+<li><code>lastIndexOf</code>：获取字符在字符串中最后一次出现的索引，索引从0开始，如果找不到，返回 <strong>-1</strong></li>
+<li><code>substring</code>：截取指定范围的子串
+<ul>
+<li><code>name.substring(6)</code>：截取索引6及其后面的字符</li>
+<li><code>name.substring(0,5)</code>：从索引0开始，截取到索引<code>5-1</code>的位置</li>
+</ul>
+</li>
+<li><code>trim</code>：去前后空格</li>
+<li><code>charAt</code>：获取某索引处的字符，注意不能使用<code>Str[index]</code>这种方式</li>
+</ul>
+<hr>
+<ul>
+<li><code>toUpperCase</code>：全变成大写</li>
+<li><code>toLowerCase</code>：全变成小写</li>
+<li><code>concat</code>：拼接
+<ul>
+<li><code>a.concat(&quot;dd&quot;).concat(&quot;cc&quot;)</code></li>
+</ul>
+</li>
+<li><code>replace</code>：替换字符串中的字符
+<ul>
+<li><code>s1.replace(a, b)</code>：把a替换为b</li>
+<li><code>s1.repace()</code>方法执行后返回的结果是替换过的对象，对<strong>s1本身</strong>没有任何影响</li>
+</ul>
+</li>
+<li><code>split</code>：分割字符串，对于某些分割字符，我们需要转义<code>\</code>
+<ul>
+<li><code>poem.split(&quot;,&quot;)</code>：以逗号为标准进行分隔，返回一个<strong>字符串数组</strong>，<code>，</code>就没有了</li>
+</ul>
+</li>
+<li><code>compareTo</code>：比较两个字符串的大小
+<ul>
+<li><code>a.compareTo(b);</code>：前者大，返回正数；后者大，返回负数；相等，返回0</li>
+<li><strong>长度相同</strong>，<strong>且每个字符也相同</strong>，返回0</li>
+<li><strong>长度相同或不同</strong>，但是在比较时，<strong>可以区分大小</strong>，就返回c1-c2</li>
+<li><strong>长度不同</strong>，<strong>前面的部分都相同</strong>，返回<code>str前.len-str后.len</code></li>
+</ul>
+</li>
+<li><code>toCharArray</code>：字符串转为字符数组
+<ul>
+<li><code>char[] chs = s.toCharArray();</code></li>
+</ul>
+</li>
+<li><code>format</code>：格式字符串
+<ul>
+<li>占位符：<code>%s</code>(<strong>字符串</strong>)，<code>%d</code>(<strong>整数</strong>)，<code>%.2f</code>(<strong>小数,四舍五入,保留2位</strong>)，<code>%c</code>(<strong>使用char替换</strong>);</li>
+<li>占位符由后面的变量还替换</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-java"><span class="hljs-type">String</span> <span class="hljs-variable">info2</span> <span class="hljs-operator">=</span> 
+String.format(<span class="hljs-string">&quot;我的姓名是%s 年龄是%d 
+成绩是%.2f 性别是%c 希望大家喜欢我&quot;</span>
+, name, age, score, gender);
+</code></pre>
+
             
             <script async type="text/javascript">
 /* From extension bierner.markdown-mermaid */
