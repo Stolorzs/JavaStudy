@@ -86,10 +86,46 @@ public class Test {
 
 - put：添加
 - remove：根据键删除映射关系
-- get：根据键获取值
+- get：根据键获取值 (value不能反向取key)
 - size：获取元素个数
 - isEmpty：判断元素个数是否为0
 - clear：清除
 - containsKey：查找键是否存在
 
 ## Map接口的遍历
+
+- containsKey：查找键是否存在
+- keySet：获取所有的键
+- entrySet：获取所以关系
+- values：获取所有的值
+- [案例空降 ](https://www.bilibili.com/video/BV1fh411y7R8?t=900.7&p=535)
+```java
+public class Test {
+    public static void main(String[] args) {
+        Map map = new HashMap();
+        map.put("a","b");
+        map.put("c", 2);
+        map.put("d", 5);
+// 取出所有的Key，通过Key获取所有的Value
+        Set keyset = map.keySet();
+        //1） 增强for循环
+        for (Object key : keyset) {
+            System.out.println(map.get(key));
+        }
+        //2） 迭代器
+        Iterator iterator = keyset.iterator();
+        while (iterator.hasNext()) {
+            Object key = iterator.next();
+            System.out.println(map.get(key));
+        }
+// 使用EntrySet
+        Set entryset = map.entrySet();
+        //增强for
+        for (Object entry : entrySet) {
+            (Map.Entry) m = (Map.Entry) entry;
+            System.out.println(m.getKey() + m.getValue());
+        }
+// 另一种使用values 略
+    }
+}
+```
