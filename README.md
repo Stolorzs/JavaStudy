@@ -1,2 +1,2 @@
 # 个人java学习笔记
-链接如下：[https://stolorzs.github.io/JavaStudy/index.html](https://stolorzs.github.io/JavaStudy/index.html)
+- 大纲存放在存放在/markdown/index.md内
