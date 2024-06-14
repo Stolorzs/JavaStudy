@@ -16,7 +16,7 @@
 //getClass().getName()返回全类名:包名+类名
 //Inter.toHexString(hashCode())将对象hashCode值转成16进制字符串
 public String toString() {
-    return getClass().getNmae() 
+    return getClass().getName() 
     + "@" + Inter.toHexString(hashCode());
 }
 ```

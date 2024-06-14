@@ -175,7 +175,7 @@ public class Test1 {
   }
 }
 ```
-<img src="https://stolorzs.github.io/Picgo/drawio/StringExercise09.png">
+<img src="https://stolorzs.github.io/Picgo/drawio/StringExercise09x.svg">
 
 ## String类的常用方法
 
