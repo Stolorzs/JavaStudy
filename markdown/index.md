@@ -1,6 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-- [ ] [进度](https://www.bilibili.com/video/BV1fh411y7R8?t=9.0&p=533)  
+- [ ] [进度](https://www.bilibili.com/video/BV1fh411y7R8?t=1246.4&p=561)  
 - [ ] [模板](模板.md)
 - [ ] [练习题](练习题.md)  
 - [ ] [java学习路线](Java学习路线.md)
